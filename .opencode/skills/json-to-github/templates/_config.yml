@@ -1,0 +1,27 @@
+remote_theme: simplonco/simplonline-ressources-jekyll-theme
+
+title: {{TITLE}}
+description: {{DESCRIPTION}}
+github_org: simplonco
+lang: fr
+
+show_toc: true
+
+readme_index:
+  with_frontmatter: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  auto_ids: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+plugins:
+  - jekyll-readme-index
+  - jekyll-remote-theme
