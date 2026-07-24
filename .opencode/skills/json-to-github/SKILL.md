@@ -32,6 +32,7 @@ odyssey-quests-to-github/
 
 Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.json") :
 
+0. **Vérifier si la quest a déjà été convertie** : lire `quests/REGISTRY.md` et chercher le quest_id. Si trouvé, informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et demander confirmation pour continuer (écraser le dépôt existant) ou annuler.
 1. Demander à l'utilisateur la valeur de {domain} : à quel domaine est affecté ce contenu ? Valeurs possibles :
    - dev-web
    - data
