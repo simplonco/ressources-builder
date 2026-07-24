@@ -1,3 +1,8 @@
+---
+name: json-to-github
+description: Ce skill convertit les fichiers JSON de quêtes (stockés dans `quests/todo/`) en dépôts GitHub utilisant le thème Jekyll Simplonline.
+---
+
 # Skill: JSON to GitHub
 
 Ce skill convertit les fichiers JSON de quêtes (stockés dans `quests/todo/`) en dépôts GitHub utilisant le thème Jekyll Simplonline.
@@ -26,47 +31,83 @@ odyssey-quests-to-github/
 
 Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.json") :
 
-1. **Lire le fichier JSON** depuis `quests/todo/`
-2. **Extraire les métadonnées** :
+1. Demander à l'utilisateur la valeur de {domain} : à quel domaine est affecté ce contenu ? Valeurs possibles :
+   - dev-web
+   - data
+   - infra
+   - autre : préciser
+2. **Lire le fichier JSON** depuis `quests/todo/`
+3. **Extraire les métadonnées** :
    - `quest_id` → identifiant unique
    - `revision.title` → titre de la quest
    - `pages[]` → tableau des pages (content, solution)
-3. **Slugifier le titre** pour le nom du dépôt :
+4. **Slugifier le titre** pour le nom du dépôt :
    - Supprimer les emojis (ex: 👩‍🏫, ✅, 🤓)
    - Minuscules
    - Remplacer les espaces par des tirets
    - Supprimer les caractères spéciaux (ponctuation, accents)
    - Ex: "👩‍🏫 Installer et utiliser Visual Studio Code" → `installer-et-utiliser-visual-studio-code`
-4. **Vérifier l'unicité du slug** : si `repos/{slug}/` existe déjà, ajouter le `quest_id` : `{slug}-{quest_id}`
-5. **Créer le dossier** `repos/{slug}/` et le sous-dossier `repos/{slug}/images/`
-6. **Générer les fichiers Jekyll** :
-   - `README.md` → page principale (page avec chapter_type="content")
-   - `solution.md` → page solution (si chapter_type="solution" existe)
+5. **Vérifier l'unicité du slug** : si `repos/{domain}-{slug}/` existe déjà, ajouter le `quest_id` : `{domain}-{slug}-{quest_id}`
+6. **Créer le dossier** `repos/{domain}-{slug}/` et le sous-dossier `repos/{domain}-{slug}/images/`
+7. **Générer les fichiers Jekyll** :
+   - `README.md` → page principale (page avec chapter_type="content"). Ajouter un lien vers la page solution si elle existe en bas de page.
+   - `solution.md` → page solution (si chapter_type="solution" existe). Ajouter " - Solution" au titre de la page dans le front matter.
    - `_config.yml` → copier depuis `templates/_config.yml` et remplacer les placeholders :
-     - `{{TITLE}}` → `revision.title`
-     - `{{DESCRIPTION}}` → `revision.description` (ou valeur par défaut si `null`)
+     - `{{TITLE}}` → "`revision.title`"
+     - `{{DESCRIPTION}}` → "`revision.description`" (ou valeur par défaut si `null`)
    - `Gemfile` → copier depuis `templates/Gemfile`
    - `.gitignore` → copier depuis `templates/.gitignore`
-7. **Télécharger les images** :
+   - `jekyll.yml` → copier depuis `templates/jekyll.yml` vers `repos/{domain}-{slug}/.github/workflows/jekyll.yml`
+8. **Télécharger les images** :
    - Extraire toutes les URLs d'images du markdown (`![...](...)`)
-   - Télécharger chaque image dans `repos/{slug}/images/`
+   - Télécharger chaque image dans `repos/{domain}-{slug}/images/`
    - Renommer les fichiers avec un nom descriptif (pas d'URL longue)
    - Réécrire les URLs dans le markdown : `![alt](images/nom-fichier.ext)`
-8. **Git init et premier commit** : initialiser un dépôt Git dans le répertoire et effectuer un premier commit d'initialisation
-9. **Tester localement** (effectué manuellement par l'utilisateur) : `bundle exec jekyll serve --livereload`
-10. **Archiver** : lorsque l'utilisateur confirme que les tests, reviews et ajustement sont terminés :
-    - si nécessaire, effectuer un commit pour sauvegarder les modifications
+9. Créer le dépôt vide distant sur GitHub via `gh repo create` :
+   - compte : `simplonco`
+   - nom du dépôt : `{domain}-{slug}` 
+   - description : `revision.description`
+   - visibilité : public.
+   - add a README file : non
+   - gitignore : none
+   - license : none
+   - pousser le dépôt : non (sera fait manuellement par l'utilisateur après tests)
+10. **Git init et premier commit** : 
+   - initialiser un dépôt Git dans le répertoire
+   - ajouter le remote `origin` au format ssh `git@github.com:simplonco/{domain}-{slug}.git` dans le dépôt local lié au dépôt GitHub créé précédemment
+   - effectuer un premier commit d'initialisation
+11. **Tester localement** (effectué manuellement par l'utilisateur) : `bundle exec jekyll serve --livereload`
+
+### 2. Archiver
+
+Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont terminés :
+    - si nécessaire, effectuer un commit pour sauvegarder les modifications 
+    ```bash
+    cd repos/{domain}-{slug}
+    git add .
+    git commit -m "Corrections après tests et review : {details des changements}"
+    ```
     - déplacer le JSON vers `quests/archives/`
-    - demander si le dossier doit être poussé sur GitHub. Si oui, passer à l'étape 2 : Push vers GitHub
+    - demander si le dossier doit être poussé sur GitHub. Si oui, utiliser la commande :
+    ```bash
+    git push -u origin main
+    ```
 
-### 2. Push vers GitHub
+## Front Matter des pages
 
-Quand l'utilisateur demande de pousser un dépôt (ex: "Push le dépôt X vers GitHub") :
+Définir le front matter pour chaque page :
+```yaml
+---
+title: {{TITLE}}
+description: {{DESCRIPTION}}
+show_toc: true
+---
+```
 
-1. **Vérifier** que le dossier existe dans `repos/`
-2. **Créer le dépôt** via `MCP_DOCKER_create_repository`
-3. **Lire et push tous les fichiers** via `MCP_DOCKER_push_files`
-4. **Retourner l'URL** du dépôt créé
+S'il s'agit d'une page solution, ajouter :
+```yaml
+parent: titre-de-la-page-principale
+```
 
 ## Conversion du markdown
 
@@ -82,6 +123,41 @@ Quand l'utilisateur demande de pousser un dépôt (ex: "Push le dépôt X vers G
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
 
 ### Règles de conversion
+
+#### Remplacement de termes
+
+| Terme source | Terme cible |
+|--------------|-------------|
+| `quête` | `ressource` |
+| `À la fin de cette quête tu sauras` | `Objectifs` |
+
+#### Titres
+- Vérifier que les titres sont bien formatés en Markdown (`#`, `##`, `###`, etc.) et respectent une hiérarchie logique.
+- Supprimer le titre Sommaire si présent, car Jekyll génère automatiquement la table des matières.
+
+#### Listes
+
+Avant :
+````
+✅ Qu'est ce qu'un éditeur de code
+✅ Comment installer Visual Studio Code.
+````
+
+Après :
+```markdown
+- ✅ Qu'est ce qu'un éditeur de code
+- ✅ Comment installer Visual Studio Code.
+```
+
+#### Balisage spécial
+Avant :
+```
+:def[HTML]{value=”HyperText Markup Language”}
+```
+Après :
+```markdown
+HTML (HyperText Markup Language)
+```
 
 #### alert-info / alert-warning
 
@@ -203,6 +279,10 @@ Description de la ressource
 {:.alert-info}
 ```
 
+#### Liens vers des ressources externes
+- Récupérer le titre de la page web pour l'utiliser comme titre de la ressource. Exemple : `https://developer.mozilla.org/fr/docs/Web/HTML` → `HTML: HyperText Markup Language`
+- Formater le lien en markdown : `[Titre de la ressource](URL)`
+
 ## Templates
 
 Les templates se trouvent dans `templates/` :
@@ -213,7 +293,7 @@ Les templates se trouvent dans `templates/` :
 ## Structure d'un dépôt généré
 
 ```
-repos/{slug}/
+repos/{domain}-{slug}/
 ├── README.md        # Page principale (content)
 ├── solution.md      # Page solution (si existe)
 ├── images/          # Images téléchargées
@@ -224,9 +304,16 @@ repos/{slug}/
 
 ## Commandes Jekyll pour test local
 
+### Installation des dépendances
+
 ```bash
-cd repos/{slug}
+cd repos/{domain}-{slug}
 bundle install
+```
+
+### Lancer le serveur local
+
+```bash
 bundle exec jekyll serve --livereload
 ```
 
