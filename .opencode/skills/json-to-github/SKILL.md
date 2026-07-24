@@ -20,7 +20,8 @@ odyssey-quests-to-github/
 ├── .opencode/skills/json-to-github/   # Ce skill
 ├── quests/
 │   ├── todo/                          # JSON en attente
-│   └── archives/                      # JSON traités
+│   ├── archives/                      # JSON traités
+│   └── REGISTRY.md                    # Registre des correspondances quest → repo
 ├── repos/                             # Dépôts générés (sortie)
 └── AGENTS.md
 ```
@@ -92,6 +93,7 @@ Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont termin�
     ```bash
     git push -u origin main
     ```
+    - **Mettre à jour le registre** : ajouter une ligne dans `quests/REGISTRY.md` avec le quest_id, le titre, le domaine et l'URL GitHub du dépôt.
 
 ## Front Matter des pages
 

@@ -55,7 +55,8 @@ odyssey-quests-to-github/
 │           └── .gitignore         # Fichiers à ignorer dans les repos
 ├── quests/
 │   ├── todo/                      # JSON en attente de conversion
-│   └── archives/                  # JSON déjà convertis
+│   ├── archives/                  # JSON déjà convertis
+│   └── REGISTRY.md                # Registre quest → repo
 ├── repos/                         # [IGNORÉ] Dépôts générés localement
 └── AGENTS.md                      # Ce fichier
 ```
