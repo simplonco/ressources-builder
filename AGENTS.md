@@ -58,6 +58,7 @@ odyssey-quests-to-github/
 │   ├── archives/                  # JSON déjà convertis
 │   └── REGISTRY.md                # Registre quest → repo
 ├── repos/                         # [IGNORÉ] Dépôts générés localement
+│   └── archives/                  # Dépôts archivés après push
 └── AGENTS.md                      # Ce fichier
 ```
 

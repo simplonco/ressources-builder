@@ -74,7 +74,11 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
    - gitignore : none
    - license : none
    - pousser le dépôt : non (sera fait manuellement par l'utilisateur après tests)
-10. **Git init et premier commit** : 
+10. **Activer GitHub Pages** :
+   ```bash
+   gh api repos/simplonco/{domain}-{slug}/pages -X POST -f build_type=workflow
+   ```
+11. **Git init et premier commit** : 
    - initialiser un dépôt Git dans le répertoire
    - ajouter le remote `origin` au format ssh `git@github.com:simplonco/{domain}-{slug}.git` dans le dépôt local lié au dépôt GitHub créé précédemment
    - effectuer un premier commit d'initialisation
@@ -93,6 +97,11 @@ Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont termin�
     - demander si le dossier doit être poussé sur GitHub. Si oui, utiliser la commande :
     ```bash
     git push -u origin main
+    ```
+    - **Déplacer le dépôt local vers les archives** :
+    ```bash
+    mkdir -p repos/archives
+    mv repos/{domain}-{slug} repos/archives/{domain}-{slug}
     ```
     - **Mettre à jour le registre** : ajouter une ligne dans `quests/REGISTRY.md` avec le quest_id, le titre, le domaine et l'URL GitHub du dépôt.
 
