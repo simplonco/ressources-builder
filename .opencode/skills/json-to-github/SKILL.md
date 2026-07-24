@@ -259,7 +259,7 @@ Après :
 [Voir la ressource "Installer et utiliser Visual Studio Code"](https://github.com/simplonco/installer-et-utiliser-visual-studio-code/)
 ```
 
-Note : nécessite de connaître le slug de la quest cible. Si non disponible, utiliser le format `quest-{id}`.
+Note : nécessite de connaître l'url de la quest cible. Rechercher dans le fichier `quests/REGISTRY.md`. Si non disponible, utiliser le format `quest-{id}`.
 
 #### ressource
 
