@@ -33,6 +33,12 @@ odyssey-quests-to-github/
 Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.json") :
 
 0. **Vérifier si la quest a déjà été convertie** : lire `quests/REGISTRY.md` et chercher le quest_id. Si trouvé, informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et demander confirmation pour continuer (écraser le dépôt existant) ou annuler.
+   - Si la quest n'est pas dans le registre, **ajouter une ligne** avec :
+     - Quest ID, Titre, Domaine (à déterminer à l'étape 1)
+     - URL GitHub du dépôt (sera remplie à l'étape 9)
+     - URL de déploiement : `https://simplonco.github.io/{domain}-{slug}/`
+     - État : `en cours`
+     - Résumé : vide (sera rempli à l'archivage)
 1. Demander à l'utilisateur la valeur de {domain} : à quel domaine est affecté ce contenu ? Valeurs possibles :
    - dev-web
    - data
@@ -93,6 +99,16 @@ Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont termin�
     git add .
     git commit -m "Corrections après tests et review : {details des changements}"
     ```
+    - **Générer un résumé** de la quest en analysant le contenu JSON source. Le résumé doit inclure :
+      - Technologies abordées
+      - Niveau de difficulté
+      - Présence de ressources externes (vidéos YouTube, documentation, etc.)
+      - Contenus interactifs (quiz, playground, exercices, etc.) mais pas les informations de mise en page (ex : "blocs d'exercices", "alertes", etc.)
+      - Toute autre information utile
+    - **Présenter le résumé à l'utilisateur** et attendre sa **validation explicite** avant de poursuivre
+    - **Mettre à jour le registre** dans `quests/REGISTRY.md` :
+      - Passer la valeur de la colonne `État` de `en cours` à `terminé`
+      - Ajouter le résumé validé dans la colonne `Résumé`
     - déplacer le JSON vers `quests/archives/`
     - demander si le dossier doit être poussé sur GitHub. Si oui, utiliser la commande :
     ```bash
@@ -103,7 +119,6 @@ Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont termin�
     mkdir -p repos/archives
     mv repos/{domain}-{slug} repos/archives/{domain}-{slug}
     ```
-    - **Mettre à jour le registre** : ajouter une ligne dans `quests/REGISTRY.md` avec le quest_id, le titre, le domaine et l'URL GitHub du dépôt.
 
 ## Front Matter des pages
 
@@ -202,6 +217,24 @@ Après :
 > Ceci est un brief.
 ```
 
+#### xtext arrow
+
+Avant :
+````
+```xtext arrow
+**🎯 À toi de jouer !**
+Ceci est un brief.
+```
+````
+
+Après :
+```markdown
+> #### 🎯 À toi de jouer !
+> Ceci est un brief.
+```
+
+Note : ajuster le niveau d'intertitre en cohérence avec la hiérarchie de la page.
+
 #### js live (→ Playground interactif)
 
 Les blocs `js live` contiennent du code HTML/CSS/JS séparé par des marqueurs `!--- nom-fichier.ext`. Le parser doit :
@@ -265,10 +298,10 @@ Avant :
 
 Après :
 ```markdown
-[Voir la ressource "Installer et utiliser Visual Studio Code"](https://github.com/simplonco/installer-et-utiliser-visual-studio-code/)
+[Voir la ressource "Installer et utiliser Visual Studio Code"](https://simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code/)
 ```
 
-Note : nécessite de connaître l'url de la quest cible. Rechercher dans le fichier `quests/REGISTRY.md`. Si non disponible, utiliser le format `quest-{id}`.
+Note : utiliser l'**URL de déploiement** depuis `quests/REGISTRY.md` (colonne "URL de déploiement"). Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander ce qu'il souhaite faire : ignorer le lien, le renseigner manuellement ou le mettre à jour plus tard.
 
 #### ressource
 

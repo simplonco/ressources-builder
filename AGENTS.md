@@ -5,12 +5,15 @@
 ```bash
 # Initialiser le dépôt principal (si pas encore fait)
 git init
-git remote add origin https://github.com/simplonco/odyssey-quests-to-github.git
+git remote add origin git@github.com:simplonco/odyssey-quests-to-github.git
 
 # Installer les dépendances Ruby pour les tests Jekyll locaux
 cd repos/{slug}
 bundle install
 ```
+
+## Politiques de commit
+- Ne jamais commit sans l'autorisation de l'utilisateur
 
 ## Dev commands
 
@@ -70,6 +73,7 @@ odyssey-quests-to-github/
 
 - `repos/{slug}/` : dépôt Jekyll généré (gitignored)
 - `https://github.com/simplonco/{slug}` : dépôt GitHub après push
+- `https://simplonco.github.io/{slug}` : site Jekyll après push
 
 ### Conversions markdown
 

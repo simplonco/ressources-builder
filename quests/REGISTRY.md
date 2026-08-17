@@ -1,6 +1,7 @@
 # Registre des quests
 
-| Quest ID | Titre | Domaine | URL |
-|----------|-------|---------|-----|
-| 2113 | HTML - Chapitre 1 | dev-web | https://github.com/simplonco/dev-web-html-chapitre-1-introduction-au-html |
-| 2114 | Installer et utiliser Visual Studio Code | dev-web | https://github.com/simplonco/dev-web-installer-et-utiliser-visual-studio-code |
+| Quest ID | Titre | Domaine | URL | URL de déploiement | État | Résumé |
+|----------|-------|---------|-----|-------------------|------|--------|
+| 2113 | HTML - Chapitre 1 \| Introduction au HTML | dev-web | https://github.com/simplonco/dev-web-html-chapitre-1-introduction-au-html | https://simplonco.github.io/dev-web-html-chapitre-1-introduction-au-html/ | terminé | Ressource d'introduction au HTML5 destinée aux débutants. Aborde la structure de base d'une page HTML, les principales balises (titres, paragraphes, images, liens, listes), les attributs (src, alt, href, disabled) et la différence inline vs block. Inclut des images pédagogiques et une référence vers la documentation MDN. Contenu interactif : blocs d'exercices « À toi de jouer ». Solution fournie dans la même page. |
+| 2114 | Installer et utiliser Visual Studio Code | dev-web | https://github.com/simplonco/dev-web-installer-et-utiliser-visual-studio-code | https://simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code/ | terminé | Ressource d'introduction à l'éditeur Visual Studio Code pour débutants. Couvre l'installation, la présentation de l'interface (explorer, extensions, source control), la création de fichiers et dossiers, l'écriture de code avec auto-complétion et suggestions, les raccourcis clavier et les paramètres de personnalisation. Niveau débutant. Propose des liens externes vers la page de téléchargement VS Code et VSCodium (alternative libre). Contenu interactif : blocs d'exercices et alertes. |
+| 2118 | HTML - Chapitre 2 \| What's in your `<head>` ? | dev-web | https://github.com/simplonco/dev-web-html-chapitre-2-whats-in-your-head | https://simplonco.github.io/dev-web-html-chapitre-2-whats-in-your-head/ | en cours | |
