@@ -25,3 +25,4 @@ defaults:
 plugins:
   - jekyll-readme-index
   - jekyll-remote-theme
+  - jekyll-stepper
