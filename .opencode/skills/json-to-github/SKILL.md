@@ -93,27 +93,24 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 ### 2. Archiver
 
 Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont terminés :
-    - si nécessaire, effectuer un commit pour sauvegarder les modifications 
-    ```bash
-    cd repos/{domain}-{slug}
-    git add .
-    git commit -m "Corrections après tests et review : {details des changements}"
-    ```
     - **Générer un résumé** de la quest en analysant le contenu JSON source. Le résumé doit inclure :
       - Technologies abordées
       - Niveau de difficulté
       - Présence de ressources externes (vidéos YouTube, documentation, etc.)
       - Contenus interactifs (quiz, playground, exercices, etc.) mais pas les informations de mise en page (ex : "blocs d'exercices", "alertes", etc.)
       - Toute autre information utile
-    - **Présenter le résumé à l'utilisateur** et attendre sa **validation explicite** avant de poursuivre
+    - Ajouter le résumé dans la colonne `Résumé` du registre
+    - Informer l'utilisateur pour relecture et attendre sa **validation explicite** avant de poursuivre
     - **Mettre à jour le registre** dans `quests/REGISTRY.md` :
       - Passer la valeur de la colonne `État` de `en cours` à `terminé`
-      - Ajouter le résumé validé dans la colonne `Résumé`
     - déplacer le JSON vers `quests/archives/`
-    - demander si le dossier doit être poussé sur GitHub. Si oui, utiliser la commande :
-    ```bash
-    git push -u origin main
-    ```
+    - demander si le dossier doit être poussé sur GitHub. Si oui :
+      ```bash
+      cd repos/{domain}-{slug}
+      git add .
+      git commit -m "Relecture, corrections et validation"
+      git push -u origin main
+      ```
     - **Déplacer le dépôt local vers les archives** :
     ```bash
     mkdir -p repos/archives
@@ -145,6 +142,7 @@ parent: titre-de-la-page-principale
 | ` ```alert-info\n...\n``` ` | Contenu avec `{:.alert-info}` après chaque paragraphe |
 | ` ```alert-warning\n...\n``` ` | Contenu avec `{:.alert-warning}` après chaque paragraphe |
 | ` ```xtext story\n...\n``` ` | Bloc quote `> ` avec chaque ligne préfixée |
+| ` ```xtext arrow\n...\n``` ` | Bloc quote `> ` avec chaque ligne préfixée |
 | ` ```js live\n...\n``` ` | Playground interactif (`playground.html`) |
 | ` ```quests\n2114\n``` ` | Lien relatif vers le repo de la quest |
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
