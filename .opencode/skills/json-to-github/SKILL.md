@@ -88,7 +88,7 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
    - initialiser un dépôt Git dans le répertoire
    - ajouter le remote `origin` au format ssh `git@github.com:simplonco/{domain}-{slug}.git` dans le dépôt local lié au dépôt GitHub créé précédemment
    - effectuer un premier commit d'initialisation
-11. **Tester localement** (effectué manuellement par l'utilisateur) : `bundle exec jekyll serve --livereload` ou `DISABLE_WHITELIST=1 bundle exec jekyll serve --livereload` si la version Jekyll utilise un bloc ````stepper
+11. **Tester localement** (effectué manuellement par l'utilisateur) : `bundle exec jekyll serve --livereload`
 
 ### 2. Archiver
 
