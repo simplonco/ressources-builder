@@ -1,5 +1,22 @@
 # Registre des quests
 
+## 🔄 En cours (3)
+
+### Concevoir des prototypes
+- **ID** : 2333 · **Domaine** : design
+- **Dépôt** : [simplonco/design-concevoir-des-prototypes](https://github.com/simplonco/design-concevoir-des-prototypes)
+- **Site** : [simplonco.github.io/design-concevoir-des-prototypes](https://simplonco.github.io/design-concevoir-des-prototypes/)
+
+### Les composants d'interface utilisateur
+- **ID** : 2726 · **Domaine** : design
+- **Dépôt** : [simplonco/design-les-composants-dinterface-utilisateur](https://github.com/simplonco/design-les-composants-dinterface-utilisateur)
+- **Site** : [simplonco.github.io/design-les-composants-dinterface-utilisateur](https://simplonco.github.io/design-les-composants-dinterface-utilisateur/)
+
+### Maquetter des interfaces utilisateur web
+- **ID** : 612 · **Domaine** : design
+- **Dépôt** : [simplonco/design-maquetter-des-interfaces-utilisateur-web](https://github.com/simplonco/design-maquetter-des-interfaces-utilisateur-web)
+- **Site** : [simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web](https://simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web/)
+
 ## ✅ Terminé (16)
 
 ### CSS 1 : Introduction
