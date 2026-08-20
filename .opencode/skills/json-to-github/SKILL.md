@@ -46,6 +46,7 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
    - dev-web
    - data
    - infra
+   - design
    - autre : préciser
 2. **Lire le fichier JSON** depuis `quests/todo/`
 3. **Extraire les métadonnées** :
@@ -106,7 +107,7 @@ Lorsque l'utilisateur confirme que les tests, reviews et ajustement sont termin�
     - Informer l'utilisateur pour relecture et attendre sa **validation explicite** avant de poursuivre
     - **Mettre à jour le registre** dans `quests/REGISTRY.md` :
       - Déplacer la fiche de la section `🔄 En cours` vers `✅ Terminé`
-      - Ajouter le résumé sous les liens de la fiche
+      - Ajouter le résumé au registre sous les liens de la fiche et demander à l'utilisateur de relire et valider le résumé
       - Mettre à jour le compteur dans le titre de section
       - Maintenir l'ordre alphabétique par titre
     - déplacer le JSON vers `quests/archives/`
@@ -157,6 +158,9 @@ parent: titre-de-la-page-principale
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
 | ` ````stepper\n...\n```` ` | Pass-through (le plugin `jekyll-stepper` gère le rendu) |
 | ` ````solution\n...\n```` ` | Voir règle ci-dessous (details ou fichier séparé) |
+| ` ```youtube\nURL\n``` ` | Lien markdown vers la vidéo (le thème auto-détecte les URLs YouTube) |
+| ` ````tabs\n...\n```` ` | Dépliants `<details markdown="1">` avec `<summary>` |
+| ` ```mermaid\n...\n``` ` | Image générée via mermaid.ink |
 
 ### Règles de conversion
 
@@ -414,6 +418,103 @@ Convertir en :
 {% include quiz.html data=quiz_data %}
 ````
 
+#### youtube
+
+Avant :
+````
+```youtube
+https://www.youtube.com/watch?v=VIDEO_ID
+```
+````
+
+Après :
+```markdown
+[Voir la vidéo YouTube](https://www.youtube.com/watch?v=VIDEO_ID)
+```
+
+Note : le thème auto-détecte les URLs YouTube dans le markdown et les remplace par des iframes embed (16:9, `youtube-nocookie.com`). Le lien markdown suffit.
+
+#### tabs (→ dépliants)
+
+Les blocs `tabs` contiennent des onglets séparés par des marqueurs `!--- nom-onglet`. Les convertir en dépliants `<details>` :
+
+Avant :
+````
+````tabs
+!--- Ubuntu
+Tape simplement cette commande
+```sh
+sudo apt install gh
+```
+
+!--- Mac OS
+Tape simplement cette commande
+```sh
+brew install gh
+```
+````
+````
+
+Après :
+```markdown
+<details markdown="1">
+<summary>Ubuntu</summary>
+
+Tape simplement cette commande
+```sh
+sudo apt install gh
+```
+
+</details>
+
+<details markdown="1">
+<summary>Mac OS</summary>
+
+Tape simplement cette commande
+```sh
+brew install gh
+```
+
+</details>
+```
+
+Règles :
+- Séparer le bloc par les marqueurs `!--- `
+- Le nom après `!---` devient le contenu du `<summary>`
+- Chaque onglet devient un bloc `<details markdown="1">` avec `<summary>` et contenu
+- Garder une ligne vide avant et après le `<summary>`
+- Fermer chaque bloc avec `</details>`
+
+#### mermaid (→ image)
+
+Les blocs `mermaid` sont convertis en images via l'API mermaid.ink.
+
+Avant :
+````
+```mermaid
+gitGraph
+    commit id: "version 1"
+    branch corrections
+    commit id: "version ok"
+```
+````
+
+Étapes :
+1. Encoder le code mermaid en base64
+2. Télécharger l'image depuis `https://mermaid.ink/img/{base64}`
+3. Sauvegarder dans `images/` avec un nom descriptif
+4. Remplacer le bloc par une image markdown
+
+Après :
+```markdown
+![Git graph - version 1, corrections, version ok](images/git-graph.png)
+```
+
+Commande pour générer l'image :
+```bash
+echo 'CODE_MERMAID' | base64 | tr -d '\n' | xargs -I {} curl -sL -o images/nom-image.png "https://mermaid.ink/img/{}"
+```
+
 #### stepper
 
 Les blocs ````````stepper` du JSON source sont en **pass-through** — le plugin `jekyll-stepper` (inclus dans le Gemfile et `_config.yml`) gère le rendu automatiquement.
@@ -449,7 +550,7 @@ Patterns reconnus :
 - `https://youtu.be/VIDEO_ID`
 - `https://www.youtube.com/watch?v=VIDEO_ID`
 
-Les URLs dans les blocs `<code>` ou `<pre>` ne sont pas converties. Aucune action de conversion requise.
+Les blocs `youtube` du JSON source sont convertis en liens markdown par le skill (voir section "youtube" dans les règles de conversion). Le thème détecte ensuite ces URLs et les remplace par des embeds.
 
 ### Stepper (plugin Jekyll)
 

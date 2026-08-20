@@ -1,32 +1,8 @@
 # Registre des quests
 
-## 🔄 En cours (4)
+## 🔄 En cours (0)
 
-### Git/GitHub 3 : Remote
-- **ID** : 2138
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-git-github-3-remote](https://github.com/simplonco/dev-web-git-github-3-remote)
-- **Site** : [simplonco.github.io/dev-web-git-github-3-remote](https://simplonco.github.io/dev-web-git-github-3-remote/)
-
-### Git/GitHub 4 : Branche et flow
-- **ID** : 1313
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-git-github-4-branche-et-flow](https://github.com/simplonco/dev-web-git-github-4-branche-et-flow)
-- **Site** : [simplonco.github.io/dev-web-git-github-4-branche-et-flow](https://simplonco.github.io/dev-web-git-github-4-branche-et-flow/)
-
-### Git/GitHub 5 : Merge & Conflits
-- **ID** : 1312
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-git-github-5-merge-et-conflits](https://github.com/simplonco/dev-web-git-github-5-merge-et-conflits)
-- **Site** : [simplonco.github.io/dev-web-git-github-5-merge-et-conflits](https://simplonco.github.io/dev-web-git-github-5-merge-et-conflits/)
-
-### Installer et configurer Git
-- **ID** : 1314
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-git-installer-et-configurer-git](https://github.com/simplonco/dev-web-git-installer-et-configurer-git)
-- **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
-
-## ✅ Terminé (21)
+## ✅ Terminé (25)
 
 ### CSS 1 : Introduction
 - **ID** : 1924 
@@ -146,6 +122,34 @@
 - **Dépôt** : [simplonco/dev-web-git-github-2-git-en-local](https://github.com/simplonco/dev-web-git-github-2-git-en-local)
 - **Site** : [simplonco.github.io/dev-web-git-github-2-git-en-local](https://simplonco.github.io/dev-web-git-github-2-git-en-local/)
 - Ressource sur l'utilisation de Git en local pour débutants. Aborde l'installation, les commandes de base (init, clone, add, commit, status, log, diff), la configuration, et le lien avec GitHub Desktop. Ressources externes : GitHub Docs, Learn Git Branching. Contenu interactif : stepper (5 étapes), vidéo YouTube. Niveau débutant.
+
+### Git/GitHub 3 : Remote
+- **ID** : 2138
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-3-remote](https://github.com/simplonco/dev-web-git-github-3-remote)
+- **Site** : [simplonco.github.io/dev-web-git-github-3-remote](https://simplonco.github.io/dev-web-git-github-3-remote/)
+- Ressource sur les dépôts distants pour débutants. Aborde la notion de remote, la connexion SSH (clés, GitHub CLI), les URLs de dépôt, les commandes push/pull/fetch/clone. Contenu interactif : quiz (4 questions). Ressources externes : GitHub Docs, SSH.com, blog.devgenius.io. Niveau débutant.
+
+### Git/GitHub 4 : Branche et flow
+- **ID** : 1313
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-4-branche-et-flow](https://github.com/simplonco/dev-web-git-github-4-branche-et-flow)
+- **Site** : [simplonco.github.io/dev-web-git-github-4-branche-et-flow](https://simplonco.github.io/dev-web-git-github-4-branche-et-flow/)
+- Ressource sur le flow Git/GitHub pour débutants. Aborde la création de branches (interface GitHub et CLI), le flow GitHub (fork, branch, commit, PR), et la visualisation avec le network graph. Ressources externes : The New Stack, GitHub Guides, Explain Git with D3. Contenu interactif : vidéos YouTube, simulateur interactif. Niveau débutant.
+
+### Git/GitHub 5 : Merge & Conflits
+- **ID** : 1312
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-5-merge-et-conflits](https://github.com/simplonco/dev-web-git-github-5-merge-et-conflits)
+- **Site** : [simplonco.github.io/dev-web-git-github-5-merge-et-conflits](https://simplonco.github.io/dev-web-git-github-5-merge-et-conflits/)
+- Ressource sur les merges et conflits Git pour débutants. Aborde le concept de fusion (git pull, fetch + merge), les conflits de fusion et leur résolution. Ressources externes : Explain Git with D3. Contenu interactif : vidéo YouTube, challenge pratique avec résolution de conflit. Niveau débutant.
+
+### Installer et configurer Git
+- **ID** : 1314
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-installer-et-configurer-git](https://github.com/simplonco/dev-web-git-installer-et-configurer-git)
+- **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
+- Ressource d'introduction à la gestion de versions. Aborde le concept de versions, l'utilisation de GitHub, Git en local, et le mode collaboratif (branches, conflits). Sert de point d'entrée vers les 5 ressources Git/GitHub. Contenu : diagramme mermaid, stepper avec prérequis. Niveau débutant.
 
 ### Concevoir des prototypes
 - **ID** : 2333

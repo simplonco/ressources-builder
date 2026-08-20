@@ -1,7 +1,7 @@
 remote_theme: simplonco/simplonline-ressources-jekyll-theme
 
-title: {{TITLE}}
-description: {{DESCRIPTION}}
+title: "{{TITLE}}"
+description: "{{DESCRIPTION}}"
 github_org: simplonco
 lang: fr
 
