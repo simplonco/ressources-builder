@@ -43,6 +43,10 @@ bundle exec jekyll serve --livereload
 Liste les quests en attente de conversion
 ```
 
+## Registre des quests
+
+[Voir le registre des quests](quests/REGISTRY.md)
+
 ## Thème
 
 [simplonline-ressources-jekyll-theme](https://simplonco.github.io/simplonline-ressources-jekyll-theme/)
