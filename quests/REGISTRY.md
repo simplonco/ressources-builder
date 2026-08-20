@@ -1,23 +1,32 @@
 # Registre des quests
 
-## 🔄 En cours (3)
+## 🔄 En cours (4)
 
-### Concevoir des prototypes
-- **ID** : 2333 · **Domaine** : design
-- **Dépôt** : [simplonco/design-concevoir-des-prototypes](https://github.com/simplonco/design-concevoir-des-prototypes)
-- **Site** : [simplonco.github.io/design-concevoir-des-prototypes](https://simplonco.github.io/design-concevoir-des-prototypes/)
+### Git/GitHub 3 : Remote
+- **ID** : 2138
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-3-remote](https://github.com/simplonco/dev-web-git-github-3-remote)
+- **Site** : [simplonco.github.io/dev-web-git-github-3-remote](https://simplonco.github.io/dev-web-git-github-3-remote/)
 
-### Les composants d'interface utilisateur
-- **ID** : 2726 · **Domaine** : design
-- **Dépôt** : [simplonco/design-les-composants-dinterface-utilisateur](https://github.com/simplonco/design-les-composants-dinterface-utilisateur)
-- **Site** : [simplonco.github.io/design-les-composants-dinterface-utilisateur](https://simplonco.github.io/design-les-composants-dinterface-utilisateur/)
+### Git/GitHub 4 : Branche et flow
+- **ID** : 1313
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-4-branche-et-flow](https://github.com/simplonco/dev-web-git-github-4-branche-et-flow)
+- **Site** : [simplonco.github.io/dev-web-git-github-4-branche-et-flow](https://simplonco.github.io/dev-web-git-github-4-branche-et-flow/)
 
-### Maquetter des interfaces utilisateur web
-- **ID** : 612 · **Domaine** : design
-- **Dépôt** : [simplonco/design-maquetter-des-interfaces-utilisateur-web](https://github.com/simplonco/design-maquetter-des-interfaces-utilisateur-web)
-- **Site** : [simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web](https://simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web/)
+### Git/GitHub 5 : Merge & Conflits
+- **ID** : 1312
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-5-merge-et-conflits](https://github.com/simplonco/dev-web-git-github-5-merge-et-conflits)
+- **Site** : [simplonco.github.io/dev-web-git-github-5-merge-et-conflits](https://simplonco.github.io/dev-web-git-github-5-merge-et-conflits/)
 
-## ✅ Terminé (16)
+### Installer et configurer Git
+- **ID** : 1314
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-installer-et-configurer-git](https://github.com/simplonco/dev-web-git-installer-et-configurer-git)
+- **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
+
+## ✅ Terminé (21)
 
 ### CSS 1 : Introduction
 - **ID** : 1924 
@@ -124,9 +133,44 @@
 - **Site** : [simplonco.github.io/dev-web-html-css-1-bienvenue-a-bord](https://simplonco.github.io/dev-web-html-css-1-bienvenue-a-bord/)
 - Quête principale d'intégration HTML/CSS. Challenge sous forme de brief web-design : intégrer la maquette d'une page d'accueil responsive (mobile et ordinateur). Couvre la sémantique HTML, le box model, display flex et grid, le responsive design et les variables CSS. Nombreux liens vers d'autres ressources permettant de réaliser le challenge. Contenu : solution complète avec playground interactif (index.html + style.css). Images : maquette de référence. Niveau débutant.
 
+### Git/GitHub 1 : Découvrir GitHub
+- **ID** : 2133
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-1-decouvrir-github](https://github.com/simplonco/dev-web-git-github-1-decouvrir-github)
+- **Site** : [simplonco.github.io/dev-web-git-github-1-decouvrir-github](https://simplonco.github.io/dev-web-git-github-1-decouvrir-github/)
+- Ressource d'introduction à GitHub pour débutants. Aborde la création de compte, la création de repositories, l'interface GitHub (tabs Code, Issues, Pull Requests), les README.md, les langages de programmation, les topics, et les outils GitHub Desktop et Codespaces. Ressources externes : GitHub Docs. Contenu interactif : quiz (9 questions). Niveau débutant.
+
+### Git/GitHub 2 : Git en local
+- **ID** : 1309
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-git-github-2-git-en-local](https://github.com/simplonco/dev-web-git-github-2-git-en-local)
+- **Site** : [simplonco.github.io/dev-web-git-github-2-git-en-local](https://simplonco.github.io/dev-web-git-github-2-git-en-local/)
+- Ressource sur l'utilisation de Git en local pour débutants. Aborde l'installation, les commandes de base (init, clone, add, commit, status, log, diff), la configuration, et le lien avec GitHub Desktop. Ressources externes : GitHub Docs, Learn Git Branching. Contenu interactif : stepper (5 étapes), vidéo YouTube. Niveau débutant.
+
+### Concevoir des prototypes
+- **ID** : 2333
+- **Domaine** : design
+- **Dépôt** : [simplonco/design-concevoir-des-prototypes](https://github.com/simplonco/design-concevoir-des-prototypes)
+- **Site** : [simplonco.github.io/design-concevoir-des-prototypes](https://simplonco.github.io/design-concevoir-des-prototypes/)
+- Ressource sur le prototypage UI/UX. Aborde les niveaux de fidélité (basse, moyenne, haute), la distinction wireframes/maquettes/prototypes, et le processus itératif de conception. Contenu : images pédagogiques. Niveau intermédiaire.
+
 ### Installer et utiliser Visual Studio Code
 - **ID** : 2114 
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-installer-et-utiliser-visual-studio-code](https://github.com/simplonco/dev-web-installer-et-utiliser-visual-studio-code)
 - **Site** : [simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code](https://simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code/)
 - Ressource d'introduction à l'éditeur Visual Studio Code pour débutants. Couvre l'installation, la présentation de l'interface (explorer, extensions, source control), la création de fichiers et dossiers, l'écriture de code avec auto-complétion et suggestions, les raccourcis clavier et les paramètres de personnalisation. Niveau débutant. Propose des liens externes vers la page de téléchargement VS Code et VSCodium (alternative libre). Contenu interactif : blocs d'exercices et alertes.
+
+### Les composants d'interface utilisateur
+- **ID** : 2726
+- **Domaine** : design
+- **Dépôt** : [simplonco/design-les-composants-dinterface-utilisateur](https://github.com/simplonco/design-les-composants-dinterface-utilisateur)
+- **Site** : [simplonco.github.io/design-les-composants-dinterface-utilisateur](https://simplonco.github.io/design-les-composants-dinterface-utilisateur/)
+- Ressource sur les composants d'interface utilisateur. Aborde les catégories de composants (inputs, checkboxes, boutons, navigation, information, conteneurs), leur usage et les bonnes pratiques de cohérence dans le design. Contenu : images d'exemples depuis Dribbble. Niveau débutant.
+
+### Maquetter des interfaces utilisateur web
+- **ID** : 612
+- **Domaine** : design
+- **Dépôt** : [simplonco/design-maquetter-des-interfaces-utilisateur-web](https://github.com/simplonco/design-maquetter-des-interfaces-utilisateur-web)
+- **Site** : [simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web](https://simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web/)
+- Ressource sur le maquettage web. Aborde les types de maquettes (wireframe, maquette, prototype), les outils (Figma, Balsamiq, Adobe XD) et la réalisation d'un wireframe complet. Contenu interactif : challenge de création de page "À propos". Solution avec plusieurs propositions d'élèves. Images pédagogiques. Niveau débutant.
