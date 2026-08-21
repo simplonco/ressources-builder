@@ -1,10 +1,6 @@
 # Registre des quests
 
-## 🔄 En cours (11)
-
-### JS Basics 02 - Syntaxe et concepts de base
-- **ID** : 1267
-- **Dépôt** : [simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base](https://github.com/simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base)
+## 🔄 En cours (10)
 
 ### JS Basics 03 - Les variables
 - **ID** : 1268
@@ -46,7 +42,14 @@
 - **ID** : 834
 - **Dépôt** : [simplonco/dev-web-js-first-script](https://github.com/simplonco/dev-web-js-first-script)
 
-## ✅ Terminé (26)
+## ✅ Terminé (27)
+
+### JS Basics 02 - Syntaxe et concepts de base
+- **ID** : 1267
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base](https://github.com/simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base)
+- **Site** : [simplonco.github.io/dev-web-js-basics-02-syntaxe-et-concepts-de-base](https://simplonco.github.io/dev-web-js-basics-02-syntaxe-et-concepts-de-base/)
+- Ressource sur la syntaxe JavaScript pour débutants. Aborde l'ajout de JS dans une page HTML (balise script, fichier externe), la console du navigateur, la syntaxe de base (point-virgule, strings, console.log), les commentaires, les opérations arithmétiques, les comparaisons (===, ==, !=, !==, >, <), et l'indentation. Contenu : ressources externes (DigitalOcean, dev.to), expériences interactives. Niveau débutant.
 
 ### JS Basics 01 - Qu'est-ce que JavaScript
 - **ID** : 1262
