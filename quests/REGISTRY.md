@@ -1,10 +1,6 @@
 # Registre des quests
 
-## 🔄 En cours (9)
-
-### JS Basics 04 - Les types de données
-- **ID** : 1269
-- **Dépôt** : [simplonco/dev-web-js-basics-04-les-types-de-donnees](https://github.com/simplonco/dev-web-js-basics-04-les-types-de-donnees)
+## 🔄 En cours (8)
 
 ### JS Basics 05 - Les instructions conditionnelles
 - **ID** : 1270
@@ -38,7 +34,14 @@
 - **ID** : 834
 - **Dépôt** : [simplonco/dev-web-js-first-script](https://github.com/simplonco/dev-web-js-first-script)
 
-## ✅ Terminé (28)
+## ✅ Terminé (29)
+
+### JS Basics 04 - Les types de données
+- **ID** : 1269
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-04-les-types-de-donnees](https://github.com/simplonco/dev-web-js-basics-04-les-types-de-donnees)
+- **Site** : [simplonco.github.io/dev-web-js-basics-04-les-types-de-donnees](https://simplonco.github.io/dev-web-js-basics-04-les-types-de-donnees/)
+- Ressource sur les types de données JavaScript pour débutants. Aborde l'opérateur typeof, les types primitifs (Boolean, String, Number, Null, Undefined), les types complexes (Function, Object, Array), et la distinction entre valeurs immutables et mutables. Contenu : images pédagogiques, expériences interactives. Niveau débutant. Prérequis : JS Basics 01, 02, 03.
 
 ### JS Basics 03 - Les variables
 - **ID** : 1268
