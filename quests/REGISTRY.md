@@ -1,10 +1,6 @@
 # Registre des quests
 
-## 🔄 En cours (10)
-
-### JS Basics 03 - Les variables
-- **ID** : 1268
-- **Dépôt** : [simplonco/dev-web-js-basics-03-les-variables](https://github.com/simplonco/dev-web-js-basics-03-les-variables)
+## 🔄 En cours (9)
 
 ### JS Basics 04 - Les types de données
 - **ID** : 1269
@@ -42,7 +38,14 @@
 - **ID** : 834
 - **Dépôt** : [simplonco/dev-web-js-first-script](https://github.com/simplonco/dev-web-js-first-script)
 
-## ✅ Terminé (27)
+## ✅ Terminé (28)
+
+### JS Basics 03 - Les variables
+- **ID** : 1268
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-03-les-variables](https://github.com/simplonco/dev-web-js-basics-03-les-variables)
+- **Site** : [simplonco.github.io/dev-web-js-basics-03-les-variables](https://simplonco.github.io/dev-web-js-basics-03-les-variables/)
+- Ressource sur les variables JavaScript pour débutants. Aborde la création de variables (let, const, var), les règles de nommage (camelCase), la réassignation de valeurs, les opérateurs d'incrément (+++=), et la concaténation de strings. Contenu : ressources externes (javascript.info, YouTube), quiz (2 questions), challenge pratique (renommage de variables). Niveau débutant. Prérequis : JS Basics 01, JS Basics 02.
 
 ### JS Basics 02 - Syntaxe et concepts de base
 - **ID** : 1267
