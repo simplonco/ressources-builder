@@ -1,8 +1,59 @@
 # Registre des quests
 
-## 🔄 En cours (0)
+## 🔄 En cours (11)
 
-## ✅ Terminé (25)
+### JS Basics 02 - Syntaxe et concepts de base
+- **ID** : 1267
+- **Dépôt** : [simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base](https://github.com/simplonco/dev-web-js-basics-02-syntaxe-et-concepts-de-base)
+
+### JS Basics 03 - Les variables
+- **ID** : 1268
+- **Dépôt** : [simplonco/dev-web-js-basics-03-les-variables](https://github.com/simplonco/dev-web-js-basics-03-les-variables)
+
+### JS Basics 04 - Les types de données
+- **ID** : 1269
+- **Dépôt** : [simplonco/dev-web-js-basics-04-les-types-de-donnees](https://github.com/simplonco/dev-web-js-basics-04-les-types-de-donnees)
+
+### JS Basics 05 - Les instructions conditionnelles
+- **ID** : 1270
+- **Dépôt** : [simplonco/dev-web-js-basics-05-les-instructions-conditionnelles](https://github.com/simplonco/dev-web-js-basics-05-les-instructions-conditionnelles)
+
+### JS Basics 06 - Les fonctions
+- **ID** : 1278
+- **Dépôt** : [simplonco/dev-web-js-basics-06-les-fonctions](https://github.com/simplonco/dev-web-js-basics-06-les-fonctions)
+
+### JS Basics 06bis - Fonctions d'ordre supérieur
+- **ID** : 1559
+- **Dépôt** : [simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur](https://github.com/simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur)
+
+### JS Basics 07 - Les tableaux
+- **ID** : 1281
+- **Dépôt** : [simplonco/dev-web-js-basics-07-les-tableaux](https://github.com/simplonco/dev-web-js-basics-07-les-tableaux)
+
+### JS Basics 07bis - Les tableaux - Autres méthodes utiles
+- **ID** : 1932
+- **Dépôt** : [simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles](https://github.com/simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles)
+
+### JS Basics 08 - Les boucles
+- **ID** : 1283
+- **Dépôt** : [simplonco/dev-web-js-basics-08-les-boucles](https://github.com/simplonco/dev-web-js-basics-08-les-boucles)
+
+### JS Basics 09 - Les objets
+- **ID** : 1282
+- **Dépôt** : [simplonco/dev-web-js-basics-09-les-objets](https://github.com/simplonco/dev-web-js-basics-09-les-objets)
+
+### JS - First script
+- **ID** : 834
+- **Dépôt** : [simplonco/dev-web-js-first-script](https://github.com/simplonco/dev-web-js-first-script)
+
+## ✅ Terminé (26)
+
+### JS Basics 01 - Qu'est-ce que JavaScript
+- **ID** : 1262
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-01-qu-est-ce-que-javascript](https://github.com/simplonco/dev-web-js-basics-01-qu-est-ce-que-javascript)
+- **Site** : [simplonco.github.io/dev-web-js-basics-01-qu-est-ce-que-javascript](https://simplonco.github.io/dev-web-js-basics-01-qu-est-ce-que-javascript/)
+- Ressource d'introduction à JavaScript pour débutants. Aborde le rôle de JS dans le navigateur, la console, les commentaires, et le Strict Mode. Contenu : vidéos YouTube, quiz. Niveau débutant.
 
 ### CSS 1 : Introduction
 - **ID** : 1924 
