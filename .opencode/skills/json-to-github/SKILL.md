@@ -74,7 +74,7 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
    - Extraire toutes les URLs d'images du markdown (`![...](...)`)
    - Télécharger chaque image dans `repos/{domain}-{slug}/images/`
    - Renommer les fichiers avec un nom descriptif (pas d'URL longue)
-   - Réécrire les URLs dans le markdown : `![alt](images/nom-fichier.ext)`
+   - Réécrire les URLs dans le markdown : `![](images/nom-fichier.ext)` - ne pas mettre de `alt` text pour les images car il s'agit très souvent d'images décoratives ou de captures d'écran.
 9. Créer le dépôt vide distant sur GitHub via `gh repo create` :
    - compte : `simplonco`
    - nom du dépôt : `{domain}-{slug}` 
@@ -323,6 +323,22 @@ Les blocs `js live` contiennent du code HTML/CSS/JS séparé par des marqueurs `
 - L'`id` doit être unique par page (utiliser un slug ou un numéro)
 - Si le bloc contient uniquement HTML, utiliser la syntaxe inline
 - Si le bloc contient HTML + CSS + JS, utiliser les 3 captures
+- Choisir `default_tab` selon le focus du contenu (voir ci-dessous)
+
+**Paramètre `default_tab`** (onglet affiché au chargement, défaut : `html`) :
+- `html`, `css` ou `js`
+- HTML par défaut convient à la plupart des cas ; le définir explicitement est inutile
+- Si le bloc contient uniquement du JS (ou que l'accent pédagogique porte sur le JS), ouvrir sur l'onglet JS : `default_tab="js"`
+- Idem pour un contenu centré CSS : `default_tab="css"`
+
+Exemple (playground orienté JS) :
+````markdown
+{% include playground.html
+  id="demo-js"
+  initial_js=my_js
+  default_tab="js"
+%}
+````
 
 #### quests (liens vers autres quests)
 
@@ -357,7 +373,7 @@ Après :
 
 Description de la ressource
 
-[Lien vers la ressource](https://example.com)
+[https://example.com](https://example.com)
 {:.alert-info}
 ```
 
@@ -456,6 +472,7 @@ brew install gh
 ````
 
 Après :
+````
 ```markdown
 <details markdown="1">
 <summary>Ubuntu</summary>
@@ -474,9 +491,9 @@ Tape simplement cette commande
 ```sh
 brew install gh
 ```
-
 </details>
 ```
+````
 
 Règles :
 - Séparer le bloc par les marqueurs `!--- `
@@ -520,7 +537,7 @@ echo 'CODE_MERMAID' | base64 | tr -d '\n' | xargs -I {} curl -sL -o images/nom-i
 Les blocs ````````stepper` du JSON source sont en **pass-through** — le plugin `jekyll-stepper` (inclus dans le Gemfile et `_config.yml`) gère le rendu automatiquement.
 
 Le format attendu (4 backticks) :
-````
+`````markdown
 ````stepper
 # Titre de l'étape 1
 Contenu markdown de l'étape 1.
@@ -528,7 +545,7 @@ Contenu markdown de l'étape 1.
 # Titre de l'étape 2
 Contenu markdown de l'étape 2.
 ````
-````
+`````
 
 Chaque `# Titre` devient un en-tête accordion (`<summary>`). La navigation Previous/Next est ajoutée automatiquement.
 
@@ -555,6 +572,10 @@ Les blocs `youtube` du JSON source sont convertis en liens markdown par le skill
 ### Stepper (plugin Jekyll)
 
 Le plugin `jekyll-stepper` convertit automatiquement les blocs ````````stepper` en composants accordion avec navigation Previous/Next. Voir la section "stepper" dans les règles de conversion pour le format attendu.
+
+### Playground — Console (auto-détection)
+
+Le playground affiche automatiquement la sortie console du code exécuté (`console.log`, `console.info`, `console.warn`, `console.error`, `console.debug`) ainsi que les erreurs JavaScript non interceptées (en rouge) dans un tiroir « Console » sous l'aperçu. Un badge indique le nombre de messages. Aucune action n'est nécessaire de la part du skill.
 
 ### Quiz (include Jekyll)
 

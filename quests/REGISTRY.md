@@ -62,7 +62,7 @@
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-js-basics-01-qu-est-ce-que-javascript](https://github.com/simplonco/dev-web-js-basics-01-qu-est-ce-que-javascript)
 - **Site** : [simplonco.github.io/dev-web-js-basics-01-qu-est-ce-que-javascript](https://simplonco.github.io/dev-web-js-basics-01-qu-est-ce-que-javascript/)
-- Ressource d'introduction à JavaScript pour débutants. Aborde le rôle de JS dans le navigateur, l'histoire de JavaScript (ECMAScript, NodeJS), les possibilités du langage, la syntaxe de base (Hello World), et le fonctionnement des moteurs JS. Contenu : vidéos YouTube, ressources externes (MDN, javascript.info). Niveau débutant.
+- Ressource d'introduction à JavaScript pour débutants. Aborde le rôle de JS dans le navigateur, l'histoire de JavaScript (ECMAScript, NodeJS), les possibilités du langage, la syntaxe de base (Hello World), et le fonctionnement des moteurs JS. Contenu : vidéos YouTube, ressources externes (MDN, javascript.info). Contenu interactif : playground Hello World avec console intégrée. Niveau débutant.
 
 ### CSS 1 : Introduction
 - **ID** : 1924 
