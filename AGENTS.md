@@ -23,18 +23,30 @@ bundle install
 Convertis quest-{id}.json en dépôt GitHub
 ```
 
+### Créer une ressource Jekyll
+
+```
+Créer une ressource Jekyll
+```
+
+### Déployer sur GitHub Pages
+
+```
+Déploie le dépôt {slug} sur GitHub Pages
+```
+
+### Archiver une quest
+
+```
+Archiver quest-{id}
+```
+
 ### Test local
 
 ```bash
 cd repos/{slug}
 bundle exec jekyll serve --livereload
 # → http://localhost:4000
-```
-
-### Push vers GitHub
-
-```
-Push le dépôt {slug} vers GitHub
 ```
 
 ### Liste des quests en attente
@@ -50,20 +62,36 @@ odyssey-quests-to-github/
 ├── .git/                          # Versionnement du projet principal
 ├── .gitignore                     # Ignorer repos/, .DS_Store
 ├── .opencode/skills/              # Skills opencode
-│   └── json-to-github/            # Skill de conversion
-│       ├── SKILL.md               # Instructions du skill
-│       └── templates/             # Templates Jekyll
-│           ├── _config.yml        # Configuration Jekyll
-│           ├── Gemfile            # Dépendances Ruby
-│           └── .gitignore         # Fichiers à ignorer dans les repos
+│   ├── json-to-github/            # Orchestrateur (workflow complet)
+│   │   └── SKILL.md
+│   ├── jekyll-create/             # Création de ressources Jekyll
+│   │   ├── SKILL.md
+│   │   └── templates/             # Templates Jekyll
+│   │       ├── _config.yml
+│   │       ├── Gemfile
+│   │       ├── .gitignore
+│   │       └── jekyll.yml
+│   ├── jekyll-deploy/             # Déploiement GitHub Pages
+│   │   └── SKILL.md
+│   └── quest-archive/             # Archivage + maintenance registre
+│       └── SKILL.md
 ├── quests/
 │   ├── todo/                      # JSON en attente de conversion
 │   ├── archives/                  # JSON déjà convertis
-│   └── REGISTRY.md                # Registre quest → repo
+│   └── REGISTRY.md                # Registre des contenus
 ├── repos/                         # [IGNORÉ] Dépôts générés localement
 │   └── archives/                  # Dépôts archivés après push
 └── AGENTS.md                      # Ce fichier
 ```
+
+### Skills
+
+| Skill | Rôle | Quand l'utiliser |
+|-------|------|------------------|
+| `json-to-github` | Orchestrateur du workflow complet | Conversion d'une quest JSON en dépôt GitHub |
+| `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
+| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub |
+| `quest-archive` | Archivage + registre | Finaliser et archiver une conversion |
 
 ### Entrées
 
@@ -107,7 +135,7 @@ odyssey-quests-to-github/
 ### Workflow
 
 1. Lire JSON depuis `quests/todo/`
-2. Créer `repos/{slug}/` avec fichiers Jekyll
+2. Créer `repos/{slug}/` avec fichiers Jekyll (via `jekyll-create`)
 3. Tester localement avec `bundle exec jekyll serve`
-4. Push vers GitHub via outils MCP
-5. Archiver le JSON vers `quests/archives/`
+4. Push vers GitHub (via `jekyll-deploy`)
+5. Archiver (via `quest-archive`)
