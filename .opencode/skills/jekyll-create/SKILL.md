@@ -24,7 +24,7 @@ Assistant de création de ressources Jekyll utilisant le thème Simplonline.
 ## Structure du projet
 
 ```
-odyssey-quests-to-github/
+ressources-builder/
 ├── .opencode/skills/jekyll-create/   # Ce skill
 │   ├── SKILL.md
 │   └── templates/

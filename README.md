@@ -1,6 +1,6 @@
-# Odyssey Quests to GitHub
+# Ressources Builder
 
-Outil de conversion automatique des quêtes Odyssey (format JSON) en dépôts GitHub utilisant le thème Jekyll Simplonline.
+Outil de conversion automatique des quêtes (format JSON) en ressources Jekyll déployées sur GitHub Pages.
 
 ## Fonctionnement
 
@@ -11,7 +11,7 @@ Outil de conversion automatique des quêtes Odyssey (format JSON) en dépôts Gi
 ## Structure
 
 ```
-odyssey-quests-to-github/
+ressources-builder/
 ├── quests/
 │   ├── todo/          # JSON en attente de conversion
 │   ├── archives/      # JSON déjà convertis

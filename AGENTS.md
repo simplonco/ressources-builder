@@ -5,7 +5,7 @@
 ```bash
 # Initialiser le dépôt principal (si pas encore fait)
 git init
-git remote add origin git@github.com:simplonco/odyssey-quests-to-github.git
+git remote add origin git@github.com:simplonco/ressources-builder.git
 
 # Installer les dépendances Ruby pour les tests Jekyll locaux
 cd repos/{slug}
@@ -58,7 +58,7 @@ Liste les quests en attente de conversion
 ## Architecture
 
 ```
-odyssey-quests-to-github/
+ressources-builder/
 ├── .git/                          # Versionnement du projet principal
 ├── .gitignore                     # Ignorer repos/, .DS_Store
 ├── .opencode/skills/              # Skills opencode
@@ -124,7 +124,7 @@ odyssey-quests-to-github/
 
 ### Organisation GitHub
 
-- Dépôt principal : `simplonco/odyssey-quests-to-github`
+- Dépôt principal : `simplonco/ressources-builder`
 - Repos générés : `simplonco/{slug}`
 
 ### Thème Jekyll
