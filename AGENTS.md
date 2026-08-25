@@ -62,7 +62,7 @@ odyssey-quests-to-github/
 ├── .git/                          # Versionnement du projet principal
 ├── .gitignore                     # Ignorer repos/, .DS_Store
 ├── .opencode/skills/              # Skills opencode
-│   ├── json-to-github/            # Orchestrateur (workflow complet)
+│   ├── quest-to-github/            # Orchestrateur (workflow complet)
 │   │   └── SKILL.md
 │   ├── jekyll-create/             # Création de ressources Jekyll
 │   │   ├── SKILL.md
@@ -88,7 +88,7 @@ odyssey-quests-to-github/
 
 | Skill | Rôle | Quand l'utiliser |
 |-------|------|------------------|
-| `json-to-github` | Orchestrateur du workflow complet | Conversion d'une quest JSON en dépôt GitHub |
+| `quest-to-github` | Orchestrateur du workflow complet | Conversion d'une quest JSON en dépôt GitHub |
 | `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
 | `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub |
 | `quest-archive` | Archivage + registre | Finaliser et archiver une conversion |
