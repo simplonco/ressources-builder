@@ -102,6 +102,8 @@ Ressource sur les variables JavaScript pour débutants. Aborde la création de v
 
 Si la ressource provient d'une quest JSON (le fichier existe dans `quests/todo/`) :
 - Proposer à l'utilisateur d'appeler `quest-files-archive` pour déplacer le JSON et le dépôt local
+Sinon :
+- déplacer uniquement le dépôt local vers `repos/archives/`
 
 ### Étape 7 : Confirmation
 
