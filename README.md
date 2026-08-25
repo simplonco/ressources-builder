@@ -14,11 +14,11 @@ Outil de conversion automatique des quêtes (format JSON) en ressources Jekyll d
 ressources-builder/
 ├── quests/
 │   ├── todo/          # JSON en attente de conversion
-│   ├── archives/      # JSON déjà convertis
-│   └── REGISTRY.md    # Registre des correspondances
+│   └── archives/      # JSON déjà convertis
 ├── repos/             # Dépôts générés (gitignored)
 │   └── archives/      # Dépôts archivés après push
-└── .opencode/skills/  # Skill de conversion IA
+├── REGISTRY.md        # Registre des contenus
+└── .opencode/skills/  # Skills IA
 ```
 
 ## Utilisation
@@ -43,9 +43,9 @@ bundle exec jekyll serve --livereload
 Liste les quests en attente de conversion
 ```
 
-## Registre des quests
+## Registre des contenus
 
-[Voir le registre des quests](quests/REGISTRY.md)
+[Voir le registre des contenus](REGISTRY.md)
 
 ## Thème
 

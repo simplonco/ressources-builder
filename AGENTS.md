@@ -73,14 +73,14 @@ ressources-builder/
 │   │       └── jekyll.yml
 │   ├── jekyll-deploy/             # Déploiement GitHub Pages
 │   │   └── SKILL.md
-│   └── quest-archive/             # Archivage + maintenance registre
+│   └── quest-files-archive/       # Archivage fichiers (JSON + repo local)
 │       └── SKILL.md
 ├── quests/
 │   ├── todo/                      # JSON en attente de conversion
-│   ├── archives/                  # JSON déjà convertis
-│   └── REGISTRY.md                # Registre des contenus
+│   └── archives/                  # JSON déjà convertis
 ├── repos/                         # [IGNORÉ] Dépôts générés localement
 │   └── archives/                  # Dépôts archivés après push
+├── REGISTRY.md                    # Registre des contenus
 └── AGENTS.md                      # Ce fichier
 ```
 
@@ -90,8 +90,8 @@ ressources-builder/
 |-------|------|------------------|
 | `quest-to-github` | Orchestrateur du workflow complet | Conversion d'une quest JSON en dépôt GitHub |
 | `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
-| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub |
-| `quest-archive` | Archivage + registre | Finaliser et archiver une conversion |
+| `jekyll-deploy` | Déploiement + archivage registre | Pousser un site Jekyll sur GitHub et mettre à jour le registre |
+| `quest-files-archive` | Archivage fichiers | Déplacer JSON et repo local après validation (quests uniquement) |
 
 ### Entrées
 
@@ -137,5 +137,5 @@ ressources-builder/
 1. Lire JSON depuis `quests/todo/`
 2. Créer `repos/{slug}/` avec fichiers Jekyll (via `jekyll-create`)
 3. Tester localement avec `bundle exec jekyll serve`
-4. Push vers GitHub (via `jekyll-deploy`)
-5. Archiver (via `quest-archive`)
+4. Push vers GitHub + archivage registre (via `jekyll-deploy`)
+5. Archiver fichiers si quest (via `quest-files-archive`)

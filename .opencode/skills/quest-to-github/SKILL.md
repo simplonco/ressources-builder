@@ -1,6 +1,6 @@
 ---
 name: quest-to-github
-description: Orchestrateur de conversion de fichiers JSON de quêtes en dépôts GitHub utilisant le thème Jekyll Simplonline. Coordonne les skills jekyll-create, jekyll-deploy et quest-archive.
+description: Orchestrateur de conversion de fichiers JSON de quêtes en dépôts GitHub utilisant le thème Jekyll Simplonline. Coordonne les skills jekyll-create, jekyll-deploy et quest-files-archive.
 ---
 
 # Skill: Quest to GitHub (Orchestrateur)
@@ -18,19 +18,19 @@ Convertit les fichiers JSON de quêtes en dépôts GitHub. Ce skill coordonne le
 | Skill | Rôle |
 |-------|------|
 | `jekyll-create` | Conversion du JSON en markdown Jekyll + templates |
-| `jekyll-deploy` | Déploiement sur GitHub Pages |
-| `quest-archive` | Archivage + maintenance du registre |
+| `jekyll-deploy` | Déploiement sur GitHub Pages + archivage registre |
+| `quest-files-archive` | Archivage fichiers (JSON + repo local) |
 
 ## Structure du projet
 
 ```
-odyssey-quests-to-github/
+ressources-builder/
 ├── quests/
 │   ├── todo/                          # JSON en attente
-│   ├── archives/                      # JSON traités
-│   └── REGISTRY.md                    # Registre des correspondances
+│   └── archives/                      # JSON traités
 ├── repos/                             # Dépôts générés (sortie)
 │   └── archives/                      # Dépôts archivés
+├── REGISTRY.md                        # Registre des contenus
 └── AGENTS.md
 ```
 
@@ -42,7 +42,7 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 
 #### Étape 1 : Vérification des doublons
 
-1. Lire `quests/REGISTRY.md`
+1. Lire `REGISTRY.md`
 2. Chercher le `quest_id` dans toutes les fiches
 3. Si trouvé :
    - Informer l'utilisateur : "Cette quest a déjà été convertie : {URL_DU_DEPOT}"
@@ -73,38 +73,23 @@ Le skill `jekyll-create` s'occupe de :
 - Générer les fichiers Jekyll (README.md, solution.md, templates)
 - Ajouter la fiche dans `REGISTRY.md` section `🔄 En cours`
 
-#### Étape 4 : Proposer le déploiement
+#### Étape 4 : Déploiement et archivage
 
-Demander à l'utilisateur s'il souhaite déployer sur GitHub Pages.
-
-Si oui : appeler `jekyll-deploy` avec :
+Appeler `jekyll-deploy` avec :
 - `repo-name`: `{domain}-{slug}`
 - `description`: la description de la quest
 
 Le skill `jekyll-deploy` s'occupe de :
 - Créer le dépôt distant sur GitHub
 - Activer GitHub Pages
-- Initialiser Git + premier commit
+- Initialiser Git + commit + push
+- Archiver la fiche dans le registre (`🔄 En cours` → `✅ Terminé`)
 
-#### Étape 5 : Informer pour les tests
+#### Étape 5 : Archivage fichiers (quests uniquement)
 
-Donner à l'utilisateur les prochaines étapes :
-1. Tester localement : `cd repos/{domain}-{slug} && bundle exec jekyll serve --livereload`
-2. Vérifier le rendu sur `http://localhost:4000`
-3. Quand satisfait : appeler "Archiver quest-{id}" ou "Archiver {slug}"
-
-#### Étape 6 : Proposition d'archivage (ultérieur)
-
-Quand l'utilisateur confirme que les tests et relectures sont terminés :
-- Appeler `quest-archive` avec le quest_id
-
-Le skill `quest-archive` s'occupe de :
-- Générer un résumé de la quest
-- Inscrire le résumé dans le registre
-- Déplacer la fiche `🔄 En cours` → `✅ Terminé` dans le registre
+Si l'utilisateur souhaite archiver les fichiers, appeler `quest-files-archive` :
 - Déplacer le JSON vers `quests/archives/`
 - Déplacer le dépôt local vers `repos/archives/`
-- Proposer le push GitHub
 
 ---
 
@@ -130,7 +115,7 @@ ls quests/todo/
 
 ### Vérifier le registre
 ```bash
-cat quests/REGISTRY.md
+cat REGISTRY.md
 ```
 
 ### Voir les dépôts générés
@@ -151,7 +136,7 @@ ls quests/archives/
 Ce skill ne contient aucune logique de :
 - Conversion markdown (délégué à `jekyll-create`)
 - Déploiement GitHub (délégué à `jekyll-deploy`)
-- Archivage (délégué à `quest-archive`)
+- Archivage fichiers (délégué à `quest-files-archive`)
 
 Il est uniquement responsable de :
 - La coordination des skills

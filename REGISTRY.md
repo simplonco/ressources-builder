@@ -1,4 +1,4 @@
-# Registre des quests
+# Registre des contenus
 
 ## 🔄 En cours (0)
 

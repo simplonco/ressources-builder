@@ -1,23 +1,25 @@
 ---
 name: jekyll-deploy
-description: Déploie un site Jekyll sur GitHub Pages. Crée le dépôt distant, active GitHub Pages, initialise Git et pousse le premier commit.
+description: Déploie un site Jekyll sur GitHub Pages et met à jour le registre des contenus. Crée le dépôt distant, active GitHub Pages, initialise Git, pousse le premier commit et archive la fiche.
 ---
 
 # Skill: Jekyll Deploy
 
-Déploie un site Jekyll existant sur GitHub Pages.
+Déploie un site Jekyll existant sur GitHub Pages et gère l'archivage dans le registre.
 
 ## Quand utiliser ce skill
 
 - L'utilisateur veut pousser un dépôt Jekyll local vers GitHub
 - L'utilisateur veut activer GitHub Pages sur un dépôt
 - L'étape de déploiement d'une conversion de quest
+- L'étape finale de création d'une ressource (Assistant, From scratch, Conversion)
 
 ## Responsabilités
 
 1. Créer le dépôt distant sur GitHub
 2. Activer GitHub Pages
 3. Initialiser Git et pousser le premier commit
+4. **Mettre à jour le registre des contenus** (archivage)
 
 ## Prérequis
 
@@ -46,8 +48,6 @@ gh repo create simplonco/{repo-name} \
   --license=none
 ```
 
-**Important** : ne pas pousser automatiquement — le dépôt sera vidé localement.
-
 ### Étape 3 : Activer GitHub Pages
 
 ```bash
@@ -56,7 +56,7 @@ gh api repos/simplonco/{repo-name}/pages -X POST -f build_type=workflow
 
 Cela configure GitHub Pages pour utiliser le workflow GitHub Actions comme source de build.
 
-### Étape 4 : Git init et premier commit
+### Étape 4 : Git init, commit et push
 
 ```bash
 cd repos/{repo-name}
@@ -72,16 +72,44 @@ git add .
 
 # Premier commit
 git commit -m "Initial commit: setup Jekyll site"
+
+# Push vers GitHub
+git push -u origin main
 ```
 
-### Étape 5 : Informer l'utilisateur
+### Étape 5 : Archivage dans le registre
 
-Donner à l'utilisateur les prochaines étapes :
-1. Tester localement : `bundle exec jekyll serve --livereload`
-2. Vérifier le rendu sur `http://localhost:4000`
-3. Quand satisfait : `git push -u origin main`
+1. Lire `REGISTRY.md` section `🔄 En cours`
+2. Identifier la fiche correspondant à la ressource déployée :
+   - Chercher par slug du dépôt (`{domain}-{slug}`)
+   - Ou par titre si le slug ne correspond pas
+3. Si la fiche n'est pas trouvée :
+   - Avertir l'utilisateur
+   - Proposer de créer une nouvelle fiche dans `✅ Terminé`
+4. Si la fiche est trouvée :
+   - Générer un résumé en analysant le `README.md` du dépôt
+   - Demander à l'utilisateur de valider le résumé
+   - Déplacer la fiche de `🔄 En cours` → `✅ Terminé` avec le résumé
+   - Mettre à jour les compteurs dans les titres de section
+   - Maintenir l'ordre alphabétique par titre
 
-**Note** : ne pas push automatiquement. L'utilisateur doit d'abord tester et valider le contenu.
+**Exemple de résumé :**
+```
+Ressource sur les variables JavaScript pour débutants. Aborde la création de variables (let, const, var), les règles de nommage (camelCase), la réassignation de valeurs, les opérateurs d'incrément (+++=), et la concaténation de strings. Contenu : ressources externes (javascript.info, YouTube), quiz (2 questions), challenge pratique (renommage de variables). Niveau débutant. Prérequis : JS Basics 01, JS Basics 02.
+```
+
+### Étape 6 : Archivage fichiers (quests uniquement)
+
+Si la ressource provient d'une quest JSON (le fichier existe dans `quests/todo/`) :
+- Proposer à l'utilisateur d'appeler `quest-files-archive` pour déplacer le JSON et le dépôt local
+
+### Étape 7 : Confirmation
+
+Résumer les actions effectuées :
+- Dépôt GitHub créé : `https://github.com/simplonco/{repo-name}`
+- GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
+- Fiche dans le registre : `✅ Terminé` avec résumé
+- Archivage fichiers : effectué / non effectué (quests uniquement)
 
 ## Workflow GitHub Actions
 

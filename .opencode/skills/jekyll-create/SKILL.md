@@ -34,9 +34,10 @@ ressources-builder/
 │       └── jekyll.yml                # Workflow GitHub Actions
 ├── quests/
 │   ├── todo/                         # JSON en attente
-│   ├── archives/                     # JSON traités
-│   └── REGISTRY.md                   # Registre des contenus
-└── repos/                            # Dépôts générés (sortie)
+│   └── archives/                     # JSON traités
+├── repos/                            # Dépôts générés (sortie)
+├── REGISTRY.md                       # Registre des contenus
+└── AGENTS.md
 ```
 
 ---
@@ -65,7 +66,7 @@ Poser les questions suivantes à l'utilisateur :
 - Analyser ces informations pour la recherche de contenu similaire
 
 **4. Recherche de contenu similaire**
-- Lire `quests/REGISTRY.md`
+- Lire `REGISTRY.md`
 - Chercher des ressources existantes dont le titre ou le résumé contient des mots-clés en relation avec les objectifs/notions
 - Si trouvé : afficher la liste et demander
   - "La ressource [X] couvre déjà [Y]. Veux-tu t'en inspirer ou créer quelque chose de différent ?"
@@ -121,7 +122,7 @@ show_toc: true
 
 ### Étape 3 : Enregistrement dans le registre
 
-Ajouter une fiche dans `quests/REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
 
 ```markdown
 ### {{TITRE_SANS_EMOJIS}}
@@ -151,7 +152,7 @@ Quand l'utilisateur fournit un fichier JSON de quest à convertir.
 ### Étape 1 : Vérifications préliminaires
 
 1. **Vérifier si la quest a déjà été convertie** :
-   - Lire `quests/REGISTRY.md`
+- Lire `REGISTRY.md`
    - Chercher le `quest_id` dans les fiches
    - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et demander confirmation pour continuer ou annuler
 
@@ -209,7 +210,7 @@ Appliquer les mappings de syntaxe (voir section "Règles de conversion" ci-desso
 
 ### Étape 8 : Enregistrement dans le registre
 
-Ajouter une fiche dans `quests/REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
 
 ```markdown
 ### {{TITRE_SANS_EMOJIS}}
@@ -418,7 +419,7 @@ Après :
 [Titre de la quest cible](URL_DEPLOYEMENT)
 ```
 
-Utiliser l'URL de déploiement depuis `quests/REGISTRY.md`. Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
+Utiliser l'URL de déploiement depuis `REGISTRY.md`. Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
 
 ### ressource
 
