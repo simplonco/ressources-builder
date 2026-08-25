@@ -1,40 +1,115 @@
 # Registre des quests
 
-## 🔄 En cours (8)
+## 🔄 En cours (0)
 
-### JS Basics 05 - Les instructions conditionnelles
-- **ID** : 1270
-- **Dépôt** : [simplonco/dev-web-js-basics-05-les-instructions-conditionnelles](https://github.com/simplonco/dev-web-js-basics-05-les-instructions-conditionnelles)
+Aucune quest en cours.
 
-### JS Basics 06 - Les fonctions
-- **ID** : 1278
-- **Dépôt** : [simplonco/dev-web-js-basics-06-les-fonctions](https://github.com/simplonco/dev-web-js-basics-06-les-fonctions)
+## ✅ Terminé (44)
 
-### JS Basics 06bis - Fonctions d'ordre supérieur
-- **ID** : 1559
-- **Dépôt** : [simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur](https://github.com/simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur)
+### JS Intermédiaire 01.1 - Introduction à la manipulation du DOM
+- **ID** : 1259
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-01-1-introduction-a-la-manipulation-du-dom](https://github.com/simplonco/dev-web-js-intermediaire-01-1-introduction-a-la-manipulation-du-dom)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-01-1-introduction-a-la-manipulation-du-dom](https://simplonco.github.io/dev-web-js-intermediaire-01-1-introduction-a-la-manipulation-du-dom/)
+- Ressource d'introduction à la manipulation du DOM en JavaScript pour débutants. Aborde la sélection d'éléments (querySelector, getElementById, querySelectorAll), la modification de propriétés (src, innerHTML, style), et la création/suppression d'éléments. Contenu : images pédagogiques (3), playgrounds interactifs (4), solutions inline. Niveau débutant. Prérequis : JS Basics 01 à 09.
 
-### JS Basics 07 - Les tableaux
-- **ID** : 1281
-- **Dépôt** : [simplonco/dev-web-js-basics-07-les-tableaux](https://github.com/simplonco/dev-web-js-basics-07-les-tableaux)
+### JS Intermédiaire 01.2 - Manipulation du DOM - Créer des éléments
+- **ID** : 1554
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-01-2-manipulation-du-dom-creer-des-elements](https://github.com/simplonco/dev-web-js-intermediaire-01-2-manipulation-du-dom-creer-des-elements)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-01-2-manipulation-du-dom-creer-des-elements](https://simplonco.github.io/dev-web-js-intermediaire-01-2-manipulation-du-dom-creer-des-elements/)
+- Ressource sur la création et suppression d'éléments HTML au DOM en JavaScript pour débutants. Aborde createElement, appendChild, remove, classList.add/remove, et le style via la propriété style. Contenu : playgrounds interactifs (4), solutions inline. Niveau débutant. Prérequis : JS Intermédiaire 01.1.
 
-### JS Basics 07bis - Les tableaux - Autres méthodes utiles
-- **ID** : 1932
-- **Dépôt** : [simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles](https://github.com/simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles)
+### JS Intermédiaire 01.3 - Manipulation du DOM - Gestion des événements
+- **ID** : 1555
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-01-3-manipulation-du-dom-gestion-des-evenements](https://github.com/simplonco/dev-web-js-intermediaire-01-3-manipulation-du-dom-gestion-des-evenements)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-01-3-manipulation-du-dom-gestion-des-evenements](https://simplonco.github.io/dev-web-js-intermediaire-01-3-manipulation-du-dom-gestion-des-evenements/)
+- Ressource sur la gestion des événements en JavaScript pour débutants. Aborde addEventListener, onclick, les événements souris (click, mouseover, mouseleave), les formulaires (onsubmit, preventDefault, input.value), classList.toggle, et l'objet event (clientX, clientY). Contenu : playgrounds interactifs (3), stepper (1), solutions inline, ressources externes (MDN). Niveau débutant. Prérequis : JS Intermédiaire 01.1, 01.2.
 
-### JS Basics 08 - Les boucles
-- **ID** : 1283
-- **Dépôt** : [simplonco/dev-web-js-basics-08-les-boucles](https://github.com/simplonco/dev-web-js-basics-08-les-boucles)
+### JS Intermédiaire 02 - Tableaux : méthodes fonctionnelles
+- **ID** : 1589
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-02-tableaux-methodes-fonctionnelles](https://github.com/simplonco/dev-web-js-intermediaire-02-tableaux-methodes-fonctionnelles)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-02-tableaux-methodes-fonctionnelles](https://simplonco.github.io/dev-web-js-intermediaire-02-tableaux-methodes-fonctionnelles/)
+- Ressource sur les méthodes fonctionnelles de tableaux en JavaScript pour débutants. Aborde map (transformation), forEach (itération), et filter (filtrage). Contenu : images pédagogiques (2), codesandboxes (4), solutions inline. Niveau débutant. Prérequis : JS Basics 06, JS Basics 07.
 
-### JS Basics 09 - Les objets
-- **ID** : 1282
-- **Dépôt** : [simplonco/dev-web-js-basics-09-les-objets](https://github.com/simplonco/dev-web-js-basics-09-les-objets)
+### JS Intermédiaire 02bis - Tableaux : d'autres méthodes fonctionnelles
+- **ID** : 1342
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-02bis-tableaux-autres-methodes-fonctionnelles](https://github.com/simplonco/dev-web-js-intermediaire-02bis-tableaux-autres-methodes-fonctionnelles)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-02bis-tableaux-autres-methodes-fonctionnelles](https://simplonco.github.io/dev-web-js-intermediaire-02bis-tableaux-autres-methodes-fonctionnelles/)
+- Ressource sur les méthodes avancées des tableaux JavaScript pour débutants. Aborde every, some, reduce, et le défi final avec exercices de manipulation de tableaux. Contenu : codesandboxes (3), ressources externes, images pédagogiques (1). Niveau débutant. Prérequis : JS Intermédiaire 02.
+
+### JS Intermédiaire 03 - Affectation par décomposition
+- **ID** : 1830
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-03-affectation-par-decomposition](https://github.com/simplonco/dev-web-js-intermediaire-03-affectation-par-decomposition)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-03-affectation-par-decomposition](https://simplonco.github.io/dev-web-js-intermediaire-03-affectation-par-decomposition/)
+- Ressource sur l'affectation par décomposition en JavaScript pour débutants. Aborde la décomposition de tableaux, d'objets, la syntaxe rest, et l'échange de variables. Contenu : playground interactif (1), codesandboxes (2), images pédagogiques (1), exercices avec solutions. Niveau débutant. Prérequis : JS Basics 03, JS Basics 04.
 
 ### JS - First script
 - **ID** : 834
+- **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-js-first-script](https://github.com/simplonco/dev-web-js-first-script)
+- **Site** : [simplonco.github.io/dev-web-js-first-script](https://simplonco.github.io/dev-web-js-first-script/)
+- Ressource d'introduction à JavaScript pour débutants. Couvre les principes fondamentaux, les variables, les opérateurs, les conditions et la construction de premiers scripts interactifs. Contenu : image pédagogique (1), prérequis HTML, solution inline. Niveau débutant.
 
-## ✅ Terminé (29)
+### JS - Manipulation du DOM
+- **ID** : 1343
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-manipulation-du-dom](https://github.com/simplonco/dev-web-js-manipulation-du-dom)
+- **Site** : [simplonco.github.io/dev-web-js-manipulation-du-dom](https://simplonco.github.io/dev-web-js-manipulation-du-dom/)
+- Ressource de révision sur la manipulation du DOM en JavaScript. Aborde les sélecteurs (getElementById, querySelector, querySelectorAll), la modification de contenu (innerHTML, textContent, value), les classes CSS (classList.add/remove), et la création d'éléments (createElement, appendChild). Contenu : playgrounds interactifs (3), code de départ dans HTML. Niveau débutant. Prérequis : JS 04, JS 06.
+
+### JS Basics 09 - Les objets
+- **ID** : 1282
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-09-les-objets](https://github.com/simplonco/dev-web-js-basics-09-les-objets)
+- **Site** : [simplonco.github.io/dev-web-js-basics-09-les-objets](https://simplonco.github.io/dev-web-js-basics-09-les-objets/)
+- Ressource sur les objets JavaScript pour débutants. Aborde la création d'objets littéraux, l'accès aux propriétés (point et crochets), l'ajout/modification/suppression de propriétés, la combinaison tableaux-objets, et le mot-clé `this`. Contenu : images pédagogiques (2), playgrounds interactifs (6), solutions inline. Niveau débutant. Prérequis : JS Basics 01 à 08.
+
+### JS Basics 08 - Les boucles
+- **ID** : 1283
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-08-les-boucles](https://github.com/simplonco/dev-web-js-basics-08-les-boucles)
+- **Site** : [simplonco.github.io/dev-web-js-basics-08-les-boucles](https://simplonco.github.io/dev-web-js-basics-08-les-boucles/)
+- Ressource sur les boucles JavaScript pour débutants. Aborde les boucles `for`, `while`, `do...while`, `for...of`, et le parcours de tableaux. Contenu : images pédagogiques (6), solution inline. Niveau débutant. Prérequis : JS Basics 01 à 07.
+
+### JS Basics 07bis - Les tableaux - Autres méthodes utiles
+- **ID** : 1932
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles](https://github.com/simplonco/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles)
+- **Site** : [simplonco.github.io/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles](https://simplonco.github.io/dev-web-js-basics-07bis-les-tableaux-autres-methodes-utiles/)
+- Ressource sur les méthodes avancées des tableaux JavaScript pour débutants. Aborde `includes`, `indexOf`, `join`, `split`, `slice`, `splice`, `concat`, `reverse` et `sort`. Contenu : playgrounds interactifs (2), solution inline, challenge de manipulation de chaîne. Niveau débutant. Prérequis : JS Basics 07.
+
+### JS Basics 07 - Les tableaux
+- **ID** : 1281
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-07-les-tableaux](https://github.com/simplonco/dev-web-js-basics-07-les-tableaux)
+- **Site** : [simplonco.github.io/dev-web-js-basics-07-les-tableaux](https://simplonco.github.io/dev-web-js-basics-07-les-tableaux/)
+- Ressource sur les tableaux JavaScript pour débutants. Aborde la création de tableaux, la longueur, la lecture/écriture d'éléments, et les méthodes de manipulation (push, pop, shift, unshift, splice). Contenu : images pédagogiques (4), solution inline. Niveau débutant. Prérequis : JS Basics 01 à 06.
+
+### JS Basics 06bis - Fonctions d'ordre supérieur
+- **ID** : 1559
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur](https://github.com/simplonco/dev-web-js-basics-06bis-fonctions-d-ordre-superieur)
+- **Site** : [simplonco.github.io/dev-web-js-basics-06bis-fonctions-d-ordre-superieur](https://simplonco.github.io/dev-web-js-basics-06bis-fonctions-d-ordre-superieur/)
+- Ressource sur les fonctions d'ordre supérieur en JavaScript pour débutants. Aborde les fonctions anonymes, les fonctions de rappel (callback), et la programmation fonctionnelle (map, filter, reduce). Contenu : image pédagogique (1), solution inline. Niveau débutant. Prérequis : JS Basics 06.
+
+### JS Basics 06 - Les fonctions
+- **ID** : 1278
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-06-les-fonctions](https://github.com/simplonco/dev-web-js-basics-06-les-fonctions)
+- **Site** : [simplonco.github.io/dev-web-js-basics-06-les-fonctions](https://simplonco.github.io/dev-web-js-basics-06-les-fonctions/)
+- Ressource sur les fonctions JavaScript pour débutants. Aborde la déclaration de fonctions, les paramètres et arguments, l'instruction `return`, les expressions de fonctions, les fonctions fléchées (arrow functions), et la portée des variables (scope). Contenu : images pédagogiques (5), solution inline. Niveau débutant. Prérequis : JS Basics 01, 02, 03, 04, 05.
+
+### JS Basics 05 - Les instructions conditionnelles
+- **ID** : 1270
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-basics-05-les-instructions-conditionnelles](https://github.com/simplonco/dev-web-js-basics-05-les-instructions-conditionnelles)
+- **Site** : [simplonco.github.io/dev-web-js-basics-05-les-instructions-conditionnelles](https://simplonco.github.io/dev-web-js-basics-05-les-instructions-conditionnelles/)
+- Ressource sur les instructions conditionnelles JavaScript pour débutants. Aborde les structures `if...else`, `else if`, l'opérateur ternaire, et les opérateurs de comparaison (`===`, `!==`, `>`, `<`). Contenu : images pédagogiques (3), expériences interactives, solution inline. Niveau débutant. Prérequis : JS Basics 01, 02, 03, 04.
 
 ### JS Basics 04 - Les types de données
 - **ID** : 1269
