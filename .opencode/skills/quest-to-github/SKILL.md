@@ -93,6 +93,42 @@ Si l'utilisateur souhaite archiver les fichiers, appeler `quest-files-archive` :
 
 ---
 
+### Conversion de plusieurs quests
+
+Quand l'utilisateur demande de convertir plusieurs quests d'un coup (ex: "Convertis toutes les quests en attente" ou "Convertis les quests 1334, 1024 et 1376") :
+
+#### Étape 1 : Vérification des liens entre quests
+
+1. Lire chaque fichier JSON dans `quests/todo/`
+2. Analyser le contenu markdown de chaque quest à la recherche de blocs `` ```quests ``
+3. Construire un graphe de dépendances :
+   - Si quest A référence quest B dans un bloc `` ```quests ``, alors A dépend de B
+   - Une quest sans référence n'a pas de dépendances
+4. Vérifier que toutes les quests référencées existent dans `quests/todo/` (sinon avertir l'utilisateur)
+
+#### Étape 2 : Détermination de l'ordre de conversion
+
+1. Appliquer un tri topologique sur le graphe de dépendances
+2. Si le graphe contient un cycle → avertir l'utilisateur et annuler
+3. Présenter l'ordre de conversion à l'utilisateur :
+   ```
+   Ordre de conversion détecté :
+   1. quest-1334 (pas de dépendances)
+   2. quest-1024 (dépend de 1334)
+   3. quest-1376 (dépend de 1334 et 1024)
+   ```
+4. Demander confirmation avant de continuer
+
+#### Étape 3 : Conversion séquentielle
+
+Convertir les quests dans l'ordre déterminé en suivant le flux de travail standard (étapes 1 à 5) pour chaque quest.
+
+#### Étape 4 : Vérification des liens après conversion
+
+Après chaque conversion, vérifier que les liens `` ```quests `` ont été correctement remplacés par les URLs des dépôts GitHub Pages (via `REGISTRY.md`). Si une quest cible n'est pas encore convertie, utiliser le format `quest-{id}` et avertir l'utilisateur.
+
+---
+
 ### Listing des quests en attente
 
 Quand l'utilisateur veut voir les quests en attente :

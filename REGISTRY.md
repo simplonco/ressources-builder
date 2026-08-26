@@ -4,7 +4,42 @@
 
 Aucune quest en cours.
 
-## ✅ Terminé (44)
+## ✅ Terminé (50)
+
+### Node 01 - Introduction à Node.js et npm
+- **ID** : 1334
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-01-introduction-a-nodejs-et-npm](https://github.com/simplonco/dev-web-node-01-introduction-a-nodejs-et-npm)
+- **Site** : [simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm](https://simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm/)
+- Ressource d'introduction à Node.js et npm pour débutants. Aborde l'installation de Node.js, les concepts de modules (CommonJS et ES Modules), l'utilisation de NPM pour gérer les dépendances, et la création de premiers scripts. Contenu : images pédagogiques, quiz (7 questions), exercices pratiques avec solutions. Niveau débutant.
+
+### Node 02 - Utiliser un fichier .env
+- **ID** : 1024
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-02-utiliser-un-fichier-env](https://github.com/simplonco/dev-web-node-02-utiliser-un-fichier-env)
+- **Site** : [simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env](https://simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env/)
+- Ressource sur l'utilisation des fichiers .env en Node.js pour débutants. Aborde le concept de variables d'environnement, la création et l'utilisation de fichiers .env, l'installation du paquet dotenv, et la sécurisation des données sensibles. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : Node 01.
+
+### Node 03 - Commence à linter et à formater ton code en utilisant Biome
+- **ID** : 1387
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://github.com/simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome)
+- **Site** : [simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome/)
+- Ressource sur l'utilisation de Biome pour linter et formater du code JavaScript/TypeScript pour débutants. Aborde l'installation de Biome, la configuration, les commandes de base et l'intégration avec VS Code. Contenu : images pédagogiques. Niveau débutant. Prérequis : Node 01.
+
+### Node 04 - Rechercher et choisir un paquet npm (ou pas !)
+- **ID** : 1797
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://github.com/simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas)
+- **Site** : [simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas/)
+- Ressource sur la recherche et le choix de paquets npm pour débutants. Aborde la nécessité d'ajouter un paquet, la recherche sur npmjs.com, les critères de sélection (popularité, maintenance, documentation), et les risques associés aux dépendances. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 01.
+
+### Node 05 - Concepts avancés et alternatives à la CLI de npm
+- **ID** : 1820
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://github.com/simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm)
+- **Site** : [simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm/)
+- Ressource sur les concepts avancés de npm et les alternatives à la CLI pour débutants. Aborde le versionnage sémantique, la gestion des dépendances et dépendances de développement, et les alternatives comme yarn et pnpm. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 04.
 
 ### Concevoir des prototypes
 - **ID** : 2333
@@ -159,6 +194,13 @@ Aucune quest en cours.
 - **Dépôt** : [simplonco/dev-web-git-installer-et-configurer-git](https://github.com/simplonco/dev-web-git-installer-et-configurer-git)
 - **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
 - Ressource d'introduction à la gestion de versions. Aborde le concept de versions, l'utilisation de GitHub, Git en local, et le mode collaboratif (branches, conflits). Sert de point d'entrée vers les 5 ressources Git/GitHub. Contenu : diagramme mermaid, stepper avec prérequis. Niveau débutant.
+
+### Installer et configurer Node
+- **ID** : 1376
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-installer-et-configurer-node](https://github.com/simplonco/dev-web-installer-et-configurer-node)
+- **Site** : [simplonco.github.io/dev-web-installer-et-configurer-node](https://simplonco.github.io/dev-web-installer-et-configurer-node/)
+- Ressource sur l'installation et la configuration de Node.js pour débutants. Aborde l'installation de Node.js, la création d'un premier projet, l'initialisation avec npm, et les bases du développement en Node.js. Contenu : stepper avec prérequis, quiz, solution. Niveau débutant.
 
 ### Installer et utiliser Visual Studio Code
 - **ID** : 2114
