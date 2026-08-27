@@ -98,12 +98,11 @@ git push -u origin main
 Ressource sur les variables JavaScript pour débutants. Aborde la création de variables (let, const, var), les règles de nommage (camelCase), la réassignation de valeurs, les opérateurs d'incrément (+++=), et la concaténation de strings. Contenu : ressources externes (javascript.info, YouTube), quiz (2 questions), challenge pratique (renommage de variables). Niveau débutant. Prérequis : JS Basics 01, JS Basics 02.
 ```
 
-### Étape 6 : Archivage fichiers (quests uniquement)
+### Étape 6 : Archivage fichiers
 
-Si la ressource provient d'une quest JSON (le fichier existe dans `quests/todo/`) :
-- Proposer à l'utilisateur d'appeler `quest-files-archive` pour déplacer le JSON et le dépôt local
-Sinon :
-- déplacer uniquement le dépôt local vers `repos/archives/`
+Pour les quests converties, l'archivage est **automatique** après le déploiement :
+- Si le JSON source existe dans `quests/todo/` → appeler `quest-files-archive` pour déplacer le JSON et le dépôt local
+- Si pas de quest (création from scratch) → déplacer uniquement le dépôt local vers `repos/archives/`
 
 ### Étape 7 : Confirmation
 

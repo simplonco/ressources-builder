@@ -85,11 +85,11 @@ Le skill `jekyll-deploy` s'occupe de :
 - Initialiser Git + commit + push
 - Archiver la fiche dans le registre (`🔄 En cours` → `✅ Terminé`)
 
-#### Étape 5 : Archivage fichiers (quests uniquement)
+#### Étape 5 : Archivage fichiers
 
-Si l'utilisateur souhaite archiver les fichiers, appeler `quest-files-archive` :
-- Déplacer le JSON vers `quests/archives/`
-- Déplacer le dépôt local vers `repos/archives/`
+Pour les quests converties, l'archivage est **automatique** après le déploiement :
+- Appeler `quest-files-archive` pour déplacer le JSON vers `quests/archives/` et le dépôt local vers `repos/archives/`
+- Ne pas demander confirmation, c'est une étape systématique du workflow
 
 ---
 

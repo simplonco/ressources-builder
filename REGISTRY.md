@@ -2,9 +2,15 @@
 
 ## 🔄 En cours (0)
 
-Aucune quest en cours.
 
-## ✅ Terminé (50)
+## ✅ Terminé (61)
+
+### JS - React - Props and State
+- **ID** : 1401
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-react-props-and-state](https://github.com/simplonco/dev-web-js-react-props-and-state)
+- **Site** : [simplonco.github.io/dev-web-js-react-props-and-state](https://simplonco.github.io/dev-web-js-react-props-and-state/)
+- Ressource sur les props et le state en React pour débutants. Aborde le concept de props, la passage de données entre composants, et la gestion du state avec useState. Contenu : images pédagogiques, solution séparée. Niveau débutant.
 
 ### Node 01 - Introduction à Node.js et npm
 - **ID** : 1334
@@ -201,6 +207,75 @@ Aucune quest en cours.
 - **Dépôt** : [simplonco/dev-web-installer-et-configurer-node](https://github.com/simplonco/dev-web-installer-et-configurer-node)
 - **Site** : [simplonco.github.io/dev-web-installer-et-configurer-node](https://simplonco.github.io/dev-web-installer-et-configurer-node/)
 - Ressource sur l'installation et la configuration de Node.js pour débutants. Aborde l'installation de Node.js, la création d'un premier projet, l'initialisation avec npm, et les bases du développement en Node.js. Contenu : stepper avec prérequis, quiz, solution. Niveau débutant.
+
+### React Basics 01 - Pokédex - Introduction
+- **ID** : 2328
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-01-pokedex-introduction](https://github.com/simplonco/dev-web-react-basics-01-pokedex-introduction)
+- **Site** : [simplonco.github.io/dev-web-react-basics-01-pokedex-introduction](https://simplonco.github.io/dev-web-react-basics-01-pokedex-introduction/)
+- Ressource d'introduction à React pour débutants. Aborde la création de composants, la structure de base d'une application React, et les premiers pas avec JSX. Contenu : images pédagogiques. Niveau débutant.
+
+### React Basics 02 - Pokédex - Ton premier composant
+- **ID** : 2332
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant](https://github.com/simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant)
+- **Site** : [simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant](https://simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant/)
+- Ressource sur la création de composants en React pour débutants. Aborde la création de composants fonctionnels, la structure JSX, et les bonnes pratiques. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 01.
+
+### React Basics 03 - Pokédex - Afficher des données dans un composant
+- **ID** : 2336
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://github.com/simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant)
+- **Site** : [simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant/)
+- Ressource sur l'affichage de données dans les composants React pour débutants. Aborde l'interpolation de variables, les expressions JSX, et l'affichage de listes. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 02.
+
+### React Basics 04 - Pokédex - Passer des props
+- **ID** : 2374
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-04-pokedex-passer-des-props](https://github.com/simplonco/dev-web-react-basics-04-pokedex-passer-des-props)
+- **Site** : [simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props](https://simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props/)
+- Ressource sur le passage de props en React pour débutants. Aborde la création de composants réutilisables, le passage de données parent-enfant, et la structure de l'arbre de composants. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 03.
+
+### React Basics 05 - Pokédex - Typer les props avec TypeScript
+- **ID** : 2375
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://github.com/simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript)
+- **Site** : [simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript/)
+- Ressource sur le typage des props avec TypeScript en React pour débutants. Aborde la création d'interfaces pour les props, le typage des composants, et les avantages de TypeScript dans un projet React. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 04.
+
+### React Basics 06 - Pokédex - Utiliser un state
+- **ID** : 2376
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state](https://github.com/simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state)
+- **Site** : [simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state](https://simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state/)
+- Ressource sur l'utilisation du state en React pour débutants. Aborde la déclaration avec useState, la gestion de l'état, et les mises à jour déclenchées par l'utilisateur. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 05.
+
+### React Basics 07 - Pokédex - Répéter un bloc d'affichage avec map
+- **ID** : 2378
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://github.com/simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map)
+- **Site** : [simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map/)
+- Ressource sur la répétition d'un bloc d'affichage avec map en React pour débutants. Aborde la méthode map, la prop key, l'utilisation de index comme key (et ses limites), le component mapping, et les méthodes de tableau (filter). Contenu : playgrounds interactifs (7), stepper pour le challenge, solution séparée. Niveau débutant. Prérequis : React Basics 01 à 06.
+
+### React Basics 08 - Pokédex - Le CSS dans React
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react](https://github.com/simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react)
+- **Site** : [simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react](https://simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react/)
+- Ressource sur le CSS dans React pour débutants. Aborde l'application de styles CSS via classes (className), attribut style (inline), et modules CSS. Contenu : images pédagogiques, exemples de code, avantages/inconvénients de chaque méthode. Niveau débutant. Prérequis : React Basics 07.
+
+### React Basics 09 - Pokédex - Partager un state
+- **ID** : 2377
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-09-pokedex-partager-un-state](https://github.com/simplonco/dev-web-react-basics-09-pokedex-partager-un-state)
+- **Site** : [simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state](https://simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state/)
+- Ressource sur le partage de state entre composants React pour débutants. Aborde la communication entre composants via props, la remontée du state au premier ancêtre commun, et le pattern state lifting. Contenu : images pédagogiques, exemples de code, challenge pratique (création d'un composant NavBar). Niveau débutant. Prérequis : React Basics 06.
+
+### React Basics 10 - Pokédex - Aller plus loin avec les événements
+- **ID** : 2381
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://github.com/simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements)
+- **Site** : [simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements/)
+- Ressource sur les événements en React pour débutants. Aborde les event listeners (onClick, onChange, onMouseLeave), la syntaxe camelCase, et le hook useEffect pour les événements spécifiques. Contenu : images pédagogiques, exemples de code, challenge pratique (alertes au démarrage et à la sélection de Pikachu). Niveau débutant. Prérequis : React Basics 09.
 
 ### Installer et utiliser Visual Studio Code
 - **ID** : 2114
