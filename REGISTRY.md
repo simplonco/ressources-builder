@@ -7,6 +7,7 @@
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
 - **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
+- Prérequis : MySQL 01, MySQL 02.
 
 ### MySQL 04.3 - Les bases de la modélisation : MPD
 - **ID** : 574
@@ -19,12 +20,14 @@
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
 - **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
+- Prérequis : MySQL 01, MySQL 02, MySQL 03.
 
 ### MySQL 06 - SQL Group By
 - **ID** : 520
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
 - **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
+- Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
 
 ## ✅ Terminé (66)
 
@@ -40,7 +43,7 @@
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
 - **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
-- Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant.
+- Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant. Prérequis : MySQL 00.
 
 ### MySQL 02 - Récupérer des informations avec SELECT
 - **ID** : 484
