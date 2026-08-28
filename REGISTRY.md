@@ -1,12 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (6)
-
-### MySQL 01 - Introduction aux bases de données relationnelles
-- **ID** : 479
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
-- **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
+## 🔄 En cours (5)
 
 ### MySQL 02 - Récupérer des informations avec SELECT
 - **ID** : 484
@@ -38,7 +32,7 @@
 - **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
 - **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
 
-## ✅ Terminé (64)
+## ✅ Terminé (65)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -46,6 +40,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-00-installer-mysql](https://github.com/simplonco/dev-web-mysql-00-installer-mysql)
 - **Site** : [simplonco.github.io/dev-web-mysql-00-installer-mysql](https://simplonco.github.io/dev-web-mysql-00-installer-mysql/)
 - Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE USER, GRANT PRIVILEGES). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
+
+### MySQL 01 - Introduction aux bases de données relationnelles
+- **ID** : 479
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
+- **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
+- Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant.
 
 ### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
