@@ -2,32 +2,32 @@
 
 ## 🔄 En cours (3)
 
-### 01 - Introduction aux bases de données relationnelles
+### MySQL 01 - Introduction aux bases de données relationnelles
 - **ID** : 479
 - **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-01-introduction-aux-bases-de-donnees-relationnelles)
-- **Site** : [simplonco.github.io/dev-web-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-01-introduction-aux-bases-de-donnees-relationnelles/)
+- **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
+- **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
 
-### 04.1 - Les bases de la modélisation : MCD
+### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
 - **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-04-1-les-bases-de-la-modelisation-mcd)
-- **Site** : [simplonco.github.io/dev-web-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-04-1-les-bases-de-la-modelisation-mcd/)
+- **Dépôt** : [simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd/)
 
-### 04.2 - Les bases de la modélisation : MLD
+### MySQL 04.2 - Les bases de la modélisation : MLD
 - **ID** : 30
 - **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-04-2-les-bases-de-la-modelisation-mld)
-- **Site** : [simplonco.github.io/dev-web-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-04-2-les-bases-de-la-modelisation-mld/)
+- **Dépôt** : [simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld/)
 
 ## ✅ Terminé (62)
 
-### 00 - Installer MySQL
+### MySQL 00 - Installer MySQL
 - **ID** : 2472
 - **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-00-installer-mysql](https://github.com/simplonco/dev-web-00-installer-mysql)
-- **Site** : [simplonco.github.io/dev-web-00-installer-mysql](https://simplonco.github.io/dev-web-00-installer-mysql/)
-- Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
+- **Dépôt** : [simplonco/dev-web-mysql-00-installer-mysql](https://github.com/simplonco/dev-web-mysql-00-installer-mysql)
+- **Site** : [simplonco.github.io/dev-web-mysql-00-installer-mysql](https://simplonco.github.io/dev-web-mysql-00-installer-mysql/)
+- Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE USER, GRANT PRIVILEGES). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
 
 ### JS - React - Props and State
 - **ID** : 1401
