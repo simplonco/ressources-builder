@@ -1,6 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (3)
+## 🔄 En cours (2)
 
 ### MySQL 01 - Introduction aux bases de données relationnelles
 - **ID** : 479
@@ -8,19 +8,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
 - **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
 
-### MySQL 04.1 - Les bases de la modélisation : MCD
-- **ID** : 29
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd)
-- **Site** : [simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd/)
-
 ### MySQL 04.2 - Les bases de la modélisation : MLD
 - **ID** : 30
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld)
 - **Site** : [simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld/)
 
-## ✅ Terminé (62)
+## ✅ Terminé (63)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -28,6 +22,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-00-installer-mysql](https://github.com/simplonco/dev-web-mysql-00-installer-mysql)
 - **Site** : [simplonco.github.io/dev-web-mysql-00-installer-mysql](https://simplonco.github.io/dev-web-mysql-00-installer-mysql/)
 - Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE USER, GRANT PRIVILEGES). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
+
+### MySQL 04.1 - Les bases de la modélisation : MCD
+- **ID** : 29
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd/)
+- Ressource sur la modélisation de bases de données avec la méthode Merise pour débutants. Aborde les entités, les relations, les cardinalités, les attributs et les identifiants pour construire un MCD (Modèle Conceptuel de Données). Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation d'une bibliothèque. Niveau débutant.
 
 ### JS - React - Props and State
 - **ID** : 1401
