@@ -1,12 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (5)
-
-### MySQL 02 - Récupérer des informations avec SELECT
-- **ID** : 484
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
-- **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
+## 🔄 En cours (4)
 
 ### MySQL 03 - Manipulation des données
 - **ID** : 485
@@ -32,7 +26,7 @@
 - **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
 - **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
 
-## ✅ Terminé (65)
+## ✅ Terminé (66)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -47,6 +41,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
 - **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
 - Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant.
+
+### MySQL 02 - Récupérer des informations avec SELECT
+- **ID** : 484
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
+- **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
+- Ressource sur la récupération de données avec SQL et la commande SELECT pour débutants. Aborde la syntaxe SELECT, les clauses WHERE, ORDER BY, LIMIT/OFFSET, les alias, et les opérateurs de comparaison. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01.
 
 ### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
