@@ -238,6 +238,7 @@ Maintenir l'ordre alphabétique par titre.
 | ` ```xtext arrow\n...\n``` ` | Bloc quote `> ` avec chaque ligne préfixée |
 | ` ```xtext intro\n...\n``` ` | Texte brut (paragraphe standard) |
 | ` ```js live\n...\n``` ` | Playground interactif (`playground.html`) |
+| ` ```sql live\n...\n``` ` | SQL Playground (`sql-playground.html`) |
 | ` ```quests\n2114\n``` ` | Lien vers le repo de la quest (utiliser REGISTRY.md) |
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
 | ` ````stepper\n...\n```` ` | Pass-through (plugin `jekyll-stepper`) |
@@ -404,6 +405,89 @@ Les blocs `js live` contiennent du code HTML/CSS/JS séparé par des marqueurs `
 - `default_tab` selon le focus du contenu :
   - `html` (défaut), `css` ou `js`
   - Si le bloc contient uniquement du JS → `default_tab="js"`
+
+### sql live (→ SQL Playground interactif)
+
+Les blocs `sql live` contiennent du code SQL pour un éditeur interactif.
+
+**Avant** :
+````
+```sql live
+SELECT * FROM wizard WHERE lastname = 'Potter';
+```
+````
+
+**Après** :
+````markdown
+{% capture initial_query %}
+SELECT * FROM wizard WHERE lastname = 'Potter';
+{% endcapture %}
+
+{% include sql-playground.html
+  id="sql-demo"
+  query=initial_query
+%}
+````
+
+**Variante avec schema** (si le bloc contient CREATE TABLE + INSERT) :
+
+**Avant** :
+````
+```sql live
+CREATE TABLE wizard (
+  id INTEGER PRIMARY KEY,
+  firstname TEXT
+);
+
+INSERT INTO wizard VALUES (1, 'Harry');
+
+SELECT * FROM wizard;
+```
+````
+
+**Après** :
+````markdown
+{% capture db_schema %}
+CREATE TABLE wizard (
+  id INTEGER PRIMARY KEY,
+  firstname TEXT
+);
+
+INSERT INTO wizard VALUES (1, 'Harry');
+{% endcapture %}
+
+{% capture initial_query %}
+SELECT * FROM wizard;
+{% endcapture %}
+
+{% include sql-playground.html
+  id="sql-demo"
+  schema=db_schema
+  query=initial_query
+%}
+````
+
+**Règles** :
+- L'`id` doit être unique par page
+- Si le bloc contient uniquement des requêtes SELECT → pas de `schema`
+- Si le bloc contient CREATE TABLE/INSERT → extraire dans `schema`
+- Le contenu reste fidèle au JSON source
+
+**Compatibilité MySQL → SQLite** :
+Le SQL playground utilise sql.js (SQLite). Appliquer les transformations suivantes au `schema` :
+
+| MySQL | SQLite |
+|-------|--------|
+| `INT NOT NULL AUTO_INCREMENT` | `INTEGER PRIMARY KEY` |
+| `VARCHAR(n)` | `TEXT COLLATE NOCASE` |
+| `BOOLEAN DEFAULT 0` | `INTEGER DEFAULT 0` |
+| `DATE DEFAULT NULL` | `TEXT DEFAULT NULL` |
+| `\'` (échappement apostrophe) | `''` (double apostrophe) |
+| `'0'`, `'1'` (entiers en string) | `0`, `1` (entiers natifs) |
+
+Ajouter `COLLATE NOCASE` aux colonnes TEXT pour rendre les comparaisons insensibles à la casse (comportement MySQL par défaut).
+
+Ne pas modifier les requêtes SELECT.
 
 ### quests (liens vers autres quests)
 
@@ -659,6 +743,9 @@ Le playground affiche automatiquement la sortie console du code exécuté ainsi 
 
 ### Quiz (include Jekyll)
 Les quiz sont convertis en utilisant `{% include quiz.html %}`.
+
+### SQL Playground (include Jekyll)
+Le SQL Playground affiche un éditeur SQL interactif avec exécution dans le navigateur via sql.js (SQLite compilé en WebAssembly). Aucun serveur requis. sql.js est lazy-loadé uniquement quand un `sql-playground` est présent (~700 KB WASM).
 
 ---
 
