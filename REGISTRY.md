@@ -1,12 +1,42 @@
 # Registre des contenus
 
-## 🔄 En cours (1)
+## 🔄 En cours (6)
 
 ### MySQL 01 - Introduction aux bases de données relationnelles
 - **ID** : 479
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
 - **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
+
+### MySQL 02 - Récupérer des informations avec SELECT
+- **ID** : 484
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
+- **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
+
+### MySQL 03 - Manipulation des données
+- **ID** : 485
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
+- **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
+
+### MySQL 04.3 - Les bases de la modélisation : MPD
+- **ID** : 574
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
+
+### MySQL 05 - Les jointures
+- **ID** : 519
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
+- **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
+
+### MySQL 06 - SQL Group By
+- **ID** : 520
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
+- **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
 
 ## ✅ Terminé (64)
 
