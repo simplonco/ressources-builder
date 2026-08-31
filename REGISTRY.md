@@ -1,13 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (4)
-
-### MySQL 03 - Manipulation des données
-- **ID** : 485
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
-- **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
-- Prérequis : MySQL 01, MySQL 02.
+## 🔄 En cours (3)
 
 ### MySQL 04.3 - Les bases de la modélisation : MPD
 - **ID** : 574
@@ -29,7 +22,7 @@
 - **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
 - Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
 
-## ✅ Terminé (66)
+## ✅ Terminé (67)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -51,6 +44,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
 - **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
 - Ressource sur la récupération de données avec SQL et la commande SELECT pour débutants. Aborde la syntaxe SELECT, les clauses WHERE, ORDER BY, LIMIT/OFFSET, les alias, et les opérateurs de comparaison. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01.
+
+### MySQL 03 - Manipulation des données
+- **ID** : 485
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
+- **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
+- Ressource sur la manipulation de données avec SQL pour débutants. Aborde les commandes INSERT, UPDATE, DELETE et TRUNCATE. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique d'ajout/modification/suppression d'écoles. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02.
 
 ### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
