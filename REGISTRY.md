@@ -4,111 +4,6 @@
 
 ## ✅ Terminé (69)
 
-### MySQL 00 - Installer MySQL
-- **ID** : 2472
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-00-installer-mysql](https://github.com/simplonco/dev-web-mysql-00-installer-mysql)
-- **Site** : [simplonco.github.io/dev-web-mysql-00-installer-mysql](https://simplonco.github.io/dev-web-mysql-00-installer-mysql/)
-- Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE USER, GRANT PRIVILEGES). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
-
-### MySQL 01 - Introduction aux bases de données relationnelles
-- **ID** : 479
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
-- **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
-- Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant. Prérequis : MySQL 00.
-
-### MySQL 02 - Récupérer des informations avec SELECT
-- **ID** : 484
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
-- **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
-- Ressource sur la récupération de données avec SQL et la commande SELECT pour débutants. Aborde la syntaxe SELECT, les clauses WHERE, ORDER BY, LIMIT/OFFSET, les alias, et les opérateurs de comparaison. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01.
-
-### MySQL 03 - Manipulation des données
-- **ID** : 485
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
-- **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
-- Ressource sur la manipulation de données avec SQL pour débutants. Aborde les commandes INSERT, UPDATE, DELETE et TRUNCATE. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique d'ajout/modification/suppression d'écoles. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02.
-
-### MySQL 04.1 - Les bases de la modélisation : MCD
-- **ID** : 29
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd)
-- **Site** : [simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd/)
-- Ressource sur la modélisation de bases de données avec la méthode Merise pour débutants. Aborde les entités, les relations, les cardinalités, les attributs et les identifiants pour construire un MCD (Modèle Conceptuel de Données). Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation d'une bibliothèque. Niveau débutant.
-
-### MySQL 04.2 - Les bases de la modélisation : MLD
-- **ID** : 30
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld)
-- **Site** : [simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld/)
-- Ressource sur le MLD (Modèle Logique de Données) pour débutants. Aborde la transformation d'un MCD en MLD avec les types de relations (One To One, One To Many, Many To Many), les clés étrangères, et la création de tables intermédiaires. Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation de potions. Niveau débutant. Prérequis : MySQL 04.1 (MCD).
-
-### MySQL 04.3 - Les bases de la modélisation : MPD
-- **ID** : 574
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
-- **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
-- Ressource sur le MPD (Modèle Physique de Données) pour débutants. Aborde la transformation d'un MLD en scripts SQL CREATE TABLE, les types de données, les contraintes (NOT NULL, DEFAULT, AUTO_INCREMENT, PRIMARY KEY, FOREIGN KEY), et les bonnes pratiques de nommage. Contenu : images pédagogiques, alertes, challenge pratique de création de tables. Niveau débutant. Prérequis : MySQL 04.1 (MCD), MySQL 04.2 (MLD).
-
-### MySQL 05 - Les jointures
-- **ID** : 519
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
-- **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
-- Ressource sur les jointures SQL pour débutants. Aborde les jointures INNER JOIN, LEFT JOIN, RIGHT JOIN, les alias de tables et de champs, et l'utilisation des clés étrangères. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique de quidditch avec données de test. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03.
-
-### MySQL 06 - SQL Group By
-- **ID** : 520
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
-- **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
-- Ressource sur les fonctions d'agrégation et le regroupement de données avec SQL pour débutants. Aborde COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING, et les jointures avec fonctions d'agrégation. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
-
-### JS - React - Props and State
-- **ID** : 1401
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-js-react-props-and-state](https://github.com/simplonco/dev-web-js-react-props-and-state)
-- **Site** : [simplonco.github.io/dev-web-js-react-props-and-state](https://simplonco.github.io/dev-web-js-react-props-and-state/)
-- Ressource sur les props et le state en React pour débutants. Aborde le concept de props, la passage de données entre composants, et la gestion du state avec useState. Contenu : images pédagogiques, solution séparée. Niveau débutant.
-
-### Node 01 - Introduction à Node.js et npm
-- **ID** : 1334
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-node-01-introduction-a-nodejs-et-npm](https://github.com/simplonco/dev-web-node-01-introduction-a-nodejs-et-npm)
-- **Site** : [simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm](https://simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm/)
-- Ressource d'introduction à Node.js et npm pour débutants. Aborde l'installation de Node.js, les concepts de modules (CommonJS et ES Modules), l'utilisation de NPM pour gérer les dépendances, et la création de premiers scripts. Contenu : images pédagogiques, quiz (7 questions), exercices pratiques avec solutions. Niveau débutant.
-
-### Node 02 - Utiliser un fichier .env
-- **ID** : 1024
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-node-02-utiliser-un-fichier-env](https://github.com/simplonco/dev-web-node-02-utiliser-un-fichier-env)
-- **Site** : [simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env](https://simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env/)
-- Ressource sur l'utilisation des fichiers .env en Node.js pour débutants. Aborde le concept de variables d'environnement, la création et l'utilisation de fichiers .env, l'installation du paquet dotenv, et la sécurisation des données sensibles. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : Node 01.
-
-### Node 03 - Commence à linter et à formater ton code en utilisant Biome
-- **ID** : 1387
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://github.com/simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome)
-- **Site** : [simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome/)
-- Ressource sur l'utilisation de Biome pour linter et formater du code JavaScript/TypeScript pour débutants. Aborde l'installation de Biome, la configuration, les commandes de base et l'intégration avec VS Code. Contenu : images pédagogiques. Niveau débutant. Prérequis : Node 01.
-
-### Node 04 - Rechercher et choisir un paquet npm (ou pas !)
-- **ID** : 1797
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://github.com/simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas)
-- **Site** : [simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas/)
-- Ressource sur la recherche et le choix de paquets npm pour débutants. Aborde la nécessité d'ajouter un paquet, la recherche sur npmjs.com, les critères de sélection (popularité, maintenance, documentation), et les risques associés aux dépendances. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 01.
-
-### Node 05 - Concepts avancés et alternatives à la CLI de npm
-- **ID** : 1820
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://github.com/simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm)
-- **Site** : [simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm/)
-- Ressource sur les concepts avancés de npm et les alternatives à la CLI pour débutants. Aborde le versionnage sémantique, la gestion des dépendances et dépendances de développement, et les alternatives comme yarn et pnpm. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 04.
-
 ### Concevoir des prototypes
 - **ID** : 2333
 - **Domaine** : design
@@ -270,75 +165,6 @@
 - **Site** : [simplonco.github.io/dev-web-installer-et-configurer-node](https://simplonco.github.io/dev-web-installer-et-configurer-node/)
 - Ressource sur l'installation et la configuration de Node.js pour débutants. Aborde l'installation de Node.js, la création d'un premier projet, l'initialisation avec npm, et les bases du développement en Node.js. Contenu : stepper avec prérequis, quiz, solution. Niveau débutant.
 
-### React Basics 01 - Pokédex - Introduction
-- **ID** : 2328
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-01-pokedex-introduction](https://github.com/simplonco/dev-web-react-basics-01-pokedex-introduction)
-- **Site** : [simplonco.github.io/dev-web-react-basics-01-pokedex-introduction](https://simplonco.github.io/dev-web-react-basics-01-pokedex-introduction/)
-- Ressource d'introduction à React pour débutants. Aborde la création de composants, la structure de base d'une application React, et les premiers pas avec JSX. Contenu : images pédagogiques. Niveau débutant.
-
-### React Basics 02 - Pokédex - Ton premier composant
-- **ID** : 2332
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant](https://github.com/simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant)
-- **Site** : [simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant](https://simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant/)
-- Ressource sur la création de composants en React pour débutants. Aborde la création de composants fonctionnels, la structure JSX, et les bonnes pratiques. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 01.
-
-### React Basics 03 - Pokédex - Afficher des données dans un composant
-- **ID** : 2336
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://github.com/simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant)
-- **Site** : [simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant/)
-- Ressource sur l'affichage de données dans les composants React pour débutants. Aborde l'interpolation de variables, les expressions JSX, et l'affichage de listes. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 02.
-
-### React Basics 04 - Pokédex - Passer des props
-- **ID** : 2374
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-04-pokedex-passer-des-props](https://github.com/simplonco/dev-web-react-basics-04-pokedex-passer-des-props)
-- **Site** : [simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props](https://simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props/)
-- Ressource sur le passage de props en React pour débutants. Aborde la création de composants réutilisables, le passage de données parent-enfant, et la structure de l'arbre de composants. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 03.
-
-### React Basics 05 - Pokédex - Typer les props avec TypeScript
-- **ID** : 2375
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://github.com/simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript)
-- **Site** : [simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript/)
-- Ressource sur le typage des props avec TypeScript en React pour débutants. Aborde la création d'interfaces pour les props, le typage des composants, et les avantages de TypeScript dans un projet React. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 04.
-
-### React Basics 06 - Pokédex - Utiliser un state
-- **ID** : 2376
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state](https://github.com/simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state)
-- **Site** : [simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state](https://simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state/)
-- Ressource sur l'utilisation du state en React pour débutants. Aborde la déclaration avec useState, la gestion de l'état, et les mises à jour déclenchées par l'utilisateur. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 05.
-
-### React Basics 07 - Pokédex - Répéter un bloc d'affichage avec map
-- **ID** : 2378
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://github.com/simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map)
-- **Site** : [simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map/)
-- Ressource sur la répétition d'un bloc d'affichage avec map en React pour débutants. Aborde la méthode map, la prop key, l'utilisation de index comme key (et ses limites), le component mapping, et les méthodes de tableau (filter). Contenu : playgrounds interactifs (7), stepper pour le challenge, solution séparée. Niveau débutant. Prérequis : React Basics 01 à 06.
-
-### React Basics 08 - Pokédex - Le CSS dans React
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react](https://github.com/simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react)
-- **Site** : [simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react](https://simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react/)
-- Ressource sur le CSS dans React pour débutants. Aborde l'application de styles CSS via classes (className), attribut style (inline), et modules CSS. Contenu : images pédagogiques, exemples de code, avantages/inconvénients de chaque méthode. Niveau débutant. Prérequis : React Basics 07.
-
-### React Basics 09 - Pokédex - Partager un state
-- **ID** : 2377
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-09-pokedex-partager-un-state](https://github.com/simplonco/dev-web-react-basics-09-pokedex-partager-un-state)
-- **Site** : [simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state](https://simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state/)
-- Ressource sur le partage de state entre composants React pour débutants. Aborde la communication entre composants via props, la remontée du state au premier ancêtre commun, et le pattern state lifting. Contenu : images pédagogiques, exemples de code, challenge pratique (création d'un composant NavBar). Niveau débutant. Prérequis : React Basics 06.
-
-### React Basics 10 - Pokédex - Aller plus loin avec les événements
-- **ID** : 2381
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://github.com/simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements)
-- **Site** : [simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements/)
-- Ressource sur les événements en React pour débutants. Aborde les event listeners (onClick, onChange, onMouseLeave), la syntaxe camelCase, et le hook useEffect pour les événements spécifiques. Contenu : images pédagogiques, exemples de code, challenge pratique (alertes au démarrage et à la sélection de Pikachu). Niveau débutant. Prérequis : React Basics 09.
-
 ### Installer et utiliser Visual Studio Code
 - **ID** : 2114
 - **Domaine** : dev-web
@@ -492,3 +318,170 @@
 - **Dépôt** : [simplonco/design-maquetter-des-interfaces-utilisateur-web](https://github.com/simplonco/design-maquetter-des-interfaces-utilisateur-web)
 - **Site** : [simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web](https://simplonco.github.io/design-maquetter-des-interfaces-utilisateur-web/)
 - Ressource sur le maquettage web. Aborde les types de maquettes (wireframe, maquette, prototype), les outils (Figma, Balsamiq, Adobe XD) et la réalisation d'un wireframe complet. Contenu interactif : challenge de création de page "À propos". Solution avec plusieurs propositions d'élèves. Images pédagogiques. Niveau débutant.
+
+### MySQL 00 - Installer MySQL
+- **ID** : 2472
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-00-installer-mysql](https://github.com/simplonco/dev-web-mysql-00-installer-mysql)
+- **Site** : [simplonco.github.io/dev-web-mysql-00-installer-mysql](https://simplonco.github.io/dev-web-mysql-00-installer-mysql/)
+- Ressource d'installation de MySQL pour débutants. Aborde les concepts de SGBD, l'architecture client-serveur, l'installation sur Ubuntu, Mac OS et Windows, la configuration de MySQL, la création d'un nouvel utilisateur, et les premières requêtes SQL (CREATE USER, GRANT PRIVILEGES). Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, diagramme mermaid. Niveau débutant.
+
+### MySQL 01 - Introduction aux bases de données relationnelles
+- **ID** : 479
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://github.com/simplonco/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles)
+- **Site** : [simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles](https://simplonco.github.io/dev-web-mysql-01-introduction-aux-bases-de-donnees-relationnelles/)
+- Ressource d'introduction aux bases de données relationnelles pour débutants. Aborde le vocabulaire (SGBD, table, champ, clé primaire, tuple), le langage SQL, les premières requêtes (CREATE DATABASE, CREATE TABLE, ALTER, SHOW, DESCRIBE), et la création d'un nouvel utilisateur MySQL. Contenu : images pédagogiques, captures d'écran, blocs d'alertes, stepper pour Windows, challenge pratique. Niveau débutant. Prérequis : MySQL 00.
+
+### MySQL 02 - Récupérer des informations avec SELECT
+- **ID** : 484
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select](https://github.com/simplonco/dev-web-mysql-02-recuperer-des-informations-avec-select)
+- **Site** : [simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select](https://simplonco.github.io/dev-web-mysql-02-recuperer-des-informations-avec-select/)
+- Ressource sur la récupération de données avec SQL et la commande SELECT pour débutants. Aborde la syntaxe SELECT, les clauses WHERE, ORDER BY, LIMIT/OFFSET, les alias, et les opérateurs de comparaison. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01.
+
+### MySQL 03 - Manipulation des données
+- **ID** : 485
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
+- **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
+- Ressource sur la manipulation de données avec SQL pour débutants. Aborde les commandes INSERT, UPDATE, DELETE et TRUNCATE. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique d'ajout/modification/suppression d'écoles. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02.
+
+### MySQL 04.1 - Les bases de la modélisation : MCD
+- **ID** : 29
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://github.com/simplonco/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd](https://simplonco.github.io/dev-web-mysql-04-1-les-bases-de-la-modelisation-mcd/)
+- Ressource sur la modélisation de bases de données avec la méthode Merise pour débutants. Aborde les entités, les relations, les cardinalités, les attributs et les identifiants pour construire un MCD (Modèle Conceptuel de Données). Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation d'une bibliothèque. Niveau débutant.
+
+### MySQL 04.2 - Les bases de la modélisation : MLD
+- **ID** : 30
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld/)
+- Ressource sur le MLD (Modèle Logique de Données) pour débutants. Aborde la transformation d'un MCD en MLD avec les types de relations (One To One, One To Many, Many To Many), les clés étrangères, et la création de tables intermédiaires. Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation de potions. Niveau débutant. Prérequis : MySQL 04.1 (MCD).
+
+### MySQL 04.3 - Les bases de la modélisation : MPD
+- **ID** : 574
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
+- Ressource sur le MPD (Modèle Physique de Données) pour débutants. Aborde la transformation d'un MLD en scripts SQL CREATE TABLE, les types de données, les contraintes (NOT NULL, DEFAULT, AUTO_INCREMENT, PRIMARY KEY, FOREIGN KEY), et les bonnes pratiques de nommage. Contenu : images pédagogiques, alertes, challenge pratique de création de tables. Niveau débutant. Prérequis : MySQL 04.1 (MCD), MySQL 04.2 (MLD).
+
+### MySQL 05 - Les jointures
+- **ID** : 519
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
+- **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
+- Ressource sur les jointures SQL pour débutants. Aborde les jointures INNER JOIN, LEFT JOIN, RIGHT JOIN, les alias de tables et de champs, et l'utilisation des clés étrangères. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique de quidditch avec données de test. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03.
+
+### MySQL 06 - SQL Group By
+- **ID** : 520
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
+- **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
+- Ressource sur les fonctions d'agrégation et le regroupement de données avec SQL pour débutants. Aborde COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING, et les jointures avec fonctions d'agrégation. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
+
+### Node 01 - Introduction à Node.js et npm
+- **ID** : 1334
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-01-introduction-a-nodejs-et-npm](https://github.com/simplonco/dev-web-node-01-introduction-a-nodejs-et-npm)
+- **Site** : [simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm](https://simplonco.github.io/dev-web-node-01-introduction-a-nodejs-et-npm/)
+- Ressource d'introduction à Node.js et npm pour débutants. Aborde l'installation de Node.js, les concepts de modules (CommonJS et ES Modules), l'utilisation de NPM pour gérer les dépendances, et la création de premiers scripts. Contenu : images pédagogiques, quiz (7 questions), exercices pratiques avec solutions. Niveau débutant.
+
+### Node 02 - Utiliser un fichier .env
+- **ID** : 1024
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-02-utiliser-un-fichier-env](https://github.com/simplonco/dev-web-node-02-utiliser-un-fichier-env)
+- **Site** : [simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env](https://simplonco.github.io/dev-web-node-02-utiliser-un-fichier-env/)
+- Ressource sur l'utilisation des fichiers .env en Node.js pour débutants. Aborde le concept de variables d'environnement, la création et l'utilisation de fichiers .env, l'installation du paquet dotenv, et la sécurisation des données sensibles. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : Node 01.
+
+### Node 03 - Commence à linter et à formater ton code en utilisant Biome
+- **ID** : 1387
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://github.com/simplonco/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome)
+- **Site** : [simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome](https://simplonco.github.io/dev-web-node-03-commence-a-linter-et-a-formater-ton-code-en-utilisant-biome/)
+- Ressource sur l'utilisation de Biome pour linter et formater du code JavaScript/TypeScript pour débutants. Aborde l'installation de Biome, la configuration, les commandes de base et l'intégration avec VS Code. Contenu : images pédagogiques. Niveau débutant. Prérequis : Node 01.
+
+### Node 04 - Rechercher et choisir un paquet npm (ou pas !)
+- **ID** : 1797
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://github.com/simplonco/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas)
+- **Site** : [simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas](https://simplonco.github.io/dev-web-node-04-rechercher-et-choisir-un-paquet-npm-ou-pas/)
+- Ressource sur la recherche et le choix de paquets npm pour débutants. Aborde la nécessité d'ajouter un paquet, la recherche sur npmjs.com, les critères de sélection (popularité, maintenance, documentation), et les risques associés aux dépendances. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 01.
+
+### Node 05 - Concepts avancés et alternatives à la CLI de npm
+- **ID** : 1820
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://github.com/simplonco/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm)
+- **Site** : [simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm](https://simplonco.github.io/dev-web-node-05-concepts-avances-et-alternatives-a-la-cli-de-npm/)
+- Ressource sur les concepts avancés de npm et les alternatives à la CLI pour débutants. Aborde le versionnage sémantique, la gestion des dépendances et dépendances de développement, et les alternatives comme yarn et pnpm. Contenu : images pédagogiques, quiz. Niveau débutant. Prérequis : Node 04.
+
+### React Basics 01 - Pokédex - Introduction
+- **ID** : 2328
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-01-pokedex-introduction](https://github.com/simplonco/dev-web-react-basics-01-pokedex-introduction)
+- **Site** : [simplonco.github.io/dev-web-react-basics-01-pokedex-introduction](https://simplonco.github.io/dev-web-react-basics-01-pokedex-introduction/)
+- Ressource d'introduction à React pour débutants. Aborde la création de composants, la structure de base d'une application React, et les premiers pas avec JSX. Contenu : images pédagogiques. Niveau débutant.
+
+### React Basics 02 - Pokédex - Ton premier composant
+- **ID** : 2332
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant](https://github.com/simplonco/dev-web-react-basics-02-pokedex-ton-premier-composant)
+- **Site** : [simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant](https://simplonco.github.io/dev-web-react-basics-02-pokedex-ton-premier-composant/)
+- Ressource sur la création de composants en React pour débutants. Aborde la création de composants fonctionnels, la structure JSX, et les bonnes pratiques. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 01.
+
+### React Basics 03 - Pokédex - Afficher des données dans un composant
+- **ID** : 2336
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://github.com/simplonco/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant)
+- **Site** : [simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant](https://simplonco.github.io/dev-web-react-basics-03-pokedex-afficher-des-donnees-dans-un-composant/)
+- Ressource sur l'affichage de données dans les composants React pour débutants. Aborde l'interpolation de variables, les expressions JSX, et l'affichage de listes. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 02.
+
+### React Basics 04 - Pokédex - Passer des props
+- **ID** : 2374
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-04-pokedex-passer-des-props](https://github.com/simplonco/dev-web-react-basics-04-pokedex-passer-des-props)
+- **Site** : [simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props](https://simplonco.github.io/dev-web-react-basics-04-pokedex-passer-des-props/)
+- Ressource sur le passage de props en React pour débutants. Aborde la création de composants réutilisables, le passage de données parent-enfant, et la structure de l'arbre de composants. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 03.
+
+### React Basics 05 - Pokédex - Typer les props avec TypeScript
+- **ID** : 2375
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://github.com/simplonco/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript)
+- **Site** : [simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript](https://simplonco.github.io/dev-web-react-basics-05-pokedex-typer-les-props-avec-typescript/)
+- Ressource sur le typage des props avec TypeScript en React pour débutants. Aborde la création d'interfaces pour les props, le typage des composants, et les avantages de TypeScript dans un projet React. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 04.
+
+### React Basics 06 - Pokédex - Utiliser un state
+- **ID** : 2376
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state](https://github.com/simplonco/dev-web-react-basics-06-pokedex-utiliser-un-state)
+- **Site** : [simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state](https://simplonco.github.io/dev-web-react-basics-06-pokedex-utiliser-un-state/)
+- Ressource sur l'utilisation du state en React pour débutants. Aborde la déclaration avec useState, la gestion de l'état, et les mises à jour déclenchées par l'utilisateur. Contenu : images pédagogiques, solution séparée. Niveau débutant. Prérequis : React Basics 05.
+
+### React Basics 07 - Pokédex - Répéter un bloc d'affichage avec map
+- **ID** : 2378
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://github.com/simplonco/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map)
+- **Site** : [simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map](https://simplonco.github.io/dev-web-react-basics-07-pokedex-repet-un-bloc-d-affichage-avec-map/)
+- Ressource sur la répétition d'un bloc d'affichage avec map en React pour débutants. Aborde la méthode map, la prop key, l'utilisation de index comme key (et ses limites), le component mapping, et les méthodes de tableau (filter). Contenu : playgrounds interactifs (7), stepper pour le challenge, solution séparée. Niveau débutant. Prérequis : React Basics 01 à 06.
+
+### React Basics 08 - Pokédex - Le CSS dans React
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react](https://github.com/simplonco/dev-web-react-basics-08-pokedex-le-css-dans-react)
+- **Site** : [simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react](https://simplonco.github.io/dev-web-react-basics-08-pokedex-le-css-dans-react/)
+- Ressource sur le CSS dans React pour débutants. Aborde l'application de styles CSS via classes (className), attribut style (inline), et modules CSS. Contenu : images pédagogiques, exemples de code, avantages/inconvénients de chaque méthode. Niveau débutant. Prérequis : React Basics 07.
+
+### React Basics 09 - Pokédex - Partager un state
+- **ID** : 2377
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-09-pokedex-partager-un-state](https://github.com/simplonco/dev-web-react-basics-09-pokedex-partager-un-state)
+- **Site** : [simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state](https://simplonco.github.io/dev-web-react-basics-09-pokedex-partager-un-state/)
+- Ressource sur le partage de state entre composants React pour débutants. Aborde la communication entre composants via props, la remontée du state au premier ancêtre commun, et le pattern state lifting. Contenu : images pédagogiques, exemples de code, challenge pratique (création d'un composant NavBar). Niveau débutant. Prérequis : React Basics 06.
+
+### React Basics 10 - Pokédex - Aller plus loin avec les événements
+- **ID** : 2381
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://github.com/simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements)
+- **Site** : [simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements/)
+- Ressource sur les événements en React pour débutants. Aborde les event listeners (onClick, onChange, onMouseLeave), la syntaxe camelCase, et le hook useEffect pour les événements spécifiques. Contenu : images pédagogiques, exemples de code, challenge pratique (alertes au démarrage et à la sélection de Pikachu). Niveau débutant. Prérequis : React Basics 09.
