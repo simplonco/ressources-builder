@@ -1,12 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (1)
-
-### MySQL 04.3 - Les bases de la modélisation : MPD
-- **ID** : 574
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
-- **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
+## 🔄 En cours (0)
 
 ## ✅ Terminé (69)
 
@@ -65,6 +59,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://github.com/simplonco/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld)
 - **Site** : [simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld](https://simplonco.github.io/dev-web-mysql-04-2-les-bases-de-la-modelisation-mld/)
 - Ressource sur le MLD (Modèle Logique de Données) pour débutants. Aborde la transformation d'un MCD en MLD avec les types de relations (One To One, One To Many, Many To Many), les clés étrangères, et la création de tables intermédiaires. Contenu : images pédagogiques, alertes, blocs de solution inline, challenge pratique de modélisation de potions. Niveau débutant. Prérequis : MySQL 04.1 (MCD).
+
+### MySQL 04.3 - Les bases de la modélisation : MPD
+- **ID** : 574
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
+- **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
+- Ressource sur le MPD (Modèle Physique de Données) pour débutants. Aborde la transformation d'un MLD en scripts SQL CREATE TABLE, les types de données, les contraintes (NOT NULL, DEFAULT, AUTO_INCREMENT, PRIMARY KEY, FOREIGN KEY), et les bonnes pratiques de nommage. Contenu : images pédagogiques, alertes, challenge pratique de création de tables. Niveau débutant. Prérequis : MySQL 04.1 (MCD), MySQL 04.2 (MLD).
 
 ### JS - React - Props and State
 - **ID** : 1401
