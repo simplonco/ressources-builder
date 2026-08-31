@@ -1,19 +1,12 @@
 # Registre des contenus
 
-## 🔄 En cours (3)
+## 🔄 En cours (2)
 
 ### MySQL 04.3 - Les bases de la modélisation : MPD
 - **ID** : 574
 - **Domaine** : dev-web
 - **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
 - **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
-
-### MySQL 05 - Les jointures
-- **ID** : 519
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
-- **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
-- Prérequis : MySQL 01, MySQL 02, MySQL 03.
 
 ### MySQL 06 - SQL Group By
 - **ID** : 520
@@ -22,7 +15,7 @@
 - **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
 - Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
 
-## ✅ Terminé (67)
+## ✅ Terminé (68)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -51,6 +44,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-03-manipulation-des-donnees](https://github.com/simplonco/dev-web-mysql-03-manipulation-des-donnees)
 - **Site** : [simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees](https://simplonco.github.io/dev-web-mysql-03-manipulation-des-donnees/)
 - Ressource sur la manipulation de données avec SQL pour débutants. Aborde les commandes INSERT, UPDATE, DELETE et TRUNCATE. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique d'ajout/modification/suppression d'écoles. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02.
+
+### MySQL 05 - Les jointures
+- **ID** : 519
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
+- **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
+- Ressource sur les jointures SQL pour débutants. Aborde les jointures INNER JOIN, LEFT JOIN, RIGHT JOIN, les alias de tables et de champs, et l'utilisation des clés étrangères. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique de quidditch avec données de test. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03.
 
 ### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
