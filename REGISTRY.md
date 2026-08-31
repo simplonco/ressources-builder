@@ -1,6 +1,6 @@
 # Registre des contenus
 
-## 🔄 En cours (2)
+## 🔄 En cours (1)
 
 ### MySQL 04.3 - Les bases de la modélisation : MPD
 - **ID** : 574
@@ -8,14 +8,7 @@
 - **Dépôt** : [simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://github.com/simplonco/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd)
 - **Site** : [simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd](https://simplonco.github.io/dev-web-mysql-04-3-les-bases-de-la-modelisation-mpd/)
 
-### MySQL 06 - SQL Group By
-- **ID** : 520
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
-- **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
-- Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
-
-## ✅ Terminé (68)
+## ✅ Terminé (69)
 
 ### MySQL 00 - Installer MySQL
 - **ID** : 2472
@@ -51,6 +44,13 @@
 - **Dépôt** : [simplonco/dev-web-mysql-05-les-jointures](https://github.com/simplonco/dev-web-mysql-05-les-jointures)
 - **Site** : [simplonco.github.io/dev-web-mysql-05-les-jointures](https://simplonco.github.io/dev-web-mysql-05-les-jointures/)
 - Ressource sur les jointures SQL pour débutants. Aborde les jointures INNER JOIN, LEFT JOIN, RIGHT JOIN, les alias de tables et de champs, et l'utilisation des clés étrangères. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique de quidditch avec données de test. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03.
+
+### MySQL 06 - SQL Group By
+- **ID** : 520
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-mysql-06-sql-group-by](https://github.com/simplonco/dev-web-mysql-06-sql-group-by)
+- **Site** : [simplonco.github.io/dev-web-mysql-06-sql-group-by](https://simplonco.github.io/dev-web-mysql-06-sql-group-by/)
+- Ressource sur les fonctions d'agrégation et le regroupement de données avec SQL pour débutants. Aborde COUNT, SUM, AVG, MIN, MAX, GROUP BY, HAVING, et les jointures avec fonctions d'agrégation. Contenu : images pédagogiques, alertes, ressources externes, challenge pratique. SQL playgrounds interactifs dans les solutions. Niveau débutant. Prérequis : MySQL 01, MySQL 02, MySQL 03, MySQL 05.
 
 ### MySQL 04.1 - Les bases de la modélisation : MCD
 - **ID** : 29
