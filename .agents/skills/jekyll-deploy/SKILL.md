@@ -1,31 +1,34 @@
 ---
 name: jekyll-deploy
-description: Déploie un site Jekyll sur GitHub Pages et met à jour le registre des contenus. Crée le dépôt distant, active GitHub Pages, initialise Git, pousse le premier commit et archive la fiche.
+description: Déploie un site Jekyll sur GitHub Pages. Crée le dépôt distant, active GitHub Pages, initialise Git et pousse le premier commit. Ne gère pas l'archivage dans le registre — c'est une commande séparée.
 ---
 
 # Skill: Jekyll Deploy
 
-Déploie un site Jekyll existant sur GitHub Pages et gère l'archivage dans le registre.
+Déploie un site Jekyll existant sur GitHub Pages. Ce skill se concentre uniquement sur la création du dépôt distant, l'activation de GitHub Pages et le push initial.
 
 ## Quand utiliser ce skill
 
 - L'utilisateur veut pousser un dépôt Jekyll local vers GitHub
 - L'utilisateur veut activer GitHub Pages sur un dépôt
-- L'étape de déploiement d'une conversion de quest
-- L'étape finale de création d'une ressource (Assistant, From scratch, Conversion)
+- L'étape de déploiement d'une conversion de quest (après `jekyll-create`)
 
 ## Responsabilités
 
-1. Créer le dépôt distant sur GitHub
-2. Activer GitHub Pages
-3. Initialiser Git et pousser le premier commit
-4. **Mettre à jour le registre des contenus** (archivage)
+1. Vérifier l'état pré-requis (dossier local, dépôt distant absent, workflow présent)
+2. Créer le dépôt distant sur GitHub
+3. Activer GitHub Pages
+4. Initialiser Git et pousser le premier commit (après confirmation explicite)
+5. Vérifier que le déploiement a réellement réussi
+6. Mettre à jour les liens de la fiche `En cours` dans `REGISTRY.md`
 
 ## Prérequis
 
 - Le dossier du site Jekyll doit exister dans `repos/`
 - Le dossier doit contenir au minimum `_config.yml` et `README.md`
+- Le fichier `.github/workflows/jekyll.yml` doit être présent (sinon copier depuis le template)
 - L'outil `gh` (GitHub CLI) doit être installé et authentifié
+- Le dépôt ne doit pas déjà exister sur GitHub
 
 ## Flux de travail
 
@@ -37,7 +40,21 @@ Demander à l'utilisateur (si non renseigné) :
 - **Visibilité** : public (par défaut)
 - **Description** : description de la ressource (optionnel)
 
-### Étape 2 : Créer le dépôt distant
+### Étape 2 : Vérifications préalables
+
+1. **Vérifier que le dossier local existe** dans `repos/`
+2. **Vérifier que le dépôt n'existe pas déjà sur GitHub** :
+   ```bash
+   gh repo view simplonco/{repo-name} 2>&1
+   ```
+   Si le dépôt existe déjà → avertir l'utilisateur et demander s'il faut écraser ou annuler.
+3. **Vérifier que `jekyll.yml` est présent** dans `.github/workflows/` :
+   ```bash
+   ls repos/{repo-name}/.github/workflows/jekyll.yml
+   ```
+   Si absent → le copier depuis `templates/jekyll.yml`.
+
+### Étape 3 : Créer le dépôt distant
 
 ```bash
 gh repo create simplonco/{repo-name} \
@@ -48,15 +65,25 @@ gh repo create simplonco/{repo-name} \
   --license=none
 ```
 
-### Étape 3 : Activer GitHub Pages
+### Étape 4 : Activer GitHub Pages
 
 ```bash
 gh api repos/simplonco/{repo-name}/pages -X POST -f build_type=workflow
 ```
 
-Cela configure GitHub Pages pour utiliser le workflow GitHub Actions comme source de build.
+### Étape 5 : Git init, commit et push (AVEC CONFIRMATION EXPLICITE)
 
-### Étape 4 : Git init, commit et push
+**Avant d'exécuter**, demander une confirmation explicite à l'utilisateur (règle globale : jamais de push sans autorisation) :
+
+```
+Pret à pousser vers GitHub :
+  Depôt : simplonco/{repo-name}
+  Pages : https://simplonco.github.io/{repo-name}/
+
+Confirmer le push ? (oui/non)
+```
+
+Si confirmé :
 
 ```bash
 cd repos/{repo-name}
@@ -77,40 +104,33 @@ git commit -m "Initial commit: setup Jekyll site"
 git push -u origin main
 ```
 
-### Étape 5 : Archivage dans le registre
+### Étape 6 : Vérification post-push
 
-1. Lire `REGISTRY.md` section `🔄 En cours`
-2. Identifier la fiche correspondant à la ressource déployée :
-   - Chercher par slug du dépôt (`{domain}-{slug}`)
-   - Ou par titre si le slug ne correspond pas
-3. Si la fiche n'est pas trouvée :
-   - Avertir l'utilisateur
-   - Proposer de créer une nouvelle fiche dans `✅ Terminé`
-4. Si la fiche est trouvée :
-   - Générer un résumé en analysant le `README.md` du dépôt
-   - Demander à l'utilisateur de valider le résumé
-   - Déplacer la fiche de `🔄 En cours` → `✅ Terminé` avec le résumé
-   - Mettre à jour les compteurs dans les titres de section
-   - Maintenir l'ordre alphabétique par titre
+Vérifier que le déploiement a bien démarré :
 
-**Exemple de résumé :**
-```
-Ressource sur les variables JavaScript pour débutants. Aborde la création de variables (let, const, var), les règles de nommage (camelCase), la réassignation de valeurs, les opérateurs d'incrément (+++=), et la concaténation de strings. Contenu : ressources externes (javascript.info, YouTube), quiz (2 questions), challenge pratique (renommage de variables). Niveau débutant. Prérequis : JS Basics 01, JS Basics 02.
+```bash
+gh run list --repo simplonco/{repo-name} --limit 1
 ```
 
-### Étape 6 : Archivage fichiers
+Si le build échoue → afficher les logs et aider à diagnostiquer.
 
-Pour les quests converties, l'archivage est **automatique** après le déploiement :
-- Si le JSON source existe dans `quests/todo/` → appeler `quest-files-archive` pour déplacer le JSON et le dépôt local
-- Si pas de quest (création from scratch) → déplacer uniquement le dépôt local vers `repos/archives/`
+### Étape 7 : Mise à jour des liens dans le registre
 
-### Étape 7 : Confirmation
+**Ne pas déplacer la fiche vers Terminé** (c'est le rôle de `quest-files-archive`).
+
+Modifier uniquement les liens de la fiche existante dans `REGISTRY.md` section `🔄 En cours` :
+- Ajouter ou mettre à jour la ligne `**Dépôt**`
+- Ajouter ou mettre à jour la ligne `**Site**`
+
+La fiche reste dans `🔄 En cours` jusqu'à ce que l'utilisateur déclenche explicitement la commande `Archive` ou `Valide`.
+
+### Étape 8 : Confirmation
 
 Résumer les actions effectuées :
 - Dépôt GitHub créé : `https://github.com/simplonco/{repo-name}`
 - GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
-- Fiche dans le registre : `✅ Terminé` avec résumé
-- Archivage fichiers : effectué / non effectué (quests uniquement)
+- Fiche dans le registre : mise à jour des liens dans `🔄 En cours`
+- **L'archivage et le passage à Terminé sont des commandes séparées** (ex: `Archive quest-{id}`)
 
 ## Workflow GitHub Actions
 
@@ -184,6 +204,7 @@ Le build prend quelques minutes. Vérifier le statut dans l'onglet Actions du d�
 | `Pages not enabled` | GitHub Pages non activé | Exécuter `gh api .../pages -X POST` |
 | `Permission denied` | Pas les droits sur l'org | Vérifier l'authentification `gh auth status` |
 | Build échoue | Gemfile manquant ou incompatible | Vérifier que `Gemfile` est présent et à jour |
+| Dépôt déjà existant | Double déploiement | Vérifier avec `gh repo view` avant création |
 
 ---
 

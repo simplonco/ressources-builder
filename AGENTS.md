@@ -20,7 +20,7 @@ bundle install
 ### Conversion d'une quest
 
 ```
-Convertis quest-{id}.json en dépôt GitHub
+Convertis quest-{id}.json
 ```
 
 ### Créer une ressource Jekyll
@@ -35,10 +35,10 @@ Créer une ressource Jekyll
 Déploie le dépôt {slug} sur GitHub Pages
 ```
 
-### Archiver une quest
+### Valider et archiver une quest
 
 ```
-Archiver quest-{id}
+Valider et archiver quest-{id}
 ```
 
 ### Test local
@@ -59,39 +59,44 @@ Liste les quests en attente de conversion
 
 ```
 ressources-builder/
-├── .git/                          # Versionnement du projet principal
-├── .gitignore                     # Ignorer repos/, .DS_Store
-├── .opencode/skills/              # Skills opencode
-│   ├── quest-to-github/            # Orchestrateur (workflow complet)
-│   │   └── SKILL.md
-│   ├── jekyll-create/             # Création de ressources Jekyll
-│   │   ├── SKILL.md
-│   │   └── templates/             # Templates Jekyll
-│   │       ├── _config.yml
-│   │       ├── Gemfile
-│   │       ├── .gitignore
-│   │       └── jekyll.yml
-│   ├── jekyll-deploy/             # Déploiement GitHub Pages
-│   │   └── SKILL.md
-│   └── quest-files-archive/       # Archivage fichiers (JSON + repo local)
-│       └── SKILL.md
+├── .agents/                      # Prompts agents + skills partagés
+│   ├── quest-to-github.md        # Prompt agent opencode (création)
+│   ├── jekyll-deploy.md          # Prompt agent opencode (déploiement)
+│   ├── quest-files-archive.md    # Prompt agent opencode (validation/archivage)
+│   └── skills/                   # Skills partagés (tous assistants)
+│       ├── quest-to-github/      # Orchestrateur de création
+│       │   └── SKILL.md
+│       ├── jekyll-create/        # Création de ressources Jekyll
+│       │   ├── SKILL.md
+│       │   └── templates/        # Templates Jekyll
+│       │       ├── _config.yml
+│       │       ├── Gemfile
+│       │       ├── .gitignore
+│       │       └── jekyll.yml
+│       ├── jekyll-deploy/        # Déploiement GitHub Pages
+│       │   └── SKILL.md
+│       └── quest-files-archive/  # Validation et archivage
+│           └── SKILL.md
+├── .opencode/
+│   └── opencode.json             # Définition des agents opencode
 ├── quests/
-│   ├── todo/                      # JSON en attente de conversion
-│   └── archives/                  # JSON déjà convertis
-├── repos/                         # [IGNORÉ] Dépôts générés localement
-│   └── archives/                  # Dépôts archivés après push
-├── REGISTRY.md                    # Registre des contenus
-└── AGENTS.md                      # Ce fichier
+│   ├── todo/                     # JSON en attente de conversion
+│   └── archives/                 # JSON déjà convertis
+├── repos/                        # [IGNORÉ] Dépôts générés localement
+│   └── archives/                 # Dépôts archivés après push
+├── REGISTRY.md                   # Registre des contenus
+├── AGENTS.md                     # Instructions Codex / universel
+└── CLAUDE.md                     # Instructions Claude Code
 ```
 
 ### Skills
 
 | Skill | Rôle | Quand l'utiliser |
 |-------|------|------------------|
-| `quest-to-github` | Orchestrateur du workflow complet | Conversion d'une quest JSON en dépôt GitHub |
+| `quest-to-github` | Orchestrateur de création | Conversion d'une quest JSON en ressource Jekyll (création locale uniquement) |
 | `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
-| `jekyll-deploy` | Déploiement + archivage registre | Pousser un site Jekyll sur GitHub et mettre à jour le registre |
-| `quest-files-archive` | Archivage fichiers | Déplacer JSON et repo local après validation (quests uniquement) |
+| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub (sans archivage) |
+| `quest-files-archive` | Validation et archivage | Mettre la fiche en Terminé + archiver fichiers après relecture |
 
 ### Entrées
 
@@ -137,5 +142,15 @@ ressources-builder/
 1. Lire JSON depuis `quests/todo/`
 2. Créer `repos/{slug}/` avec fichiers Jekyll (via `jekyll-create`)
 3. Tester localement avec `bundle exec jekyll serve`
-4. Push vers GitHub + archivage registre (via `jekyll-deploy`)
-5. Archiver fichiers si quest (via `quest-files-archive`)
+4. Déploiement sur demande explicite (via `jekyll-deploy`)
+5. Validation + archivage sur demande explicite (via `quest-files-archive`)
+
+### Support multi-assistants
+
+| Assistant | Fichier de config | Skills |
+|-----------|-------------------|--------|
+| opencode | `.opencode/opencode.json` (agents) + `.agents/*.md` (prompts) | `.agents/skills/` |
+| Claude Code | `CLAUDE.md` (racine) | `.agents/skills/` |
+| Codex | `AGENTS.md` (ce fichier) | `.agents/skills/` |
+
+Les skills sont centralisés dans `.agents/skills/` et discoverés automatiquement par chaque assistant.

@@ -25,7 +25,7 @@ Assistant de création de ressources Jekyll utilisant le thème Simplonline.
 
 ```
 ressources-builder/
-├── .opencode/skills/jekyll-create/   # Ce skill
+├── .agents/skills/jekyll-create/   # Ce skill
 │   ├── SKILL.md
 │   └── templates/
 │       ├── _config.yml               # Configuration Jekyll

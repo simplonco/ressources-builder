@@ -1,8 +1,14 @@
 # Registre des contenus
 
-## 🔄 En cours (0)
+## 🔄 En cours (1)
 
-## ✅ Terminé (69)
+### Express 102 : without Express
+- **ID** : 383
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-express-102-without-express](https://github.com/simplonco/dev-web-express-102-without-express)
+- **Site** : [simplonco.github.io/dev-web-express-102-without-express](https://simplonco.github.io/dev-web-express-102-without-express/)
+
+## ✅ Terminé (71)
 
 ### Concevoir des prototypes
 - **ID** : 2333
@@ -157,6 +163,13 @@
 - **Dépôt** : [simplonco/dev-web-git-installer-et-configurer-git](https://github.com/simplonco/dev-web-git-installer-et-configurer-git)
 - **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
 - Ressource d'introduction à la gestion de versions. Aborde le concept de versions, l'utilisation de GitHub, Git en local, et le mode collaboratif (branches, conflits). Sert de point d'entrée vers les 5 ressources Git/GitHub. Contenu : diagramme mermaid, stepper avec prérequis. Niveau débutant.
+
+### Introduction à la méthodologie Agile et Scrum
+- **ID** : 1301
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://github.com/simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum)
+- **Site** : [simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum/)
+- Ressource d'introduction à la méthodologie Agile et Scrum pour débutants. Aborde l'histoire d'Agile, le manifeste agile et ses 12 principes, le parapluie agile, le framework Scrum (valeurs, équipe, Product Owner, product backlog, user stories avec critères INVEST, sprint, définition of done). Contenu : vidéos YouTube, images pédagogiques, quiz (4 questions). Niveau débutant.
 
 ### Installer et configurer Node
 - **ID** : 1376
@@ -485,3 +498,10 @@
 - **Dépôt** : [simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://github.com/simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements)
 - **Site** : [simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements/)
 - Ressource sur les événements en React pour débutants. Aborde les event listeners (onClick, onChange, onMouseLeave), la syntaxe camelCase, et le hook useEffect pour les événements spécifiques. Contenu : images pédagogiques, exemples de code, challenge pratique (alertes au démarrage et à la sélection de Pikachu). Niveau débutant. Prérequis : React Basics 09.
+
+### Scrum: Lancer un sprint
+- **ID** : 1303
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-scrum-lancer-un-sprint](https://github.com/simplonco/dev-web-scrum-lancer-un-sprint)
+- **Site** : [simplonco.github.io/dev-web-scrum-lancer-un-sprint](https://simplonco.github.io/dev-web-scrum-lancer-un-sprint/)
+- Ressource sur la méthode Scrum et le lancement de sprint pour débutants. Aborde la définition d'un sprint, la planification (sprint goal, planning poker), le daily scrum, le sprint board, le burndown chart et la rétrospective. Contenu : vidéos YouTube (4), images pédagogiques (8), ressources externes (Scrum Guide, applications mobiles). Niveau débutant.
