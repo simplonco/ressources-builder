@@ -71,19 +71,7 @@ gh repo create simplonco/{repo-name} \
 gh api repos/simplonco/{repo-name}/pages -X POST -f build_type=workflow
 ```
 
-### Étape 5 : Git init, commit et push (AVEC CONFIRMATION EXPLICITE)
-
-**Avant d'exécuter**, demander une confirmation explicite à l'utilisateur (règle globale : jamais de push sans autorisation) :
-
-```
-Pret à pousser vers GitHub :
-  Depôt : simplonco/{repo-name}
-  Pages : https://simplonco.github.io/{repo-name}/
-
-Confirmer le push ? (oui/non)
-```
-
-Si confirmé :
+### Étape 5 : Git init, commit et push
 
 ```bash
 cd repos/{repo-name}
@@ -131,6 +119,7 @@ Résumer les actions effectuées :
 - GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
 - Fiche dans le registre : mise à jour des liens dans `🔄 En cours`
 - **L'archivage et le passage à Terminé sont des commandes séparées** (ex: `Archive quest-{id}`)
+- Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Voulez-vous archiver la quest et passer la fiche à Terminé ?", "header": "Déploiement terminé", "options": [{"label": "Oui", "description": "Archiver et passer à Terminé"}, {"label": "Non", "description": "Laisser dans En cours"}] }] }` pour demander à l'utilisateur s'il veut archiver ou non.
 
 ## Workflow GitHub Actions
 

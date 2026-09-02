@@ -37,11 +37,8 @@ La conversion d'une quest se déroule en **3 étapes indépendantes**, chacune d
 
 ```
 ressources-builder/
-├── .agents/                      # Prompts agents + skills partagés
-│   ├── quest-to-github.md        # Prompt agent opencode (création)
-│   ├── jekyll-deploy.md          # Prompt agent opencode (déploiement)
-│   ├── quest-files-archive.md    # Prompt agent opencode (validation/archivage)
-│   └── skills/                   # Skills partagés (tous assistants)
+├── .agents/                      # Skills partagés
+│   └── skills/                   # Skills (chargés par l'agent build via l'outil `skill`)
 │       ├── quest-to-github/
 │       │   └── SKILL.md
 │       ├── jekyll-create/
@@ -56,7 +53,7 @@ ressources-builder/
 │       └── quest-files-archive/
 │           └── SKILL.md
 ├── .opencode/
-│   └── opencode.json             # Définition des agents opencode
+│   └── opencode.json             # Config opencode (agent build + temperature: 0)
 ├── quests/
 │   ├── todo/                          # JSON en attente
 │   └── archives/                      # JSON traités
@@ -78,17 +75,31 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 2. Chercher le `quest_id` dans toutes les fiches
 3. Si trouvé :
    - Informer l'utilisateur : "Cette quest a déjà été convertie : {URL_DU_DEPOT}"
-   - Demander confirmation pour continuer (écraser) ou annuler
+   - Appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Écraser ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }` pour continuer ou annuler
 4. Si non trouvé : continuer
 
 #### 1.2 Demander le domaine
 
-Demander à l'utilisateur la valeur de {domain} via liste de choix cliquable dans le terminal :
-- dev-web
-- data
-- infra
-- design
-- autre (préciser)
+**APPELER l'outil `question`** avec le format suivant (liste cliquable à sélection unique) :
+
+```json
+{
+  "questions": [{
+    "question": "Quel est le domaine de cette ressource ?",
+    "header": "Domaine",
+    "options": [
+      {"label": "dev-web", "description": "Développement web"},
+      {"label": "data", "description": "Data / IA"},
+      {"label": "infra", "description": "Infrastructure / DevOps"},
+      {"label": "design", "description": "Design / UI-UX"}
+    ]
+  }]
+}
+```
+
+L'option « saisir sa propre réponse » est ajoutée automatiquement par l'outil : elle couvre le cas « autre » — si choisie, demander le nom du domaine en texte libre.
+
+**NE JAMAIS** demander de taper le domaine au clavier.
 
 #### 1.3 Appeler jekyll-create (mode conversion)
 
@@ -147,7 +158,7 @@ Quand l'utilisateur demande de convertir plusieurs quests d'un coup (ex: "Conver
    2. quest-1024 (dépend de 1334)
    3. quest-1376 (dépend de 1334 et 1024)
    ```
-4. Demander confirmation avant de continuer
+4. Appeler l'outil `question` avec `{ "questions": [{ "question": "Ordre de conversion détecté : {liste}. Convertir dans cet ordre ?", "header": "Ordre", "options": [{"label": "Convertir dans cet ordre", "description": "Lancer la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }` avant de continuer
 
 #### Conversion séquentielle
 

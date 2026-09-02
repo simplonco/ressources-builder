@@ -34,7 +34,7 @@ gh repo view simplonco/{repo-name} --json name,createdAt
 Si le dépôt n'existe pas :
 - **Refuser l'archivage**
 - Informer l'utilisateur : "Le dépôt GitHub {repo-name} n'existe pas encore. Exécute d'abord `Déploie {slug}`."
-- Proposer de déployer maintenant (appeler `jekyll-deploy`) ou d'annuler
+- Proposer via l'outil `question` avec `{ "questions": [{ "question": "Le dépôt GitHub n'existe pas encore. Déployer maintenant ?", "header": "Dépôt", "options": [{"label": "Déployer maintenant", "description": "Appeler jekyll-deploy"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }`
 
 ### Étape 2 : Génération du résumé
 
@@ -50,7 +50,7 @@ Exemple de résumé :
 Ressource sur les variables JavaScript pour débutants. Aborde la création de variables (let, const, var), les règles de nommage (camelCase), la réassignation de valeurs, les opérateurs d'incrément (+++=), et la concaténation de strings. Contenu : ressources externes (javascript.info, YouTube), quiz (2 questions), challenge pratique. Niveau débutant. Prérequis : JS Basics 01, JS Basics 02.
 ```
 
-3. Demander à l'utilisateur de valider ou corriger le résumé avant de continuer
+3. Appeler l'outil `question` avec `{ "questions": [{ "question": "Résumé : {résumé}. Valider ou corriger ?", "header": "Résumé", "options": [{"label": "Valider le résumé", "description": "Continuer avec ce résumé"}, {"label": "Corriger", "description": "Modifier le résumé"}] }] }` avant de continuer
 
 ### Étape 3 : Déplacement de la fiche dans le registre
 

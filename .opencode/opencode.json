@@ -1,26 +1,11 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode-go/minimax-m2.5",
+  "model": "opencode-go/mimo-v2.5",
   "default_agent": "build",
 
   "agent": {
-    "quest-to-github": {
-      "description": "Create a Jekyll resource locally from a Quest JSON file. Handles conversion only — deployment and archiving are separate commands.",
-      "mode": "primary",
-      "temperature": 0,
-      "prompt": "{file:../.agents/quest-to-github.md}"
-    },
-    "jekyll-deploy": {
-      "description": "Deploy a Jekyll site to GitHub Pages. Creates the remote repository, enables Pages, and pushes the initial commit. Does not archive — that is a separate command.",
-      "mode": "primary",
-      "temperature": 0,
-      "prompt": "{file:../.agents/jekyll-deploy.md}"
-    },
-    "quest-archive": {
-      "description": "Validate and archive a quest after review. Moves the fiche to Terminated in the registry, then archives the files (JSON + local repo).",
-      "mode": "primary",
-      "temperature": 0,
-      "prompt": "{file:../.agents/quest-files-archive.md}"
+    "build": {
+      "temperature": 0
     }
   }
 }

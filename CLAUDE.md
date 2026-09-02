@@ -39,11 +39,8 @@ bundle exec jekyll serve --livereload
 
 ```
 ressources-builder/
-├── .agents/                      # Prompts agents + skills partagés
-│   ├── quest-to-github.md        # Prompt agent opencode (création)
-│   ├── jekyll-deploy.md          # Prompt agent opencode (déploiement)
-│   ├── quest-files-archive.md    # Prompt agent opencode (validation/archivage)
-│   └── skills/                   # Skills partagés (tous assistants)
+├── .agents/                      # Skills partagés
+│   └── skills/                   # Skills (chargés par l'agent build via l'outil `skill`)
 │       ├── quest-to-github/      # Orchestrateur de création
 │       │   └── SKILL.md
 │       ├── jekyll-create/        # Création de ressources Jekyll
@@ -58,7 +55,7 @@ ressources-builder/
 │       └── quest-files-archive/  # Validation et archivage
 │           └── SKILL.md
 ├── .opencode/
-│   └── opencode.json             # Définition des agents opencode
+│   └── opencode.json             # Config opencode (agent build + temperature: 0)
 ├── quests/
 │   ├── todo/                     # JSON en attente de conversion
 │   └── archives/                 # JSON déjà convertis

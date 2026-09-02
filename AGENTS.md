@@ -59,11 +59,8 @@ Liste les quests en attente de conversion
 
 ```
 ressources-builder/
-├── .agents/                      # Prompts agents + skills partagés
-│   ├── quest-to-github.md        # Prompt agent opencode (création)
-│   ├── jekyll-deploy.md          # Prompt agent opencode (déploiement)
-│   ├── quest-files-archive.md    # Prompt agent opencode (validation/archivage)
-│   └── skills/                   # Skills partagés (tous assistants)
+├── .agents/                      # Skills partagés
+│   └── skills/                   # Skills (chargés par l'agent build via l'outil `skill`)
 │       ├── quest-to-github/      # Orchestrateur de création
 │       │   └── SKILL.md
 │       ├── jekyll-create/        # Création de ressources Jekyll
@@ -78,7 +75,7 @@ ressources-builder/
 │       └── quest-files-archive/  # Validation et archivage
 │           └── SKILL.md
 ├── .opencode/
-│   └── opencode.json             # Définition des agents opencode
+│   └── opencode.json             # Config opencode (agent build + temperature: 0)
 ├── quests/
 │   ├── todo/                     # JSON en attente de conversion
 │   └── archives/                 # JSON déjà convertis
@@ -149,8 +146,8 @@ ressources-builder/
 
 | Assistant | Fichier de config | Skills |
 |-----------|-------------------|--------|
-| opencode | `.opencode/opencode.json` (agents) + `.agents/*.md` (prompts) | `.agents/skills/` |
+| opencode | `.opencode/opencode.json` (agent build) | `.agents/skills/` |
 | Claude Code | `CLAUDE.md` (racine) | `.agents/skills/` |
 | Codex | `AGENTS.md` (ce fichier) | `.agents/skills/` |
 
-Les skills sont centralisés dans `.agents/skills/` et discoverés automatiquement par chaque assistant.
+Les skills sont centralisés dans `.agents/skills/` et discoverés automatiquement par chaque assistant. Dans opencode, l'agent `build` (natif) charge les skills via l'outil `skill`.

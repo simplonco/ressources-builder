@@ -51,15 +51,12 @@ Quand l'utilisateur demande de créer une ressource Jekyll sans fichier JSON sou
 Poser les questions suivantes à l'utilisateur :
 
 **1. Besoin d'assistance pour le squelette ?**
-- Non → passer au mode "From scratch" (l'utilisateur fournit son propre markdown)
-- Oui → continuer
+Appeler l'outil `question` avec `{ "questions": [{ "question": "Besoin d'assistance pour le squelette ?", "header": "Squelette", "options": [{"label": "Oui", "description": "Continuer avec le questionnaire"}, {"label": "Non", "description": "Mode from scratch"}] }] }` :
+- **Oui** → continuer
+- **Non** → passer au mode "From scratch" (l'utilisateur fournit son propre markdown)
 
 **2. Quel domaine ?**
-- dev-web
-- data
-- infra
-- design
-- autre (préciser)
+Appeler l'outil `question` avec `{ "questions": [{ "question": "Quel est le domaine ?", "header": "Domaine", "options": [{"label": "dev-web", "description": "Développement web"}, {"label": "data", "description": "Data / IA"}, {"label": "infra", "description": "Infrastructure / DevOps"}, {"label": "design", "description": "Design / UI-UX"}] }] }`. NE JAMAIS demander de taper au clavier.
 
 **3. Objectifs et notions abordées ?**
 - Demander les objectifs pédagogiques et les notions techniques couvertes
@@ -68,22 +65,15 @@ Poser les questions suivantes à l'utilisateur :
 **4. Recherche de contenu similaire**
 - Lire `REGISTRY.md`
 - Chercher des ressources existantes dont le titre ou le résumé contient des mots-clés en relation avec les objectifs/notions
-- Si trouvé : afficher la liste et demander
-  - "La ressource [X] couvre déjà [Y]. Veux-tu t'en inspirer ou créer quelque chose de différent ?"
-  - Si "s'en inspirer" : proposer un lien vers le site existant comme référence
-  - Si "créer différent" : continuer
+   - Si trouvé : afficher la liste et appeler l'outil `question` avec `{ "questions": [{ "question": "La ressource [X] couvre déjà [Y]. Veux-tu t'en inspirer ou créer quelque chose de différent ?", "header": "Inspiration", "options": [{"label": "S'en inspirer", "description": "Utiliser comme référence"}, {"label": "Créer différent", "description": "Continuer avec autre chose"}] }] }` :
+     - **S'en inspirer** : proposer un lien vers le site existant comme référence
+     - **Créer différent** : continuer
 - Si pas trouvé : continuer
 
 **5. Quel serait le titre de ta ressource ?**
 
 **6. Veux-tu des contenus interactifs ?**
-Proposer une liste à cocher :
-- YouTube (vidéo intégrée)
-- Quiz
-- Stepper (pas à pas)
-- Playground interactif (HTML/CSS/JS)
-- Solution séparée (page dédiée)
-- Exercices avec solution inline (blocs dépliants)
+Appeler l'outil `question` avec `{ "questions": [{ "question": "Veux-tu des contenus interactifs ?", "header": "Interactif", "multiple": true, "options": [{"label": "YouTube", "description": "Vidéo intégrée"}, {"label": "Quiz", "description": "Questions à choix"}, {"label": "Stepper", "description": "Pas à pas"}, {"label": "Playground", "description": "HTML/CSS/JS interactif"}, {"label": "Solution séparée", "description": "Page dédiée"}, {"label": "Exercices inline", "description": "Blocs dépliants"}] }] }`. NE JAMAIS demander de taper au clavier.
 
 ### Étape 2 : Génération du squelette
 
@@ -154,10 +144,9 @@ Quand l'utilisateur fournit un fichier JSON de quest à convertir.
 1. **Vérifier si la quest a déjà été convertie** :
 - Lire `REGISTRY.md`
    - Chercher le `quest_id` dans les fiches
-   - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et demander confirmation pour continuer ou annuler
+   - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Continuer (écraser) ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }`
 
-2. **Demander le domaine** (si non renseigné) :
-   - dev-web, data, infra, design, autre
+2. **Demander le domaine** (si non renseigné) en appelant l'outil `question` avec `{ "questions": [{ "question": "Quel est le domaine ?", "header": "Domaine", "options": [{"label": "dev-web", "description": "Développement web"}, {"label": "data", "description": "Data / IA"}, {"label": "infra", "description": "Infrastructure / DevOps"}, {"label": "design", "description": "Design / UI-UX"}] }] }`. NE JAMAIS demander de taper au clavier.
 
 ### Étape 2 : Parse du JSON
 
@@ -241,7 +230,7 @@ Maintenir l'ordre alphabétique par titre.
 | ` ```sql live\n...\n``` ` | SQL Playground (`sql-playground.html`) |
 | ` ```quests\n2114\n``` ` | Lien vers le repo de la quest (utiliser REGISTRY.md) |
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
-| ` ````stepper\n...\n```` ` | Pass-through (plugin `jekyll-stepper`) |
+| ` ````stepper\n...\n```` ` ou ` ````stepper nonLinear\n...\n```` ` | Pass-through (plugin `jekyll-stepper`) |
 | ` ````solution\n...\n```` ` | `<details>` ou fichier `solution.md` séparé |
 | ` ```youtube\nURL\n``` ` | Lien markdown vers la vidéo |
 | ` ````tabs\n...\n```` ` | Dépliants `<details markdown="1">` avec `<summary>` |
