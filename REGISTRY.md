@@ -1,14 +1,8 @@
 # Registre des contenus
 
-## 🔄 En cours (1)
+## 🔄 En cours (0)
 
-### Express 102 : without Express
-- **ID** : 383
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-express-102-without-express](https://github.com/simplonco/dev-web-express-102-without-express)
-- **Site** : [simplonco.github.io/dev-web-express-102-without-express](https://simplonco.github.io/dev-web-express-102-without-express/)
-
-## ✅ Terminé (71)
+## ✅ Terminé (79)
 
 ### Concevoir des prototypes
 - **ID** : 2333
@@ -79,6 +73,20 @@
 - **Dépôt** : [simplonco/dev-web-css-imbrique](https://github.com/simplonco/dev-web-css-imbrique)
 - **Site** : [simplonco.github.io/dev-web-css-imbrique](https://simplonco.github.io/dev-web-css-imbrique/)
 - Ressource sur le CSS imbriqué (nesting) pour développeurs web intermédiaires. Aborde la syntaxe du nesting natif (disponible depuis 2023), l'utilisation du `&` pour les pseudo-classes/éléments, la comparaison CSS classique vs imbriqué. Ressources externes : MDN, Sass, Less. Contenu interactif : playground avec sandbox HTML/CSS/JS, challenge de fork pour pratiquer sur un composant `<nav>`.
+
+### Express 101 : part of your symphony
+- **ID** : 2933
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-express-101-part-of-your-symphony](https://github.com/simplonco/dev-web-express-101-part-of-your-symphony)
+- **Site** : [simplonco.github.io/dev-web-express-101-part-of-your-symphony](https://simplonco.github.io/dev-web-express-101-part-of-your-symphony/)
+- Ressource d'introduction à Express.js pour développeurs intermédiaires. Aborde l'architecture client-serveur, la création d'une application Express, les routes, les middlewares, et le rendu de vues. Contenu : stepper avec prérequis, images pédagogiques, exercices pratiques. Niveau intermédiaire. Prérequis : bases JS, callbacks, Node.js.
+
+### Express 102 : without Express
+- **ID** : 383
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-express-102-without-express](https://github.com/simplonco/dev-web-express-102-without-express)
+- **Site** : [simplonco.github.io/dev-web-express-102-without-express](https://simplonco.github.io/dev-web-express-102-without-express/)
+- Ressource sur la création de serveurs web sans Express pour développeurs intermédiaires. Aborde le module node:http, l'architecture client-serveur, et la création d'applications serveur avec le module natif. Contenu : stepper avec prérequis, images pédagogiques, exercices pratiques. Niveau intermédiaire. Prérequis : Express 101.
 
 ### Git/GitHub 1 : Découvrir GitHub
 - **ID** : 2133
@@ -164,13 +172,6 @@
 - **Site** : [simplonco.github.io/dev-web-git-installer-et-configurer-git](https://simplonco.github.io/dev-web-git-installer-et-configurer-git/)
 - Ressource d'introduction à la gestion de versions. Aborde le concept de versions, l'utilisation de GitHub, Git en local, et le mode collaboratif (branches, conflits). Sert de point d'entrée vers les 5 ressources Git/GitHub. Contenu : diagramme mermaid, stepper avec prérequis. Niveau débutant.
 
-### Introduction à la méthodologie Agile et Scrum
-- **ID** : 1301
-- **Domaine** : dev-web
-- **Dépôt** : [simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://github.com/simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum)
-- **Site** : [simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum/)
-- Ressource d'introduction à la méthodologie Agile et Scrum pour débutants. Aborde l'histoire d'Agile, le manifeste agile et ses 12 principes, le parapluie agile, le framework Scrum (valeurs, équipe, Product Owner, product backlog, user stories avec critères INVEST, sprint, définition of done). Contenu : vidéos YouTube, images pédagogiques, quiz (4 questions). Niveau débutant.
-
 ### Installer et configurer Node
 - **ID** : 1376
 - **Domaine** : dev-web
@@ -185,6 +186,13 @@
 - **Site** : [simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code](https://simplonco.github.io/dev-web-installer-et-utiliser-visual-studio-code/)
 - Ressource d'introduction à l'éditeur Visual Studio Code pour débutants. Couvre l'installation, la présentation de l'interface (explorer, extensions, source control), la création de fichiers et dossiers, l'écriture de code avec auto-complétion et suggestions, les raccourcis clavier et les paramètres de personnalisation. Niveau débutant. Propose des liens externes vers la page de téléchargement VS Code et VSCodium (alternative libre). Contenu interactif : blocs d'exercices et alertes.
 
+### Introduction à la méthodologie Agile et Scrum
+- **ID** : 1301
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://github.com/simplonco/dev-web-introduction-a-la-methodologie-agile-et-scrum)
+- **Site** : [simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum](https://simplonco.github.io/dev-web-introduction-a-la-methodologie-agile-et-scrum/)
+- Ressource d'introduction à la méthodologie Agile et Scrum pour débutants. Aborde l'histoire d'Agile, le manifeste agile et ses 12 principes, le parapluie agile, le framework Scrum (valeurs, équipe, Product Owner, product backlog, user stories avec critères INVEST, sprint, définition of done). Contenu : vidéos YouTube, images pédagogiques, quiz (4 questions). Niveau débutant.
+
 ### JS - First script
 - **ID** : 834
 - **Domaine** : dev-web
@@ -198,6 +206,13 @@
 - **Dépôt** : [simplonco/dev-web-js-manipulation-du-dom](https://github.com/simplonco/dev-web-js-manipulation-du-dom)
 - **Site** : [simplonco.github.io/dev-web-js-manipulation-du-dom](https://simplonco.github.io/dev-web-js-manipulation-du-dom/)
 - Ressource de révision sur la manipulation du DOM en JavaScript. Aborde les sélecteurs (getElementById, querySelector, querySelectorAll), la modification de contenu (innerHTML, textContent, value), les classes CSS (classList.add/remove), et la création d'éléments (createElement, appendChild). Contenu : playgrounds interactifs (3), code de départ dans HTML. Niveau débutant. Prérequis : JS 04, JS 06.
+
+### JS - React & Express
+- **ID** : 613
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-react-express](https://github.com/simplonco/dev-web-js-react-express)
+- **Site** : [simplonco.github.io/dev-web-js-react-express](https://simplonco.github.io/dev-web-js-react-express/)
+- Ressource sur la communication entre front-end React et back-end Express pour développeurs intermédiaires. Aborde la création d'applications indépendantes, les requêtes fetch, les routes Express, et la configuration CORS. Contenu : stepper avec exercices pratiques, images pédagogiques, liens vers ressources complémentaires. Niveau intermédiaire. Prérequis : bases avancées JS, méthodes fonctionnelles des tableaux.
 
 ### JS Basics 01 - Qu'est-ce que JavaScript
 - **ID** : 1262
@@ -317,6 +332,13 @@
 - **Dépôt** : [simplonco/dev-web-js-intermediaire-03-affectation-par-decomposition](https://github.com/simplonco/dev-web-js-intermediaire-03-affectation-par-decomposition)
 - **Site** : [simplonco.github.io/dev-web-js-intermediaire-03-affectation-par-decomposition](https://simplonco.github.io/dev-web-js-intermediaire-03-affectation-par-decomposition/)
 - Ressource sur l'affectation par décomposition en JavaScript pour débutants. Aborde la décomposition de tableaux, d'objets, la syntaxe rest, et l'échange de variables. Contenu : playground interactif (1), codesandboxes (2), images pédagogiques (1), exercices avec solutions. Niveau débutant. Prérequis : JS Basics 03, JS Basics 04.
+
+### JS Intermédiaire 04 - "Fetcher" des données depuis une API
+- **ID** : 2373
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-js-intermediaire-04-fetcher-des-donnees-depuis-une-api](https://github.com/simplonco/dev-web-js-intermediaire-04-fetcher-des-donnees-depuis-une-api)
+- **Site** : [simplonco.github.io/dev-web-js-intermediaire-04-fetcher-des-donnees-depuis-une-api](https://simplonco.github.io/dev-web-js-intermediaire-04-fetcher-des-donnees-depuis-une-api/)
+- Ressource sur l'utilisation de l'API fetch en JavaScript pour récupérer des données depuis une API. Aborde la syntaxe de base de fetch(), la gestion des réponses (response.ok, status, json, text), les erreurs réseau et HTTP, et les méthodes HTTP (GET, POST). Contenu : exemples de code, gestion des erreurs, méthodes HTTP. Niveau intermédiaire.
 
 ### Les composants d'interface utilisateur
 - **ID** : 2726
@@ -498,6 +520,34 @@
 - **Dépôt** : [simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://github.com/simplonco/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements)
 - **Site** : [simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements](https://simplonco.github.io/dev-web-react-basics-10-pokedex-aller-plus-loin-avec-les-evenements/)
 - Ressource sur les événements en React pour débutants. Aborde les event listeners (onClick, onChange, onMouseLeave), la syntaxe camelCase, et le hook useEffect pour les événements spécifiques. Contenu : images pédagogiques, exemples de code, challenge pratique (alertes au démarrage et à la sélection de Pikachu). Niveau débutant. Prérequis : React Basics 09.
+
+### React Intermédiaire 01 - Fetcher des données depuis une API avec React
+- **ID** : 1450
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-intermediaire-01-fetcher-des-donnees-depuis-une-api-avec-react](https://github.com/simplonco/dev-web-react-intermediaire-01-fetcher-des-donnees-depuis-une-api-avec-react)
+- **Site** : [simplonco.github.io/dev-web-react-intermediaire-01-fetcher-des-donnees-depuis-une-api-avec-react](https://simplonco.github.io/dev-web-react-intermediaire-01-fetcher-des-donnees-depuis-une-api-avec-react/)
+- Ressource sur l'utilisation de fetch dans une application React pour récupérer des données depuis une API pour développeurs intermédiaires. Aborde la création de composants (EmployeeCard), la récupération de données avec fetch, la gestion des erreurs et l'état de chargement. Contenu : image d'introduction, explications sur la déstructuration avec liens externes (simonsmith.io, wesbos.com), exemples de code complets, challenge avec critères de validation. Niveau intermédiaire.
+
+### React Intermédiaire 02 - Context API
+- **ID** : 1872
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-intermediaire-02-context-api](https://github.com/simplonco/dev-web-react-intermediaire-02-context-api)
+- **Site** : [simplonco.github.io/dev-web-react-intermediaire-02-context-api](https://simplonco.github.io/dev-web-react-intermediaire-02-context-api/)
+- Ressource sur le Context API dans React pour développeurs intermédiaires. Aborde le concept de prop-drilling, la création et la consommation d'un contexte avec createContext et useContext, la modification de l'état dans le contexte. Contenu : images pédagogiques (3), exemples de code (applications complètes), challenge pratique avec critères de validation. Niveau intermédiaire.
+
+### React Intermédiaire 03.1 - Formulaires et composants contrôlés
+- **ID** : 1447
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-intermediaire-03-1-formulaires-et-composants-controllers](https://github.com/simplonco/dev-web-react-intermediaire-03-1-formulaires-et-composants-controllers)
+- **Site** : [simplonco.github.io/dev-web-react-intermediaire-03-1-formulaires-et-composants-controllers](https://simplonco.github.io/dev-web-react-intermediaire-03-1-formulaires-et-composants-controllers/)
+- Ressource sur les formulaires en React pour développeurs intermédiaires. Aborde les rappels sur les formulaires HTML (attributs name et value), les champs non contrôlés (gestion DOM) et les champs contrôlés (gestion state), avec les limitations des composants non contrôlés. Contenu : exemples interactifs (playgrounds), quiz (5 questions). Niveau intermédiaire.
+
+### React Intermédiaire 03.2 - Contrôler la saisie dans un formulaire via le state
+- **ID** : 1791
+- **Domaine** : dev-web
+- **Dépôt** : [simplonco/dev-web-react-intermediaire-03-2-controle-la-saisie-dans-un-formulaire-via-le-state](https://github.com/simplonco/dev-web-react-intermediaire-03-2-controle-la-saisie-dans-un-formulaire-via-le-state)
+- **Site** : [simplonco.github.io/dev-web-react-intermediaire-03-2-controle-la-saisie-dans-un-formulaire-via-le-state](https://simplonco.github.io/dev-web-react-intermediaire-03-2-controle-la-saisie-dans-un-formulaire-via-le-state/)
+- Ressource sur le contrôle de la saisie dans les formulaires React pour développeurs intermédiaires. Aborde la liaison state/input, les gestionnaires d'événements (onChange, onSubmit), la limitation de saisie avec rendu conditionnel, et l'ajout d'indicateurs visuels. Contenu : application complète multi-composants (QuoteForm, QuoteList, QuoteCard avec CSS), challenge avec template de départ et critères de validation. Niveau intermédiaire.
 
 ### Scrum: Lancer un sprint
 - **ID** : 1303
