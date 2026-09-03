@@ -36,7 +36,11 @@ ressources-builder/
 │   ├── todo/                         # JSON en attente
 │   └── archives/                     # JSON traités
 ├── repos/                            # Dépôts générés (sortie)
-├── REGISTRY.md                       # Registre des contenus
+├── registry.jsonl                    # Registre source de vérité (JSONL)
+├── registry/                         # Registres par domaine (tableaux générés)
+│   ├── dev-web.md
+│   └── design.md
+├── REGISTRY.md                       # Index du registre (liens vers domaines)
 └── AGENTS.md
 ```
 
@@ -63,65 +67,156 @@ Appeler l'outil `question` avec `{ "questions": [{ "question": "Quel est le doma
 - Analyser ces informations pour la recherche de contenu similaire
 
 **4. Recherche de contenu similaire**
-- Lire `REGISTRY.md`
-- Chercher des ressources existantes dont le titre ou le résumé contient des mots-clés en relation avec les objectifs/notions
-   - Si trouvé : afficher la liste et appeler l'outil `question` avec `{ "questions": [{ "question": "La ressource [X] couvre déjà [Y]. Veux-tu t'en inspirer ou créer quelque chose de différent ?", "header": "Inspiration", "options": [{"label": "S'en inspirer", "description": "Utiliser comme référence"}, {"label": "Créer différent", "description": "Continuer avec autre chose"}] }] }` :
-     - **S'en inspirer** : proposer un lien vers le site existant comme référence
-     - **Créer différent** : continuer
-- Si pas trouvé : continuer
+- Découper le sujet en mots individuels (ex : « React Context » → `react`, `context`)
+- **Passage 1** : un `grep -i "<mot>" registry.jsonl` par mot, union des résultats (dédoublonner par slug) :
+  ```bash
+  grep -i "react" registry.jsonl
+  grep -i "context" registry.jsonl
+  ```
+  Extraire les champs `title`, `site_url` et `repo_url` de chaque ligne retournée.
+- **Passage 2** (si le passage 1 donne 0 résultat) : réessayer avec synonymes, traductions françaises ou termes élargis (ex : `context` → `état`, `state`, `composant`, `props`)
+- Si trouvé : afficher les ressources avec des liens cliquables :
+  ```
+  Ressources similaires trouvées :
+  - [Titre](site_url)
+  ```
+  Si `site_url` vide (ressource non déployée) → `[Titre](repo_url)`.
+  Si plusieurs résultats, demander d'abord lequel est concerné (même logique de résolution que `create-variant`). Puis appeler l'outil `question` avec `{ "questions": [{ "question": "La ressource [X] couvre déjà [Y]. Que veux-tu faire ?", "header": "Inspiration", "options": [{"label": "S'en inspirer", "description": "Utiliser comme référence"}, {"label": "Créer une variante", "description": "Cloner la ressource existante et la modifier"}, {"label": "Créer différent", "description": "Continuer avec autre chose"}] }] }` :
+   - **S'en inspirer** : proposer un lien vers le site existant comme référence, puis continuer le questionnaire (étape 5)
+   - **Créer une variante** : déléguer au skill `create-variant` avec le titre de la ressource parente. Le questionnaire s'arrête ici — le skill crée le clone et la fiche JSONL.
+   - **Créer différent** : continuer le questionnaire (étape 5)
+- Si pas trouvé après les deux passages : continuer (étape 5)
 
 **5. Quel serait le titre de ta ressource ?**
 
 **6. Veux-tu des contenus interactifs ?**
-Appeler l'outil `question` avec `{ "questions": [{ "question": "Veux-tu des contenus interactifs ?", "header": "Interactif", "multiple": true, "options": [{"label": "YouTube", "description": "Vidéo intégrée"}, {"label": "Quiz", "description": "Questions à choix"}, {"label": "Stepper", "description": "Pas à pas"}, {"label": "Playground", "description": "HTML/CSS/JS interactif"}, {"label": "Solution séparée", "description": "Page dédiée"}, {"label": "Exercices inline", "description": "Blocs dépliants"}] }] }`. NE JAMAIS demander de taper au clavier.
+Appeler l'outil `question` avec `{ "questions": [{ "question": "Veux-tu des contenus interactifs ?", "header": "Interactif", "multiple": true, "options": [{"label": "YouTube", "description": "Vidéo intégrée"}, {"label": "Quiz", "description": "Questions à choix"}, {"label": "Stepper", "description": "Pas à pas"}, {"label": "Playground", "description": "HTML/CSS/JS interactif"}, {"label": "SQL Playground", "description": "Éditeur SQL interactif"}, {"label": "Solution cachée", "description": "Section dépliable inline"}, {"label": "Solution séparée", "description": "Page dédiée"}, {"label": "Exercices inline", "description": "Blocs dépliants"}] }] }`. NE JAMAIS demander de taper au clavier.
 
-### Étape 2 : Génération du squelette
+### Étape 2 : Génération du squelette minimal
 
-En fonction des réponses, générer un fichier markdown avec :
+**IMPORTANT** : Ne PAS générer de contenu beyond le squelette. Ne pas rédiger d'objectifs, de notions ni de texte explicatif. Laisser des placeholders `[À compléter]`. Le rôle du squelette est de poser la structure et les artefacts, pas de rédiger.
 
-1. **Front matter** :
-```yaml
+En fonction des réponses, générer un fichier markdown `README.md` avec :
+
+**1. Structure de base** :
+```markdown
 ---
 title: "{{TITLE}}"
 description: "{{DESCRIPTION}}"
 show_toc: true
 ---
-```
 
-2. **Structure de base** :
-```markdown
 # {{TITLE}}
 
 > #### 🎯 Objectifs
-> - {{OBJECTIVE_1}}
-> - {{OBJECTIVE_2}}
+> - [À compléter]
 
 ## Notions abordées
 
-- {{NOTION_1}}
-- {{NOTION_2}}
+- [À compléter]
+
+## Contenu
+
+[À compléter]
 ```
 
-3. **Blocs interactifs** (selon les choix) :
-- YouTube : ```youtube\nURL\n```
-- Quiz : `{% include quiz.html data=quiz_data %}`
-- Stepper : ````stepper\n...\n````
-- Playground : `{% include playground.html %}`
-- Solution : `<details markdown="1">` ou fichier séparé
-- Exercices : blocs `xtext arrow`
+**2. Artefacts préconfigurés** (ajoutés après la section « Contenu » selon les choix question 6) :
+
+**YouTube** — thumbnail auto-convertie en iframe :
+```markdown
+[![Titre de la vidéo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/VIDEO_ID)
+```
+
+**Quiz** — include du thème :
+```markdown
+{% capture quiz_data %}
+[{"question": "Question exemple ?", "options": ["Réponse A", "Réponse B", "Réponse C", "Réponse D"], "correct": 0}]
+{% endcapture %}
+{% include quiz.html data=quiz_data %}
+```
+
+**Stepper** — plugin `jekyll-stepper` (4 backticks) :
+```markdown
+````stepper
+# Étape 1 : [À compléter]
+[Contenu de l'étape 1]
+
+# Étape 2 : [À compléter]
+[Contenu de l'étape 2]
+````
+```
+
+**Playground** — include du thème :
+```markdown
+{% capture my_html %}
+<h1>[À compléter]</h1>
+{% endcapture %}
+
+{% include playground.html id="demo" initial_html=my_html %}
+```
+
+**SQL Playground** — include du thème (éditeur SQL + sql.js WASM) :
+```markdown
+{% capture db_schema %}
+CREATE TABLE exemple (
+  id INTEGER PRIMARY KEY,
+  nom TEXT NOT NULL
+);
+
+INSERT INTO exemple VALUES (1, 'Alice');
+{% endcapture %}
+
+{% capture initial_query %}
+SELECT * FROM exemple;
+{% endcapture %}
+
+{% include sql-playground.html
+  id="sql-demo"
+  schema=db_schema
+  query=initial_query
+%}
+```
+
+**Solution cachée** — section dépliable inline (documentation thème) :
+```markdown
+<details markdown="1">
+<summary>Voir la solution</summary>
+
+[À compléter]
+
+</details>
+```
+
+**Solution séparée** — fichier `solution.md` séparé :
+- Créer `solution.md` avec le front matter prérempli :
+```yaml
+---
+title: "{{TITLE}} - Solution"
+description: "{{DESCRIPTION}}"
+show_toc: true
+parent: "{{TITLE}}"
+---
+```
+Plus `[À compléter]` dans le corps.
+
+**Exercices** — blockquote Jekyll native (pas `xtext arrow`) :
+```markdown
+> #### 🎯 À toi de jouer !
+> [Consigne de l'exercice à compléter]
+```
 
 ### Étape 3 : Enregistrement dans le registre
 
-Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
 
-```markdown
-### {{TITRE_SANS_EMOJIS}}
-- **Domaine** : {{DOMAIN}}
-- **Dépôt** : [simplonco/{{DOMAIN}}-{{SLUG}}](https://github.com/simplonco/{{DOMAIN}}-{{SLUG}})
-- **Site** : [simplonco.github.io/{{DOMAIN}}-{{SLUG}}](https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/)
+```json
+{"title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
 ```
 
-Maintenir l'ordre alphabétique par titre dans la section.
+Puis régénérer le registre du domaine :
+```bash
+python3 scripts/generate-registry.py
+```
 
 ### Étape 4 : Créer le dépôt local
 
@@ -135,6 +230,81 @@ Maintenir l'ordre alphabétique par titre dans la section.
 
 ---
 
+## Mode From scratch
+
+Quand l'utilisateur choisit de créer une ressource sans questionnaire (fournit son propre markdown).
+
+### Étape 1 : Demander le markdown
+
+Demander à l'utilisateur de fournir son contenu markdown.
+
+### Étape 2 : Recherche de contenu similaire
+
+Extraire le titre du markdown fourni (premier `# Titre` ou front matter `title`).
+
+Découper le sujet en mots individuels (ex : « CSS Variables » → `css`, `variables`).
+
+- **Passage 1** : un `grep -i "<mot>" registry.jsonl` par mot, union des résultats (dédoublonner par slug) :
+  ```bash
+  grep -i "css" registry.jsonl
+  grep -i "variables" registry.jsonl
+  ```
+  Extraire les champs `title`, `site_url` et `repo_url` de chaque ligne retournée.
+- **Passage 2** (si passage 1 donne 0 résultat) : réessayer avec synonymes, traductions françaises ou termes élargis
+- Si trouvé : afficher les ressources avec des liens cliquables :
+  ```
+  Ressources similaires trouvées :
+  - [Titre](site_url)
+  ```
+  Si `site_url` vide (ressource non déployée) → `[Titre](repo_url)`.
+  Si plusieurs résultats, demander d'abord lequel est concerné. Puis appeler l'outil `question` avec `{ "questions": [{ "question": "La ressource [X] couvre déjà [Y]. Que veux-tu faire ?", "header": "Inspiration", "options": [{"label": "S'en inspirer", "description": "Utiliser comme référence"}, {"label": "Créer une variante", "description": "Cloner la ressource existante et la modifier"}, {"label": "Créer différent", "description": "Continuer avec mon propre contenu"}] }] }` :
+    - **S'en inspirer** : proposer un lien vers le site existant comme référence, puis passer à l'étape 3
+    - **Créer une variante** : déléguer au skill `create-variant` avec le titre de la ressource parente. Le workflow s'arrête ici.
+    - **Créer différent** : passer à l'étape 3
+- Si pas trouvé après les deux passages : passer directement à l'étape 3
+
+### Étape 3 : Domaine
+
+Demander le domaine :
+```json
+{
+  "questions": [{
+    "question": "Quel est le domaine ?",
+    "header": "Domaine",
+    "options": [
+      {"label": "dev-web", "description": "Développement web"},
+      {"label": "data", "description": "Data / IA"},
+      {"label": "infra", "description": "Infrastructure / DevOps"},
+      {"label": "design", "description": "Design / UI-UX"}
+    ]
+  }]
+}
+```
+
+### Étape 4 : Créer le dépôt local
+
+1. Slugifier le titre → `{SLUG}`
+2. Créer le dossier `repos/{{DOMAIN}}-{{SLUG}}/`
+3. Copier les templates Jekyll depuis `templates/`
+4. Remplacer les placeholders dans `_config.yml`
+5. Écrire le fichier `README.md` avec le markdown fourni par l'utilisateur
+6. Créer le dossier `images/`
+
+### Étape 5 : Enregistrement dans le registre
+
+Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
+
+```json
+{"title": "{{TITRE}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "", "site_url": ""}
+```
+
+Puis régénérer le registre :
+```bash
+python3 scripts/generate-registry.py
+```
+
+---
+
 ## Mode Conversion
 
 Quand l'utilisateur fournit un fichier JSON de quest à convertir.
@@ -142,8 +312,9 @@ Quand l'utilisateur fournit un fichier JSON de quest à convertir.
 ### Étape 1 : Vérifications préliminaires
 
 1. **Vérifier si la quest a déjà été convertie** :
-- Lire `REGISTRY.md`
-   - Chercher le `quest_id` dans les fiches
+   ```bash
+   grep "\"id\":{{quest_id}}" registry.jsonl
+   ```
    - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Continuer (écraser) ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }`
 
 2. **Demander le domaine** (si non renseigné) en appelant l'outil `question` avec `{ "questions": [{ "question": "Quel est le domaine ?", "header": "Domaine", "options": [{"label": "dev-web", "description": "Développement web"}, {"label": "data", "description": "Data / IA"}, {"label": "infra", "description": "Infrastructure / DevOps"}, {"label": "design", "description": "Design / UI-UX"}] }] }`. NE JAMAIS demander de taper au clavier.
@@ -199,17 +370,16 @@ Appliquer les mappings de syntaxe (voir section "Règles de conversion" ci-desso
 
 ### Étape 8 : Enregistrement dans le registre
 
-Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
 
-```markdown
-### {{TITRE_SANS_EMOJIS}}
-- **ID** : {{quest_id}}
-- **Domaine** : {{DOMAIN}}
-- **Dépôt** : [simplonco/{{DOMAIN}}-{{SLUG}}](https://github.com/simplonco/{{DOMAIN}}-{{SLUG}})
-- **Site** : [simplonco.github.io/{{DOMAIN}}-{{SLUG}}](https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/)
+```json
+{"id": {{quest_id}}, "title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
 ```
 
-Maintenir l'ordre alphabétique par titre.
+Puis régénérer le registre du domaine :
+```bash
+python3 scripts/generate-registry.py
+```
 
 ---
 
@@ -228,7 +398,7 @@ Maintenir l'ordre alphabétique par titre.
 | ` ```xtext intro\n...\n``` ` | Texte brut (paragraphe standard) |
 | ` ```js live\n...\n``` ` | Playground interactif (`playground.html`) |
 | ` ```sql live\n...\n``` ` | SQL Playground (`sql-playground.html`) |
-| ` ```quests\n2114\n``` ` | Lien vers le repo de la quest (utiliser REGISTRY.md) |
+| ` ```quests\n2114\n``` ` | Lien vers le site de la quest (utiliser registry.jsonl) |
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
 | ` ````stepper\n...\n```` ` ou ` ````stepper nonLinear\n...\n```` ` | Pass-through (plugin `jekyll-stepper`) |
 | ` ````solution\n...\n```` ` | `<details>` ou fichier `solution.md` séparé |
@@ -492,7 +662,12 @@ Après :
 [Titre de la quest cible](URL_DEPLOYEMENT)
 ```
 
-Utiliser l'URL de déploiement depuis `REGISTRY.md`. Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
+Utiliser l'URL de déploiement depuis `registry.jsonl` :
+```bash
+grep "\"id\":{{quest_id}}" registry.jsonl
+```
+Extraire le champ `site_url` de la ligne JSON retournée.
+Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
 
 ### ressource
 

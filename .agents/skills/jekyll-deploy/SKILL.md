@@ -20,7 +20,7 @@ Déploie un site Jekyll existant sur GitHub Pages. Ce skill se concentre uniquem
 3. Activer GitHub Pages
 4. Initialiser Git et pousser le premier commit (après confirmation explicite)
 5. Vérifier que le déploiement a réellement réussi
-6. Mettre à jour les liens de la fiche `En cours` dans `REGISTRY.md`
+6. Mettre à jour les liens de la fiche `en_cours` dans `registry.jsonl`
 
 ## Prérequis
 
@@ -104,20 +104,26 @@ Si le build échoue → afficher les logs et aider à diagnostiquer.
 
 ### Étape 7 : Mise à jour des liens dans le registre
 
-**Ne pas déplacer la fiche vers Terminé** (c'est le rôle de `quest-files-archive`).
+**Ne pas changer le statut vers `done`** (c'est le rôle de `quest-files-archive`).
 
-Modifier uniquement les liens de la fiche existante dans `REGISTRY.md` section `🔄 En cours` :
-- Ajouter ou mettre à jour la ligne `**Dépôt**`
-- Ajouter ou mettre à jour la ligne `**Site**`
+Modifier uniquement les champs `repo_url` et `site_url` de la fiche dans `registry.jsonl` (status reste `en_cours`) :
+```bash
+grep -l "\"slug\":\"{{SLUG}}\"" registry.jsonl
+```
 
-La fiche reste dans `🔄 En cours` jusqu'à ce que l'utilisateur déclenche explicitement la commande `Archive` ou `Valide`.
+Puis régénérer le registre du domaine :
+```bash
+python3 scripts/generate-registry.py
+```
+
+La fiche reste en `en_cours` jusqu'à ce que l'utilisateur déclenche explicitement la commande `Archive` ou `Valide`.
 
 ### Étape 8 : Confirmation
 
 Résumer les actions effectuées :
 - Dépôt GitHub créé : `https://github.com/simplonco/{repo-name}`
 - GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
-- Fiche dans le registre : mise à jour des liens dans `🔄 En cours`
+- Fiche dans le registre : mise à jour des liens dans `registry.jsonl` (status `en_cours`)
 - **L'archivage et le passage à Terminé sont des commandes séparées** (ex: `Archive quest-{id}`)
 - Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Voulez-vous archiver la quest et passer la fiche à Terminé ?", "header": "Déploiement terminé", "options": [{"label": "Oui", "description": "Archiver et passer à Terminé"}, {"label": "Non", "description": "Laisser dans En cours"}] }] }` pour demander à l'utilisateur s'il veut archiver ou non.
 

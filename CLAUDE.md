@@ -16,6 +16,7 @@ Les skills du projet sont dans `.agents/skills/`. Consulte chaque `SKILL.md` ava
 | `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
 | `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub (sans archivage) |
 | `quest-files-archive` | Validation et archivage | Mettre la fiche en Terminé + archiver fichiers après relecture |
+| `create-variant` | Création de variante | Créer une variante d'une ressource existante (clone + fiche JSONL) |
 
 ## Commandes principales
 
@@ -24,6 +25,7 @@ Convertis quest-{id}.json
 Créer une ressource Jekyll
 Déploie le dépôt {slug} sur GitHub Pages
 Valider et archiver quest-{id}
+Créer une variante de {titre}
 Liste les quests en attente de conversion
 ```
 
@@ -52,7 +54,9 @@ ressources-builder/
 │       │       └── jekyll.yml
 │       ├── jekyll-deploy/        # Déploiement GitHub Pages
 │       │   └── SKILL.md
-│       └── quest-files-archive/  # Validation et archivage
+│       ├── quest-files-archive/  # Validation et archivage
+│       │   └── SKILL.md
+│       └── create-variant/       # Création de variante
 │           └── SKILL.md
 ├── .opencode/
 │   └── opencode.json             # Config opencode (agent build + temperature: 0)
@@ -61,7 +65,10 @@ ressources-builder/
 │   └── archives/                 # JSON déjà convertis
 ├── repos/                        # Dépôts générés (gitignored)
 │   └── archives/                 # Dépôts archivés après push
-├── REGISTRY.md                   # Registre des contenus
+├── REGISTRY.md                   # Index du registre (liens vers domaines)
+├── registry.jsonl                # Registre source de vérité (JSONL)
+├── registry/                     # Registres par domaine (tableaux générés)
+├── scripts/                      # Scripts de migration/génération
 ├── AGENTS.md                     # Instructions Codex / universel
 └── CLAUDE.md                     # Ce fichier (instructions Claude Code)
 ```
