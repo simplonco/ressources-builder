@@ -59,7 +59,11 @@ ressources-builder/
 │   └── archives/                      # JSON traités
 ├── repos/                             # Dépôts générés (sortie)
 │   └── archives/                      # Dépôts archivés
-├── REGISTRY.md                        # Registre des contenus
+├── registry.jsonl                     # Registre source de vérité (JSONL)
+├── registry/                          # Registres par domaine (tableaux générés)
+│   ├── dev-web.md
+│   └── design.md
+├── REGISTRY.md                        # Index du registre (liens vers domaines)
 └── AGENTS.md
 ```
 
@@ -71,12 +75,14 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 
 #### 1.1 Vérification des doublons
 
-1. Lire `REGISTRY.md`
-2. Chercher le `quest_id` dans toutes les fiches
-3. Si trouvé :
+1. Chercher le `quest_id` dans `registry.jsonl` :
+   ```bash
+   rg "\"id\":{{quest_id}}" registry.jsonl
+   ```
+2. Si trouvé :
    - Informer l'utilisateur : "Cette quest a déjà été convertie : {URL_DU_DEPOT}"
    - Appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Écraser ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }` pour continuer ou annuler
-4. Si non trouvé : continuer
+3. Si non trouvé : continuer
 
 #### 1.2 Demander le domaine
 
@@ -114,7 +120,7 @@ Le skill `jekyll-create` s'occupe de :
 - Appliquer les mappings de syntaxe markdown
 - Télécharger les images
 - Générer les fichiers Jekyll (README.md, solution.md, templates)
-- Ajouter la fiche dans `REGISTRY.md` section `🔄 En cours`
+- Ajouter la fiche dans `registry.jsonl` (status `en_cours`)
 
 #### 1.4 Fin de la création — STOP
 
@@ -168,7 +174,7 @@ Convertir les quests dans l'ordre déterminé en suivant le flux de travail stan
 
 #### Vérification des liens après conversion
 
-Après chaque conversion, vérifier que les liens `` ```quests `` ont été correctement remplacés par les URLs des dépôts GitHub Pages (via `REGISTRY.md`). Si une quest cible n'est pas encore convertie, utiliser le format `quest-{id}` et avertir l'utilisateur.
+Après chaque conversion, vérifier que les liens `` ```quests `` ont été correctement remplacés par les URLs des dépôts GitHub Pages (via `registry.jsonl`). Si une quest cible n'est pas encore convertie, utiliser le format `quest-{id}` et avertir l'utilisateur.
 
 ---
 
@@ -194,7 +200,8 @@ ls quests/todo/
 
 ### Vérifier le registre
 ```bash
-cat REGISTRY.md
+cat registry.jsonl | jq .
+cat registry/{domaine}.md
 ```
 
 ### Voir les dépôts générés

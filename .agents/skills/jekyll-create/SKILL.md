@@ -36,7 +36,11 @@ ressources-builder/
 │   ├── todo/                         # JSON en attente
 │   └── archives/                     # JSON traités
 ├── repos/                            # Dépôts générés (sortie)
-├── REGISTRY.md                       # Registre des contenus
+├── registry.jsonl                    # Registre source de vérité (JSONL)
+├── registry/                         # Registres par domaine (tableaux générés)
+│   ├── dev-web.md
+│   └── design.md
+├── REGISTRY.md                       # Index du registre (liens vers domaines)
 └── AGENTS.md
 ```
 
@@ -63,8 +67,11 @@ Appeler l'outil `question` avec `{ "questions": [{ "question": "Quel est le doma
 - Analyser ces informations pour la recherche de contenu similaire
 
 **4. Recherche de contenu similaire**
-- Lire `REGISTRY.md`
-- Chercher des ressources existantes dont le titre ou le résumé contient des mots-clés en relation avec les objectifs/notions
+- Chercher des ressources existantes dont le titre ou le résumé contient des mots-clés en relation avec les objectifs/notions :
+  ```bash
+  rg -i "mot_clé1|mot_clé2" registry.jsonl
+  ```
+  Extraire les champs `title` et `summary` des résultats.
    - Si trouvé : afficher la liste et appeler l'outil `question` avec `{ "questions": [{ "question": "La ressource [X] couvre déjà [Y]. Veux-tu t'en inspirer ou créer quelque chose de différent ?", "header": "Inspiration", "options": [{"label": "S'en inspirer", "description": "Utiliser comme référence"}, {"label": "Créer différent", "description": "Continuer avec autre chose"}] }] }` :
      - **S'en inspirer** : proposer un lien vers le site existant comme référence
      - **Créer différent** : continuer
@@ -112,16 +119,16 @@ show_toc: true
 
 ### Étape 3 : Enregistrement dans le registre
 
-Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
 
-```markdown
-### {{TITRE_SANS_EMOJIS}}
-- **Domaine** : {{DOMAIN}}
-- **Dépôt** : [simplonco/{{DOMAIN}}-{{SLUG}}](https://github.com/simplonco/{{DOMAIN}}-{{SLUG}})
-- **Site** : [simplonco.github.io/{{DOMAIN}}-{{SLUG}}](https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/)
+```json
+{"title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
 ```
 
-Maintenir l'ordre alphabétique par titre dans la section.
+Puis régénérer le registre du domaine :
+```bash
+python3 scripts/generate-registry.py
+```
 
 ### Étape 4 : Créer le dépôt local
 
@@ -142,8 +149,9 @@ Quand l'utilisateur fournit un fichier JSON de quest à convertir.
 ### Étape 1 : Vérifications préliminaires
 
 1. **Vérifier si la quest a déjà été convertie** :
-- Lire `REGISTRY.md`
-   - Chercher le `quest_id` dans les fiches
+   ```bash
+   rg "\"id\":{{quest_id}}" registry.jsonl
+   ```
    - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Continuer (écraser) ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }`
 
 2. **Demander le domaine** (si non renseigné) en appelant l'outil `question` avec `{ "questions": [{ "question": "Quel est le domaine ?", "header": "Domaine", "options": [{"label": "dev-web", "description": "Développement web"}, {"label": "data", "description": "Data / IA"}, {"label": "infra", "description": "Infrastructure / DevOps"}, {"label": "design", "description": "Design / UI-UX"}] }] }`. NE JAMAIS demander de taper au clavier.
@@ -199,17 +207,16 @@ Appliquer les mappings de syntaxe (voir section "Règles de conversion" ci-desso
 
 ### Étape 8 : Enregistrement dans le registre
 
-Ajouter une fiche dans `REGISTRY.md` section `🔄 En cours` :
+Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
 
-```markdown
-### {{TITRE_SANS_EMOJIS}}
-- **ID** : {{quest_id}}
-- **Domaine** : {{DOMAIN}}
-- **Dépôt** : [simplonco/{{DOMAIN}}-{{SLUG}}](https://github.com/simplonco/{{DOMAIN}}-{{SLUG}})
-- **Site** : [simplonco.github.io/{{DOMAIN}}-{{SLUG}}](https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/)
+```json
+{"id": {{quest_id}}, "title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
 ```
 
-Maintenir l'ordre alphabétique par titre.
+Puis régénérer le registre du domaine :
+```bash
+python3 scripts/generate-registry.py
+```
 
 ---
 
@@ -228,7 +235,7 @@ Maintenir l'ordre alphabétique par titre.
 | ` ```xtext intro\n...\n``` ` | Texte brut (paragraphe standard) |
 | ` ```js live\n...\n``` ` | Playground interactif (`playground.html`) |
 | ` ```sql live\n...\n``` ` | SQL Playground (`sql-playground.html`) |
-| ` ```quests\n2114\n``` ` | Lien vers le repo de la quest (utiliser REGISTRY.md) |
+| ` ```quests\n2114\n``` ` | Lien vers le site de la quest (utiliser registry.jsonl) |
 | ` ```ressource\n...\n``` ` | Bloc avec `{:.alert-info}` + contenu formaté |
 | ` ````stepper\n...\n```` ` ou ` ````stepper nonLinear\n...\n```` ` | Pass-through (plugin `jekyll-stepper`) |
 | ` ````solution\n...\n```` ` | `<details>` ou fichier `solution.md` séparé |
@@ -492,7 +499,11 @@ Après :
 [Titre de la quest cible](URL_DEPLOYEMENT)
 ```
 
-Utiliser l'URL de déploiement depuis `REGISTRY.md`. Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
+Utiliser l'URL de déploiement depuis `registry.jsonl` :
+```bash
+rg "\"id\":{{quest_id}}" registry.jsonl | jq -r '.site_url'
+```
+Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.
 
 ### ressource
 

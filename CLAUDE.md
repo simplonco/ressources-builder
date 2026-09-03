@@ -61,7 +61,10 @@ ressources-builder/
 │   └── archives/                 # JSON déjà convertis
 ├── repos/                        # Dépôts générés (gitignored)
 │   └── archives/                 # Dépôts archivés après push
-├── REGISTRY.md                   # Registre des contenus
+├── REGISTRY.md                   # Index du registre (liens vers domaines)
+├── registry.jsonl                # Registre source de vérité (JSONL)
+├── registry/                     # Registres par domaine (tableaux générés)
+├── scripts/                      # Scripts de migration/génération
 ├── AGENTS.md                     # Instructions Codex / universel
 └── CLAUDE.md                     # Ce fichier (instructions Claude Code)
 ```
