@@ -108,7 +108,7 @@ Si le build échoue → afficher les logs et aider à diagnostiquer.
 
 Modifier uniquement les champs `repo_url` et `site_url` de la fiche dans `registry.jsonl` (status reste `en_cours`) :
 ```bash
-rg -l "\"slug\":\"{{SLUG}}\"" registry.jsonl
+grep -l "\"slug\":\"{{SLUG}}\"" registry.jsonl
 ```
 
 Puis régénérer le registre du domaine :

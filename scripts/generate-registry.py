@@ -21,23 +21,49 @@ def load_registry(path):
     return entries
 
 
-def generate_domain_md(domain, entries):
+def slugify(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def generate_domain_md(domain, entries, slug_index):
     lines = [f"# {domain}\n"]
-    lines.append("| Titre | ID | Site |")
-    lines.append("|-------|----|----|")
+    lines.append("| Titre | Variante de | ID | Repos | Site |")
+    lines.append("|-------|-------------|-----|-------|------|")
     for e in sorted(entries, key=lambda x: x["title"]):
         title = e["title"]
-        title_slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
-        anchor = f"#{title_slug}"
-        title_with_link = f"[{title}]({anchor})"
-        site = e.get("site_url", "")
+        anchor = f"#{slugify(title)}"
+        title_link = f"[{title}]({anchor})"
+        slug = e.get("slug", "")
         eid = e.get("id") if e.get("id") else "—"
-        if site:
-            site_short = site.replace("https://simplonco.github.io/", "").rstrip("/")
-            site_link = f"[{site_short}]({site})"
+
+        # Variante de
+        variant_of = e.get("variant_of")
+        if variant_of and variant_of in slug_index:
+            parent_title = slug_index[variant_of]
+            parent_anchor = f"#{slugify(parent_title)}"
+            variant_link = f"[{parent_title}]({parent_anchor})"
+        elif variant_of:
+            variant_link = variant_of
+        else:
+            variant_link = "—"
+
+        # Repos
+        repo_url = e.get("repo_url", "")
+        if repo_url:
+            repo_name = slug
+            repo_link = f"[{repo_name}]({repo_url})"
+        else:
+            repo_link = "—"
+
+        # Site
+        site_url = e.get("site_url", "")
+        if site_url:
+            site_short = site_url.replace("https://simplonco.github.io/", "").rstrip("/")
+            site_link = f"[{site_short}]({site_url})"
         else:
             site_link = "—"
-        lines.append(f"| {title_with_link} | {eid} | {site_link} |")
+
+        lines.append(f"| {title_link} | {variant_link} | {eid} | {repo_link} | {site_link} |")
     lines.append("")
     return "\n".join(lines)
 
@@ -69,6 +95,9 @@ def main():
 
     os.makedirs(REGISTRY_DIR, exist_ok=True)
 
+    # Build slug → title index for variant resolution
+    slug_index = {e["slug"]: e["title"] for e in entries if "slug" in e}
+
     # Group by domain
     domains_data = defaultdict(list)
     for e in entries:
@@ -77,7 +106,7 @@ def main():
     # Generate domain files
     for domain, domain_entries in domains_data.items():
         domain_path = os.path.join(REGISTRY_DIR, f"{domain}.md")
-        content = generate_domain_md(domain, domain_entries)
+        content = generate_domain_md(domain, domain_entries, slug_index)
         with open(domain_path, "w", encoding="utf-8") as f:
             f.write(content)
 

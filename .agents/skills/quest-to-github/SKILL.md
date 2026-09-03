@@ -77,7 +77,7 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 
 1. Chercher le `quest_id` dans `registry.jsonl` :
    ```bash
-   rg "\"id\":{{quest_id}}" registry.jsonl
+   grep "\"id\":{{quest_id}}" registry.jsonl
    ```
 2. Si trouvé :
    - Informer l'utilisateur : "Cette quest a déjà été convertie : {URL_DU_DEPOT}"
@@ -200,7 +200,7 @@ ls quests/todo/
 
 ### Vérifier le registre
 ```bash
-cat registry.jsonl | jq .
+cat registry.jsonl
 cat registry/{domaine}.md
 ```
 

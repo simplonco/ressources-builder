@@ -16,10 +16,10 @@ Valide une ressource Jekyll après relecture et la met en archive. Ce skill est 
 ## Prérequis
 
 - Le dépôt local doit exister dans `repos/`
-- Le JSON source doit exister dans `quests/todo/`
 - Le dépôt distant doit **réellement exister** sur GitHub (vérifié via `gh repo view`)
 - Les tests et relectures doivent être terminés (confirmés par l'utilisateur)
 - La fiche dans le registre doit être en statut `en_cours` avec des liens Dépôt/Site dans `registry.jsonl`
+- **Optionnel** : le JSON source dans `quests/todo/` (uniquement pour les ressources créées via quest JSON, pas pour les variantes)
 
 ## Flux de travail
 
@@ -82,15 +82,17 @@ Cela met à jour automatiquement :
 - Les compteurs dans `REGISTRY.md` (index)
 - Les tableaux dans `registry/{domaine}.md`
 
-### Étape 5 : Déplacement du JSON
+### Étape 5 : Déplacement du JSON (optionnel)
 
-Déplacer le fichier JSON source vers les archives :
+Si un fichier JSON source existe dans `quests/todo/quest-{id}.json` (ressources créées via quest) :
 
 ```bash
 mv quests/todo/quest-{id}.json quests/archives/quest-{id}.json
 ```
 
 Si le fichier est déjà dans `quests/archives/` (cas d'un re-archivage) : ne rien faire.
+
+**Variantes** : pas de JSON à déplacer — passer directement à l'étape 6.
 
 ### Étape 6 : Déplacement du dépôt local
 
@@ -106,9 +108,9 @@ mv repos/{domain}-{slug} repos/archives/{domain}-{slug}
 Résumer les actions effectuées :
 - Résumé validé : (le résumé choisi)
 - Fiche dans le registre : déplacée de `en_cours` → `done`
-- JSON déplacé vers `quests/archives/`
+- JSON déplacé vers `quests/archives/` (si applicable)
 - Dépôt déplacé vers `repos/archives/`
-- Compteurs mis à jour : `En cours (X)`, `Terminé (Y)`
+- Compteurs mis à jour
 
 ---
 
