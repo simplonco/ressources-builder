@@ -125,7 +125,7 @@ Résumer les actions effectuées :
 - GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
 - Fiche dans le registre : mise à jour des liens dans `registry.jsonl` (status `en_cours`)
 - **L'archivage et le passage à Terminé sont des commandes séparées** (ex: `Archive quest-{id}`)
-- Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Voulez-vous archiver la quest et passer la fiche à Terminé ?", "header": "Déploiement terminé", "options": [{"label": "Oui", "description": "Archiver et passer à Terminé"}, {"label": "Non", "description": "Laisser dans En cours"}] }] }` pour demander à l'utilisateur s'il veut archiver ou non.
+- Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Voulez-vous archiver la ressource et passer la fiche à Terminé ?", "header": "Déploiement terminé", "options": [{"label": "Oui", "description": "Archiver et passer à Terminé"}, {"label": "Non", "description": "Laisser dans En cours"}] }] }` pour demander à l'utilisateur s'il veut archiver ou non.
 
 ## Workflow GitHub Actions
 
