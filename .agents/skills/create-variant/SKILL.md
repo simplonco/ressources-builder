@@ -22,8 +22,8 @@ Crée une variante d'une ressource existante en clonant le dépôt parent et en 
 ### Étape 1 : Résolution du parent
 
 1. Chercher le titre dans `registry.jsonl` :
-   ```bash
-   grep "\"title\":\"{titre}\"" registry.jsonl
+   ```
+   grep(pattern="\"title\":\"{titre}\"", path=".", include="registry.jsonl")
    ```
 2. Si correspondance exacte → continuer
 3. Si plusieurs résultats partiels → appeler l'outil `question` avec `{ "questions": [{ "question": "Plusieurs ressources correspondent. Laquelle ?", "header": "Parent", "options": [{"label": "Titre 1", "description": "…"}, {"label": "Titre 2", "description": "…"}] }] }`
@@ -56,26 +56,24 @@ rm -rf repos/{nouveau-slug}/.git
 
 Dans `repos/{nouveau-slug}/_config.yml`, remplacer le titre par celui de la variante.
 
-### Étape 5 : Créer la fiche JSONL
+### Étape 5 : Ajouter la ligne dans le brouillon
 
-Ajouter une fiche dans `registry.jsonl` :
+Ajouter une ligne dans `REGISTRY.md` sous la section « En cours » :
 
-```json
-{"title": "{titre-parent} - {suffixe}", "domain": "{domain}", "slug": "{nouveau-slug}", "status": "en_cours", "variant_of": "{slug-parent}", "repo_url": "https://github.com/simplonco/{nouveau-slug}", "site_url": ""}
+```markdown
+- [{titre-parent} - {suffixe}](../repos/{nouveau-slug}/) ({domain})
 ```
 
-### Étape 6 : Régénérer les registres
+Incrémenter le compteur dans l'en-tête « En cours (N) ».
 
-```bash
-python3 scripts/generate-registry.py
-```
+**Ne pas toucher à `registry.jsonl`** — ce fichier n'est mis à jour qu'au moment de la publication.
 
-### Étape 7 : Confirmation
+### Étape 6 : Confirmation
 
 Résumer les actions effectuées :
 - Parent : `{titre-parent}` (`{slug-parent}`)
 - Variante créée : `{titre-parent} - {suffixe}` (`{nouveau-slug}`)
-- Fiche dans le registre : `en_cours`, `variant_of: {slug-parent}`
+- Ligne « En cours » ajoutée dans `REGISTRY.md` (variante de `{slug-parent}`)
 - Le dépôt local est prêt à être édité dans `repos/{nouveau-slug}/`
 
 Proposer le test local :
@@ -88,7 +86,7 @@ bundle exec jekyll serve --livereload
 
 Rappeler que le déploiement et l'archivage sont des commandes séparées :
 - `Déploie {nouveau-slug}`
-- `Archive {nouveau-slug}` ou `Valide {nouveau-slug}`
+- `Archive {nouveau-slug}`
 
 ---
 
@@ -111,8 +109,8 @@ gh repo view simplonco/{slug-parent}
 ```
 
 ### Vérifier les variantes existantes
-```bash
-grep "variant_of" registry.jsonl
+```
+grep(pattern="variant_of", path=".", include="registry.jsonl")
 ```
 
 ### Lister les fiches d'un domaine

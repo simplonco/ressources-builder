@@ -19,9 +19,9 @@ La conversion d'une quest se déroule en **3 étapes indépendantes**, chacune d
 
 | Étape | Commande | Skill utilisé | Sortie |
 |-------|----------|---------------|--------|
-| 1. Création | `Convertis quest-{id}.json` | `jekyll-create` | Dossier local + fiche `En cours` |
-| 2. Déploiement | `Déploie {slug}` | `jekyll-deploy` | Dépôt GitHub + GitHub Pages |
-| 3. Validation | `Archive quest-{id}` / `Valide quest-{id}` | `quest-files-archive` | Fiche `Terminé` + fichiers archivés |
+| 1. Création | `Convertis quest-{id}.json` | `jekyll-create` | Dossier local + ligne `En cours` dans REGISTRY.md |
+| 2. Déploiement | `Déploie {slug}` | `jekyll-deploy` | Dépôt GitHub + GitHub Pages + fiche `Terminé` dans registry.jsonl |
+| 3. Archivage | `Archive quest-{id}` | `quest-files-archive` | Fichiers locaux déplacés vers archives/ |
 
 **Important** : l'étape 1 s'arrête après la création locale. Les étapes 2 et 3 ne sont déclenchées que sur demande explicite de l'utilisateur.
 
@@ -30,8 +30,8 @@ La conversion d'une quest se déroule en **3 étapes indépendantes**, chacune d
 | Skill | Rôle | Quand l'utiliser |
 |-------|------|------------------|
 | `jekyll-create` | Conversion JSON → markdown Jekyll + templates | Étape 1 : création locale |
-| `jekyll-deploy` | Déploiement sur GitHub Pages | Étape 2 : déploiement (commande séparée) |
-| `quest-files-archive` | Archivage fichiers + passage `Terminé` | Étape 3 : validation (commande séparée) |
+| `jekyll-deploy` | Déploiement GitHub Pages + ajout au registre | Étape 2 : déploiement (commande séparée) |
+| `quest-files-archive` | Archivage fichiers locaux | Étape 3 : archivage (commande séparée) |
 
 ## Structure du projet
 
@@ -76,8 +76,8 @@ Quand l'utilisateur demande de convertir une quest (ex: "Convertis quest-2114.js
 #### 1.1 Vérification des doublons
 
 1. Chercher le `quest_id` dans `registry.jsonl` :
-   ```bash
-   grep "\"id\":{{quest_id}}" registry.jsonl
+   ```
+   grep(pattern="\"id\":{{quest_id}}", path=".", include="registry.jsonl")
    ```
 2. Si trouvé :
    - Informer l'utilisateur : "Cette quest a déjà été convertie : {URL_DU_DEPOT}"
@@ -120,7 +120,7 @@ Le skill `jekyll-create` s'occupe de :
 - Appliquer les mappings de syntaxe markdown
 - Télécharger les images
 - Générer les fichiers Jekyll (README.md, solution.md, templates)
-- Ajouter la fiche dans `registry.jsonl` (status `en_cours`)
+- Ajouter une ligne dans `REGISTRY.md` sous « En cours »
 
 #### 1.4 Fin de la création — STOP
 
@@ -135,8 +135,9 @@ Le skill `jekyll-create` s'occupe de :
    → http://localhost:4000
    ```
 3. Rappeler que le déploiement et l'archivage sont des commandes séparées :
-   - `Déploie {slug}` pour pousser sur GitHub
-   - `Archive quest-{id}` ou `Valide quest-{id}` une fois la relecture terminée
+   - `Déploie {slug}` pour pousser sur GitHub et ajouter la fiche au registre
+   - `Archive quest-{id}` une fois le déploiement terminé pour nettoyer les fichiers locaux
+   - `Annule {slug}` pour annuler le brouillon et retirer la ligne de REGISTRY.md
 
 ---
 
@@ -186,7 +187,7 @@ Quand l'utilisateur veut voir les quests en attente :
 2. Lister chaque quest avec :
    - Nom du fichier
    - `quest_id` (extrait du nom)
-   - Statut dans le registre (en cours / non convertie)
+   - Statut dans le registre (en cours dans REGISTRY.md / non convertie)
 3. Afficher le résultat
 
 ---

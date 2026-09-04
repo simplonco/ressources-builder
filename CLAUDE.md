@@ -13,10 +13,10 @@ Les skills du projet sont dans `.agents/skills/`. Consulte chaque `SKILL.md` ava
 | Skill | Rôle | Quand l'utiliser |
 |-------|------|------------------|
 | `quest-to-github` | Orchestrateur de création | Conversion d'une quest JSON en ressource Jekyll (création locale uniquement) |
-| `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
-| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub (sans archivage) |
-| `quest-files-archive` | Validation et archivage | Mettre la fiche en Terminé + archiver fichiers après relecture |
-| `create-variant` | Création de variante | Créer une variante d'une ressource existante (clone + fiche JSONL) |
+| `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) + annulation de brouillon |
+| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub + ajouter la fiche au registre (Terminé) |
+| `quest-files-archive` | Archivage fichiers | Déplacer le JSON et le repo local vers archives/ après déploiement |
+| `create-variant` | Création de variante | Créer une variante d'une ressource existante (clone + ligne En cours) |
 
 ## Commandes principales
 
@@ -24,7 +24,8 @@ Les skills du projet sont dans `.agents/skills/`. Consulte chaque `SKILL.md` ava
 Convertis quest-{id}.json
 Créer une ressource Jekyll
 Déploie le dépôt {slug} sur GitHub Pages
-Valider et archiver quest-{id}
+Archive quest-{id}
+Annule {slug}
 Créer une variante de {titre}
 Liste les quests en attente de conversion
 ```
@@ -35,6 +36,12 @@ Liste les quests en attente de conversion
 cd repos/{slug}
 bundle exec jekyll serve --livereload
 # → http://localhost:4000
+```
+
+## Annulation d'un brouillon
+
+```
+Annule {slug}
 ```
 
 ## Architecture
@@ -54,7 +61,7 @@ ressources-builder/
 │       │       └── jekyll.yml
 │       ├── jekyll-deploy/        # Déploiement GitHub Pages
 │       │   └── SKILL.md
-│       ├── quest-files-archive/  # Validation et archivage
+│       ├── quest-files-archive/  # Archivage fichiers
 │       │   └── SKILL.md
 │       └── create-variant/       # Création de variante
 │           └── SKILL.md
@@ -65,7 +72,7 @@ ressources-builder/
 │   └── archives/                 # JSON déjà convertis
 ├── repos/                        # Dépôts générés (gitignored)
 │   └── archives/                 # Dépôts archivés après push
-├── REGISTRY.md                   # Index du registre (liens vers domaines)
+├── REGISTRY.md                   # Index du registre + section « En cours » (brouillons)
 ├── registry.jsonl                # Registre source de vérité (JSONL)
 ├── registry/                     # Registres par domaine (tableaux générés)
 ├── scripts/                      # Scripts de migration/génération

@@ -1,6 +1,6 @@
 ---
 name: jekyll-deploy
-description: Déploie un site Jekyll sur GitHub Pages. Crée le dépôt distant, active GitHub Pages, initialise Git et pousse le premier commit. Ne gère pas l'archivage dans le registre — c'est une commande séparée.
+description: Déploie un site Jekyll sur GitHub Pages. Crée le dépôt distant, active GitHub Pages, initialise Git et pousse le premier commit. Ajoute la fiche au registre (registry.jsonl) au statut Terminé.
 ---
 
 # Skill: Jekyll Deploy
@@ -20,7 +20,7 @@ Déploie un site Jekyll existant sur GitHub Pages. Ce skill se concentre uniquem
 3. Activer GitHub Pages
 4. Initialiser Git et pousser le premier commit (après confirmation explicite)
 5. Vérifier que le déploiement a réellement réussi
-6. Mettre à jour les liens de la fiche `en_cours` dans `registry.jsonl`
+6. Ajouter la fiche au registre (`registry.jsonl` statut `done`) et retirer la ligne de `REGISTRY.md`
 
 ## Prérequis
 
@@ -102,30 +102,52 @@ gh run list --repo simplonco/{repo-name} --limit 1
 
 Si le build échoue → afficher les logs et aider à diagnostiquer.
 
-### Étape 7 : Mise à jour des liens dans le registre
+### Étape 7 : Enregistrement dans le registre
 
-**Ne pas changer le statut vers `done`** (c'est le rôle de `quest-files-archive`).
+La ressource passe du statut « En cours » (REGISTRY.md) à « Terminé » (registry.jsonl).
 
-Modifier uniquement les champs `repo_url` et `site_url` de la fiche dans `registry.jsonl` (status reste `en_cours`) :
-```bash
-grep -l "\"slug\":\"{{SLUG}}\"" registry.jsonl
+#### 7.1 Générer le résumé
+
+1. Lire le `README.md` du dépôt local (`repos/{repo-name}/`)
+2. Générer un résumé concis (2-4 phrases) décrivant :
+   - Le sujet de la ressource
+   - Le public cible (niveau)
+   - Les contenus principaux (exercices, vidéos, quiz...)
+   - Les prérequis éventuels
+
+#### 7.2 Ajouter la fiche au registre
+
+Ajouter une entrée dans `registry.jsonl` avec le statut `done` :
+
+```json
+{"id": {{quest_id}}, "title": "{{TITRE}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "done", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": "https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/", "summary": "{{RÉSUMÉ}}"}
 ```
 
-Puis régénérer le registre du domaine :
+Note : le champ `id` est optionnel (uniquement pour les ressources créées via quest JSON).
+
+#### 7.3 Régénérer les registres
+
 ```bash
 python3 scripts/generate-registry.py
 ```
 
-La fiche reste en `en_cours` jusqu'à ce que l'utilisateur déclenche explicitement la commande `Archive` ou `Valide`.
+Cela met à jour automatiquement :
+- Les tableaux dans `registry/{domaine}.md`
+- Les compteurs dans `REGISTRY.md`
+
+#### 7.4 Retirer la ligne de REGISTRY.md
+
+Ouvrir `REGISTRY.md` et supprimer la ligne correspondante dans la section « En cours ». Le compteur est mis à jour automatiquement par `generate-registry.py`.
 
 ### Étape 8 : Confirmation
 
 Résumer les actions effectuées :
 - Dépôt GitHub créé : `https://github.com/simplonco/{repo-name}`
 - GitHub Pages activé : `https://simplonco.github.io/{repo-name}/`
-- Fiche dans le registre : mise à jour des liens dans `registry.jsonl` (status `en_cours`)
-- **L'archivage et le passage à Terminé sont des commandes séparées** (ex: `Archive quest-{id}`)
-- Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Voulez-vous archiver la ressource et passer la fiche à Terminé ?", "header": "Déploiement terminé", "options": [{"label": "Oui", "description": "Archiver et passer à Terminé"}, {"label": "Non", "description": "Laisser dans En cours"}] }] }` pour demander à l'utilisateur s'il veut archiver ou non.
+- Fiche dans le registre : ajoutée avec statut `Terminé` dans `registry.jsonl`
+- Ligne « En cours » retirée de `REGISTRY.md`
+- **L'archivage local est une commande séparée** (ex: `Archive quest-{id}`) — elle déplace le JSON et le repo local vers les archives
+- Appeler l'outil `question` avec `{ "questions": [{ "question": "Le déploiement est terminé. Archiver les fichiers locaux ?", "header": "Archivage", "options": [{"label": "Oui", "description": "Déplacer le JSON et le repo vers archives/"}, {"label": "Non", "description": "Laisser les fichiers en place"}] }] }` pour demander à l'utilisateur s'il veut archiver les fichiers locaux.
 
 ## Workflow GitHub Actions
 

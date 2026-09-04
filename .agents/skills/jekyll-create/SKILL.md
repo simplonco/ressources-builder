@@ -1,6 +1,6 @@
 ---
 name: jekyll-create
-description: Assistant de création de ressources Jekyll avec le thème Simplonline. Gère la conversion depuis JSON, la création depuis zéro via un assistant interactif, et la mise à jour du registre des contenus.
+description: Assistant de création de ressources Jekyll avec le thème Simplonline. Gère la conversion depuis JSON, la création depuis zéro via un assistant interactif, et l'ajout de brouillons dans REGISTRY.md.
 ---
 
 # Skill: Jekyll Create
@@ -68,10 +68,10 @@ Appeler l'outil `question` avec `{ "questions": [{ "question": "Quel est le doma
 
 **4. Recherche de contenu similaire**
 - Découper le sujet en mots individuels (ex : « React Context » → `react`, `context`)
-- **Passage 1** : un `grep -i "<mot>" registry.jsonl` par mot, union des résultats (dédoublonner par slug) :
-  ```bash
-  grep -i "react" registry.jsonl
-  grep -i "context" registry.jsonl
+- **Passage 1** : un appel à l'outil `grep` par mot, union des résultats (dédoublonner par slug) :
+  ```
+  grep(pattern="react", path=".", include="registry.jsonl")
+  grep(pattern="context", path=".", include="registry.jsonl")
   ```
   Extraire les champs `title`, `site_url` et `repo_url` de chaque ligne retournée.
 - **Passage 2** (si le passage 1 donne 0 résultat) : réessayer avec synonymes, traductions françaises ou termes élargis (ex : `context` → `état`, `state`, `composant`, `props`)
@@ -205,18 +205,17 @@ Plus `[À compléter]` dans le corps.
 > [Consigne de l'exercice à compléter]
 ```
 
-### Étape 3 : Enregistrement dans le registre
+### Étape 3 : Enregistrement dans le brouillon
 
-Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
+Ajouter une ligne dans `REGISTRY.md` sous la section « En cours » :
 
-```json
-{"title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
+```markdown
+- [{{TITRE}}](../repos/{{DOMAIN}}-{{SLUG}}/) ({{DOMAIN}})
 ```
 
-Puis régénérer le registre du domaine :
-```bash
-python3 scripts/generate-registry.py
-```
+Incrémenter le compteur dans l'en-tête « En cours (N) ».
+
+**Ne pas toucher à `registry.jsonl`** — ce fichier n'est mis à jour qu'au moment de la publication.
 
 ### Étape 4 : Créer le dépôt local
 
@@ -244,10 +243,10 @@ Extraire le titre du markdown fourni (premier `# Titre` ou front matter `title`)
 
 Découper le sujet en mots individuels (ex : « CSS Variables » → `css`, `variables`).
 
-- **Passage 1** : un `grep -i "<mot>" registry.jsonl` par mot, union des résultats (dédoublonner par slug) :
-  ```bash
-  grep -i "css" registry.jsonl
-  grep -i "variables" registry.jsonl
+- **Passage 1** : un appel à l'outil `grep` par mot, union des résultats (dédoublonner par slug) :
+  ```
+  grep(pattern="css", path=".", include="registry.jsonl")
+  grep(pattern="variables", path=".", include="registry.jsonl")
   ```
   Extraire les champs `title`, `site_url` et `repo_url` de chaque ligne retournée.
 - **Passage 2** (si passage 1 donne 0 résultat) : réessayer avec synonymes, traductions françaises ou termes élargis
@@ -290,18 +289,17 @@ Demander le domaine :
 5. Écrire le fichier `README.md` avec le markdown fourni par l'utilisateur
 6. Créer le dossier `images/`
 
-### Étape 5 : Enregistrement dans le registre
+### Étape 5 : Enregistrement dans le brouillon
 
-Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
+Ajouter une ligne dans `REGISTRY.md` sous la section « En cours » :
 
-```json
-{"title": "{{TITRE}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "", "site_url": ""}
+```markdown
+- [{{TITRE}}](../repos/{{DOMAIN}}-{{SLUG}}/) ({{DOMAIN}})
 ```
 
-Puis régénérer le registre :
-```bash
-python3 scripts/generate-registry.py
-```
+Incrémenter le compteur dans l'en-tête « En cours (N) ».
+
+**Ne pas toucher à `registry.jsonl`** — ce fichier n'est mis à jour qu'au moment de la publication.
 
 ---
 
@@ -312,8 +310,8 @@ Quand l'utilisateur fournit un fichier JSON de quest à convertir.
 ### Étape 1 : Vérifications préliminaires
 
 1. **Vérifier si la quest a déjà été convertie** :
-   ```bash
-   grep "\"id\":{{quest_id}}" registry.jsonl
+   ```
+   grep(pattern="\"id\":{{quest_id}}", path=".", include="registry.jsonl")
    ```
    - Si trouvé : informer l'utilisateur ("Cette quest a déjà été convertie : {URL}") et appeler l'outil `question` avec `{ "questions": [{ "question": "Cette quest est déjà convertie. Continuer (écraser) ?", "header": "Doublon", "options": [{"label": "Continuer", "description": "Écraser la conversion"}, {"label": "Annuler", "description": "Ne rien faire"}] }] }`
 
@@ -368,18 +366,41 @@ Appliquer les mappings de syntaxe (voir section "Règles de conversion" ci-desso
 4. Réécrire les URLs dans le markdown : `![](images/nom-fichier.ext)`
 5. Ne pas mettre de `alt` text pour les images (souvent décoratives)
 
-### Étape 8 : Enregistrement dans le registre
+### Étape 8 : Enregistrement dans le brouillon
 
-Ajouter une fiche dans `registry.jsonl` (status `en_cours`) :
+Ajouter une ligne dans `REGISTRY.md` sous la section « En cours » :
 
-```json
-{"id": {{quest_id}}, "title": "{{TITRE_SANS_EMOJIS}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "en_cours", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": ""}
+```markdown
+- [{{TITRE_SANS_EMOJIS}}](../repos/{{DOMAIN}}-{{SLUG}}/) ({{DOMAIN}})
 ```
 
-Puis régénérer le registre du domaine :
+Incrémenter le compteur dans l'en-tête « En cours (N) ».
+
+**Ne pas toucher à `registry.jsonl`** — ce fichier n'est mis à jour qu'au moment de la publication.
+
+---
+
+## Annulation d'un brouillon
+
+Quand l'utilisateur veut annuler une ressource en cours de création :
+
+### Étape 1 : Retirer la ligne de REGISTRY.md
+
+1. Ouvrir `REGISTRY.md`
+2. Supprimer la ligne correspondante dans la section « En cours »
+3. Décrémenter le compteur dans l'en-tête « En cours (N) »
+
+### Étape 2 : Supprimer le dépôt local (optionnel)
+
+Demander à l'utilisateur s'il veut supprimer le dossier local :
+
 ```bash
-python3 scripts/generate-registry.py
+rm -rf repos/{{DOMAIN}}-{{SLUG}}
 ```
+
+### Étape 3 : Confirmation
+
+Informer l'utilisateur que le brouillon a été annulé. Aucun fichier dans `registry.jsonl` n'a été modifié.
 
 ---
 
@@ -663,8 +684,8 @@ Après :
 ```
 
 Utiliser l'URL de déploiement depuis `registry.jsonl` :
-```bash
-grep "\"id\":{{quest_id}}" registry.jsonl
+```
+grep(pattern="\"id\":{{quest_id}}", path=".", include="registry.jsonl")
 ```
 Extraire le champ `site_url` de la ligne JSON retournée.
 Si la quest cible n'est pas dans le registre, avertir l'utilisateur et lui demander quoi faire.

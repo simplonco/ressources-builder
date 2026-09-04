@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Génère REGISTRY.md et registry/{domaine}.md depuis registry.jsonl."""
+"""Génère REGISTRY.md et registry/{domaine}.md depuis registry.jsonl.
+
+Préserve la section « En cours » de REGISTRY.md (fiches brouillons non encore publiées).
+"""
 
 import json
 import re
@@ -23,6 +26,37 @@ def load_registry(path):
 
 def slugify(text):
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def extract_en_cours_section(path):
+    """Extrait la section « En cours » existante depuis REGISTRY.md."""
+    if not os.path.exists(path):
+        return [], 0
+
+    with open(path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    lines = content.split("\n")
+    en_cours_lines = []
+    in_en_cours = False
+    count = 0
+
+    for line in lines:
+        if line.startswith("## 🔄 En cours"):
+            in_en_cours = True
+            # Extraire le compteur depuis l'en-tête
+            match = re.search(r"\((\d+)\)", line)
+            if match:
+                count = int(match.group(1))
+            continue
+        elif line.startswith("## ") and in_en_cours:
+            # On a atteint la section suivante
+            in_en_cours = False
+            continue
+        elif in_en_cours and line.strip():
+            en_cours_lines.append(line)
+
+    return en_cours_lines, count
 
 
 def generate_domain_md(domain, entries, slug_index):
@@ -68,18 +102,24 @@ def generate_domain_md(domain, entries, slug_index):
     return "\n".join(lines)
 
 
-def generate_index_md(domains_data):
-    total_en_cours = 0
+def generate_index_md(domains_data, en_cours_lines):
     total_done = 0
     for domain, entries in domains_data.items():
         for e in entries:
-            if e["status"] == "en_cours":
-                total_en_cours += 1
-            else:
+            if e["status"] == "done":
                 total_done += 1
 
     lines = ["# Registre des contenus\n"]
-    lines.append(f"## 🔄 En cours ({total_en_cours})\n")
+
+    # Section En cours (préservée depuis le fichier existant)
+    en_cours_count = len(en_cours_lines)
+    lines.append(f"## 🔄 En cours ({en_cours_count})\n")
+    for line in en_cours_lines:
+        lines.append(line)
+    if en_cours_lines:
+        lines.append("")
+
+    # Section Terminé (générée depuis registry.jsonl)
     lines.append(f"## ✅ Terminé ({total_done})\n")
 
     for domain in sorted(domains_data.keys()):
@@ -95,13 +135,17 @@ def main():
 
     os.makedirs(REGISTRY_DIR, exist_ok=True)
 
+    # Préserver la section En cours depuis le fichier existant
+    en_cours_lines, _ = extract_en_cours_section(INDEX_PATH)
+
     # Build slug → title index for variant resolution
     slug_index = {e["slug"]: e["title"] for e in entries if "slug" in e}
 
-    # Group by domain
+    # Group by domain (uniquement les fiches terminées pour les registres par domaine)
     domains_data = defaultdict(list)
     for e in entries:
-        domains_data[e["domain"]].append(e)
+        if e["status"] == "done":
+            domains_data[e["domain"]].append(e)
 
     # Generate domain files
     for domain, domain_entries in domains_data.items():
@@ -110,12 +154,12 @@ def main():
         with open(domain_path, "w", encoding="utf-8") as f:
             f.write(content)
 
-    # Generate index
-    index_content = generate_index_md(domains_data)
+    # Generate index (avec préservation de la section En cours)
+    index_content = generate_index_md(domains_data, en_cours_lines)
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(index_content)
 
-    print(f"Registre régénéré : {len(entries)} fiches, {len(domains_data)} domaines")
+    print(f"Registre régénéré : {len(entries)} fiches, {len(domains_data)} domaines, {len(en_cours_lines)} en cours")
 
 
 if __name__ == "__main__":

@@ -38,7 +38,13 @@ Déploie le dépôt {slug} sur GitHub Pages
 ### Valider et archiver une quest
 
 ```
-Valider et archiver quest-{id}
+Archive quest-{id}
+```
+
+### Annuler un brouillon
+
+```
+Annule {slug}
 ```
 
 ### Test local
@@ -72,7 +78,7 @@ ressources-builder/
 │       │       └── jekyll.yml
 │       ├── jekyll-deploy/        # Déploiement GitHub Pages
 │       │   └── SKILL.md
-│       ├── quest-files-archive/  # Validation et archivage
+│       ├── quest-files-archive/  # Archivage fichiers
 │       │   └── SKILL.md
 │       └── create-variant/       # Création de variante
 │           └── SKILL.md
@@ -83,7 +89,7 @@ ressources-builder/
 │   └── archives/                 # JSON déjà convertis
 ├── repos/                        # [IGNORÉ] Dépôts générés localement
 │   └── archives/                 # Dépôts archivés après push
-├── REGISTRY.md                   # Index du registre (liens vers domaines)
+├── REGISTRY.md                   # Index du registre + section « En cours » (brouillons)
 ├── registry.jsonl                # Registre source de vérité (JSONL)
 ├── registry/                     # Registres par domaine (tableaux générés)
 ├── scripts/                      # Scripts de migration/génération
@@ -96,10 +102,10 @@ ressources-builder/
 | Skill | Rôle | Quand l'utiliser |
 |-------|------|------------------|
 | `quest-to-github` | Orchestrateur de création | Conversion d'une quest JSON en ressource Jekyll (création locale uniquement) |
-| `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) |
-| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub (sans archivage) |
-| `quest-files-archive` | Validation et archivage | Mettre la fiche en Terminé + archiver fichiers après relecture |
-| `create-variant` | Création de variante | Créer une variante d'une ressource existante (clone + fiche JSONL) |
+| `jekyll-create` | Création de ressources Jekyll | Créer/modifier une ressource Jekyll (depuis JSON ou from scratch) + annulation de brouillon |
+| `jekyll-deploy` | Déploiement GitHub Pages | Pousser un site Jekyll sur GitHub + ajouter la fiche au registre (Terminé) |
+| `quest-files-archive` | Archivage fichiers | Déplacer le JSON et le repo local vers archives/ après déploiement |
+| `create-variant` | Création de variante | Créer une variante d'une ressource existante (clone + ligne En cours) |
 
 ### Entrées
 
@@ -143,10 +149,10 @@ ressources-builder/
 ### Workflow
 
 1. Lire JSON depuis `quests/todo/`
-2. Créer `repos/{slug}/` avec fichiers Jekyll (via `jekyll-create`)
+2. Créer `repos/{slug}/` avec fichiers Jekyll (via `jekyll-create`) + ligne dans REGISTRY.md
 3. Tester localement avec `bundle exec jekyll serve`
-4. Déploiement sur demande explicite (via `jekyll-deploy`)
-5. Validation + archivage sur demande explicite (via `quest-files-archive`)
+4. Déploiement sur demande explicite (via `jekyll-deploy`) : ajout au registre (Terminé)
+5. Archivage sur demande explicite (via `quest-files-archive`) : déplacer fichiers vers archives/
 
 ### Support multi-assistants
 
