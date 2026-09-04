@@ -106,7 +106,7 @@ Si le build échoue → afficher les logs et aider à diagnostiquer.
 
 La ressource passe du statut « En cours » (REGISTRY.md) à « Terminé » (registry.jsonl).
 
-#### 7.1 Générer le résumé
+#### 7.1 Générer le résumé et les topics
 
 1. Lire le `README.md` du dépôt local (`repos/{repo-name}/`)
 2. Générer un résumé concis (2-4 phrases) décrivant :
@@ -115,12 +115,31 @@ La ressource passe du statut « En cours » (REGISTRY.md) à « Terminé » (reg
    - Les contenus principaux (exercices, vidéos, quiz...)
    - Les prérequis éventuels
 
+3. **Proposer les topics** :
+   a. Extraire les notions/technologies du contenu markdown :
+      - Section « Notions abordées »
+      - Titre et description
+      - Langages de programmation dans les blocs de code
+      - Concepts clés du sujet
+   
+   b. Lister les topics existants dans `registry.jsonl` :
+      ```
+      grep(pattern='"topics":', path=".", include="registry.jsonl")
+      ```
+      Extraire et dédoublonner tous les topics utilisés.
+   
+   c. Croiser : topics détectés ∩ topics existants → proposals prioritaires.
+   
+   d. Appeler l'outil `question` avec `{ "questions": [{ "question": "Topics pour cette ressource ? (topics existants en priorité)", "header": "Topics", "multiple": true, "options": [{"label": "topic1", "description": "existe déjà"}, {"label": "topic2", "description": "existe déjà"}, {"label": "topic-nouveau", "description": "nouveau"}] }] }`. Ajouter une option saisie libre pour des topics non détectés.
+   
+   e. **Avertissement doublons** : si un topic proposé est très similaire à un topic existant (ex: `js` vs `javascript`), avertir et suggérer la forme existante.
+
 #### 7.2 Ajouter la fiche au registre
 
 Ajouter une entrée dans `registry.jsonl` avec le statut `done` :
 
 ```json
-{"id": {{quest_id}}, "title": "{{TITRE}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "done", "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": "https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/", "summary": "{{RÉSUMÉ}}"}
+{"id": {{quest_id}}, "title": "{{TITRE}}", "domain": "{{DOMAIN}}", "slug": "{{DOMAIN}}-{{SLUG}}", "status": "done", "topics": [{{TOPICS}}], "repo_url": "https://github.com/simplonco/{{DOMAIN}}-{{SLUG}}", "site_url": "https://simplonco.github.io/{{DOMAIN}}-{{SLUG}}/", "summary": "{{RÉSUMÉ}}"}
 ```
 
 Note : le champ `id` est optionnel (uniquement pour les ressources créées via quest JSON).
