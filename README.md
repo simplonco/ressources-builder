@@ -13,6 +13,7 @@ Outil de création de ressources pédagogiques Jekyll déployées sur GitHub Pag
   - [Commandes principales](#commandes-principales)
     - [Création de ressources](#création-de-ressources)
     - [Conversion de quêtes (legacy)](#conversion-de-quêtes-legacy)
+  - [Recherche de contenus](#recherche-de-contents)
   - [Fonctionnement](#fonctionnement)
     - [Création d'une ressource](#création-dune-ressource)
     - [Conversion d'une quest](#conversion-dune-quest)
@@ -68,6 +69,49 @@ Créer une ressource
 |----------|-------------|
 | `Convertis quest {id}` | Convertir une ancienne quest Odyssey JSON en ressource Jekyll |
 | `Liste les quests en attente` | Voir les fichiers JSON en attente de conversion (dossier `quests/todo/`) |
+
+## Recherche de contenus
+
+Le fichier `registry.jsonl` est la source de vérité. Chaque ligne JSON contient les champs suivants :
+
+| Champ | Description | Exemple |
+|-------|-------------|---------|
+| `title` | Titre de la ressource | `"CSS 4 : Flexbox"` |
+| `summary` | Résumé descriptif du contenu | `"Ressource d'introduction à Flexbox..."` |
+| `topics` | Liste de mots-clés | `["css", "css-flexbox", "layout"]` |
+| `domain` | Domaine de la ressource | `"dev-web"` |
+| `slug` | Identifiant URL | `"dev-web-css-4-flexbox"` |
+
+### Par titre ou résumé
+
+```bash
+# Rechercher un mot-clé dans tout le registre
+grep "flexbox" registry.jsonl
+
+# Rechercher dans un domaine précis
+grep "flexbox" registry/dev-web.md
+```
+
+### Par topic
+
+```bash
+# Trouver les ressources couvrant un sujet précis
+grep '"topics": \[.*"css"' registry.jsonl
+
+# Lister tous les topics disponibles
+grep -o '"topics": \[.*\]' registry.jsonl | grep -oE '"[a-z0-9-]+"' | sort -u
+```
+
+### Par domaine
+
+Consulter directement le fichier du domaine correspondant :
+
+```bash
+ls registry/          # dev-web.md, design.md, …
+cat registry/dev-web.md
+```
+
+> **Astuce** : vous pouvez aussi demander à l'agent IA de chercher pour vous — par exemple *« Trouve les ressources sur Flexbox »* ou *« Quelles ressources abordent le thème Git ? »*.
 
 ## Fonctionnement
 
