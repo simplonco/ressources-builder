@@ -366,6 +366,97 @@ Appliquer les mappings de syntaxe (voir section "Règles de conversion" ci-desso
 4. Réécrire les URLs dans le markdown : `![](images/nom-fichier.ext)`
 5. Ne pas mettre de `alt` text pour les images (souvent décoratives)
 
+### Étape 7.5 : Vérification de fidélité
+
+**Obligatoire avant tout enregistrement.** Cette étape compare le README.md généré avec le JSON source pour détecter les écarts.
+
+#### Exécuter le script de vérification
+
+```bash
+python3 scripts/verify-conversion.py {{quest_id}}
+```
+
+Le script vérifie automatiquement :
+- Les titres (sections manquantes et inventées)
+- Les paragraphes (ratio de similarité)
+- Les blocs spéciaux (quiz, youtube, tabs, stepper, solution, quests, etc.)
+- Les images (téléchargées et dans le bon répertoire)
+
+Si le script n'est pas disponible ou échoue, effectuer les vérifications manuellement en suivant les étapes ci-dessous.
+
+#### 1. Extraire les titres du JSON source
+
+Pour chaque page du JSON, extraire les lignes qui commencent par `#`, `##`, `###` (titres markdown). Construire une liste ordonnée de tous les titres attendus.
+
+#### 2. Extraire les titres du README généré
+
+Même opération sur le fichier `README.md` généré.
+
+#### 3. Comparer les titres
+
+- **Titres manquants** : titres présents dans le JSON mais absents du README → ❌ Erreur
+- **Titres inventés** : titres présents dans le README mais absents du JSON → ⚠️ Avertissement (vérifier qu'il ne s'agit pas de contenu inventé)
+
+#### 4. Vérifier les paragraphes par section
+
+Pour chaque section correspondante (même titre) :
+
+1. Compter les paragraphes (lignes non vides, non-titres, non-blocs de code) dans le JSON
+2. Compter les paragraphes dans le README
+3. Si la différence est > 20% : signaler comme potentiellement incomplet
+
+#### 5. Vérifier les blocs spéciaux
+
+S'assurer que chaque bloc spécial du JSON a été converti :
+
+| Bloc JSON | Vérification |
+|-----------|-------------|
+| ` ```quiz ` | Présence de `{% include quiz.html %}` ou `{% capture quiz_data %}` |
+| ` ```youtube ` | Présence d'un lien YouTube markdown |
+| ` ```tabs ` | Présence de `<details markdown="1">` |
+| ` ```stepper ` | Présence de ````````stepper` (pass-through) |
+| ` ```solution ` | Présence de `<details>` ou fichier `solution.md` |
+| ` ```quests ` | Présence d'un lien vers une URL GitHub Pages |
+| ` ```ressource ` | Présence de `{:.alert-info}` |
+| ` ```js live ` | Présence de `{% include playground.html %}` |
+| ` ```sql live ` | Présence de `{% include sql-playground.html %}` |
+
+#### 6. Vérifier les images
+
+Comparer le nombre d'images du JSON (URLs dans `![...](...)`) avec le nombre de fichiers dans `repos/{{DOMAIN}}-{{SLUG}}/images/`.
+
+#### 7. Générer un rapport
+
+```
+Vérification de fidélité pour quest-{id} :
+
+✅ Titres : 8/8
+✅ Paragraphes : 42/44 (95%)
+❌ Sections manquantes :
+  - "Lessons learned" (page 1, ligne 45)
+  - "Quiz" (page 1, ligne 67)
+⚠️ Blocs non convertis :
+  - quiz (3 questions) → non converti
+✅ Images : 1/1
+```
+
+#### 8. Corriger les écarts
+
+Si des erreurs (❌) sont détectées :
+
+1. **Sections manquantes** : réinsérer le contenu manquant depuis le JSON dans le README.md, en appliquant les mappings de conversion
+2. **Blocs spéciaux non convertis** : appliquer la conversion appropriée (quiz → Jekyll quiz, youtube → lien, etc.)
+3. **Contenu inventé** : supprimer les sections/titres du README qui n'ont pas de correspondance dans le JSON
+4. **Ré-exécuter le script** après correction pour confirmer :
+   ```bash
+   python3 scripts/verify-conversion.py {{quest_id}}
+   ```
+   Répéter jusqu'à obtenir ✅ Conversion fidèle
+
+Si seuls des avertissements (⚠️) sont présents : les signaler à l'utilisateur mais continuer.
+
+**Ne jamais enregistrer un brouillon contenant des erreurs (❌).**
+
 ### Étape 8 : Enregistrement dans le brouillon
 
 Ajouter une ligne dans `REGISTRY.md` sous la section « En cours » :

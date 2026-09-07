@@ -119,6 +119,8 @@ Le skill `jekyll-create` s'occupe de :
 - Parser le JSON
 - Appliquer les mappings de syntaxe markdown
 - Télécharger les images
+- **Vérifier la fidélité** de la conversion (titres, paragraphes, blocs spéciaux, images) — Étape 7.5
+- Corriger automatiquement les écarts détectés
 - Générer les fichiers Jekyll (README.md, solution.md, templates)
 - Ajouter une ligne dans `REGISTRY.md` sous « En cours »
 
